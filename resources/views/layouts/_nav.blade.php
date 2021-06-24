@@ -2,7 +2,7 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                     <li><a href="{{ route('dashboard') }}"><span class="nav-link">Dashboard</span></a></li>
-                    <li><a href="{{ route('membros') }}"><span class="nav-link">Solicitaçãos</span></a></li>
+                    <li><a href="{{ route('solicitacoes') }}"><span class="nav-link">Solicitaçãos</span></a></li>
                     <li><a href="{{ route('membros') }}"><span class="nav-link">Membros</span></a></li>
                     <li><a href="{{ route('entidades') }}"><span class="nav-link">Entidades</span></a></li>
 <hr>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Membro;
 
-class InscricaoController extends Controller
+class SiteInscricaoController extends Controller
 {
     public function index()
     {

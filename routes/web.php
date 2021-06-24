@@ -30,13 +30,17 @@ Route::get('/adm/endidades/show/{codigo}',[ 'as' => 'adm.entidade.show', 'uses' 
 Route::get('/adm/endidades/create',[ 'as' => 'adm.entidade.create', 'uses' => 'EntidadeController@create']);
 Route::get('/adm/endidades/store',[ 'as' => 'adm.entidade.store', 'uses' => 'EntidadeController@store']);
 
+Route::get('/adm/solicitacoes', 'SolicitacoesController@index')->name('solicitacoes');
+Route::get('/adm/solicitacoes/show/{codigo}',[ 'as' => 'adm.solicitacoes.show', 'uses' => 'SolicitacoesController@show']);
+
+
 Route::get('/usr/perfil', 'ProfileController@index')->name('perfil');
 Route::get('/usr/qrcode', 'QrCodeController@index')->name('qrcode');
 Route::get('/usr/2via', '2viaController@index')->name('2via');
 Route::get('/usr/certificado', 'CertificadoController@index')->name('certificado');
 
-Route::get('/inscricao', 'SiteMembrosController@index')->name('inscricao');
-Route::post('/inscricao', 'SiteMembrosController@index')->name('inscricao');
+Route::get('/inscricao', 'SiteInscricaoController@index')->name('inscricao');
+Route::post('/inscricao', 'SiteInscricaoController@index')->name('inscricao');
 
 Route::get('/consulta-inscritos', 'SiteMembrosController@index')->name('consulta-inscritos');
 Route::get('/consulta-inscritos/{codigo}', 'SiteMembrosController@show')->name('consulta-inscritos');
@@ -46,3 +50,5 @@ Route::get('/consulta-instituicoes/{codigo}', 'SiteEntidadesController@show')->n
 
 Route::get('/consulta-qrcode/{codigo}', 'SiteQrcodeController@show')->name('consulta-qrcode');
 
+Route::get('/seja-um-parceiro', 'SiteParceirosController@index')->name('seja-um-parceiro');
+Route::get('/parceiros', 'SiteParceirosController@store')->name('parceiros');

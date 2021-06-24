@@ -80,19 +80,11 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <p><a href="http://127.0.0.1:8001/consulta-instituicoes"> consulta instituicoes </a> - <a href="http://127.0.0.1:8001/consulta-instituicoes/colegio"> resultado consulta instituicoes </a></p>
+                <p><a href="http://127.0.0.1:8001/consulta-inscritos/16000001"> consulta inscritos </a> - <a href="http://127.0.0.1:8001/consulta-inscritos/16000001"> resultado consulta inscritos </a></p>
+                <p><a href="http://127.0.0.1:8001/consulta-qrcode/12345"> resultado Qr CODE </a></p>
+                <p><a href="http://127.0.0.1:8001/inscricao"> formulario - inscricao </a></p>
+                <p><a href="http://127.0.0.1:8001/seja-um-parceiro"> formulario - seja-um-parceiro </a></p>
             </div>
         </div>
     </body>
