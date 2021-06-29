@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Entidade;
 
-class EntidadeController extends Controller
+class ADMEntidadeController extends Controller
 {
     public function index()
     {
@@ -34,16 +34,27 @@ class EntidadeController extends Controller
 
     public function edit($id)
     {
+        $entidade_id = $id;
         $entidade= Entidade::find($id);
-        return view('adm.entidades.edit',compact('entidade'));
+        return view('adm.entidades.edit',compact('entidade','entidade_id'));
     }
 
     public function update(Request $request, $id)
     {
 
-        Entidade::find($id)->update($request->all());
+        $e = Entidade::find($id);
+        $e->situacaoCadastro = $request->input('situacaoCadastro');
+        $e->save();
+
+        dd($e);
+
+       /*
+        $e->situacaoCadastro = $request->input('situacaoCadastro');
+        $e->updated_at = now();
+        $e->save();
+
         return redirect()->route('entidades')
-                        ->with('success','Dados alterados com sucesso!');
+                        ->with('success','Dados alterados com sucesso!'); */
     }
 
     public function destroy($id)

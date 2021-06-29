@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Membro;
 
-class SolicitacoesController extends Controller
+class ADMMembroController extends Controller
 {
     public function index()
     {
         $membros = Membro::orderBy('nome')->get();
 
-        return view('adm.solicitacoes.index', compact('membros'));
+        return view('adm.membros.index', compact('membros'));
 
     }
 
@@ -23,17 +23,18 @@ class SolicitacoesController extends Controller
     public function show($id)
     {
         $membro = Membro::findOrFail($id);
-        return view('adm.solicitacoes.show',compact('membro'));
+        return view('adm.membros.show',compact('membro', 'id'));
     }
 
     public function edit($id)
     {
         $membro= Membro::find($id);
-        return view('adm.solicitacoes.edit',compact('membro'));
+        return view('adm.membros.edit',compact('membro'));
     }
 
     public function update(Request $request, $id)
     {
+
 
         Membro::find($id)->update($request->all());
         return redirect()->route('membros')

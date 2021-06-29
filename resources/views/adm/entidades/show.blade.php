@@ -16,14 +16,18 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Detalhes - Entidades</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                    </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
+                        <div class="btn-group me-2">
+                              <form id="remove" action="{{ route('adm.entidade.update',  $entidade->id ) }}" method="post" onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                @if ( $entidade->situacaoCadastro = 'A')
+                                    <input type="hidden" name="situacaoCadastro" value="I">
+                                    <button type="submit" class="btn btn-success"><span>Ativar</span></button>
+                                @else
+                                    <input type="hidden" name="situacaoCadastro" value="A">
+                                    <button type="submit" class="btn btn-success"><span>Bloquear</span></button>
+                                @endif
+                            </form>
+                        </div>
                     </div>
                 </div>
 

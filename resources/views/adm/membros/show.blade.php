@@ -17,7 +17,16 @@
                     <h1 class="h2">Detalhes - Membros</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                        <form id="remove" action="{{ route('adm.membro.update')}}" method="post" onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
+                            <input type="hidden" name="colegios_id" value="{{$i->id}}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash">Ativar</span>
+                            </button>
+                        </form>
+                        <div class="btn-group me-2">
+                        <a href="{{ route('adm.entidade.update',$i->id) }}" type="button" class="btn btn-sm btn-outline-danger"> + Cadastrar</a>
+                    </div>
                         <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                     </div>
                     <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">

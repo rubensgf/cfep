@@ -19,19 +19,24 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/adm/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/adm/dashboard', 'ADMDashboardController@index')->name('dashboard');
 
-Route::get('/adm/membros', 'MembroController@index')->name('membros');
+Route::get('/adm/membros', 'ADMMembroController@index')->name('membros');
+Route::get('/adm/membros/show/{codigo}',[ 'as' => 'adm.membros.show', 'uses' => 'ADMMembroController@show']);
+Route::put('/adm/membros/update/{codigo}',[ 'as' => 'adm.membros.update', 'uses' => 'ADMMembroController@update']);
 
-Route::get('/adm/membros/show/{codigo}',[ 'as' => 'adm.membros.show', 'uses' => 'MembroController@show']);
 
-Route::get('/adm/entidades', 'EntidadeController@index')->name('entidades');
-Route::get('/adm/endidades/show/{codigo}',[ 'as' => 'adm.entidade.show', 'uses' => 'EntidadeController@show']);
-Route::get('/adm/endidades/create',[ 'as' => 'adm.entidade.create', 'uses' => 'EntidadeController@create']);
-Route::get('/adm/endidades/store',[ 'as' => 'adm.entidade.store', 'uses' => 'EntidadeController@store']);
+Route::get('/adm/entidades', 'ADMEntidadeController@index')->name('entidades');
+Route::get('/adm/endidades/show/{codigo}',[ 'as' => 'adm.entidade.show', 'uses' => 'ADMEntidadeController@show']);
+//Route::get('/adm/endidades/create',[ 'as' => 'adm.entidade.create', 'uses' => 'ADMEntidadeController@create']);
+Route::get('/adm/endidades/store',[ 'as' => 'adm.entidade.store', 'uses' => 'ADMEntidadeController@store']);
+Route::any('/adm/entidades/update/{codigo}',[ 'as' => 'adm.entidade.update', 'uses' => 'ADMEntidadeController@update']);
 
-Route::get('/adm/solicitacoes', 'SolicitacoesController@index')->name('solicitacoes');
-Route::get('/adm/solicitacoes/show/{codigo}',[ 'as' => 'adm.solicitacoes.show', 'uses' => 'SolicitacoesController@show']);
+Route::get('/adm/solicitacoes', 'ADMSolicitacoesController@index')->name('solicitacoes');
+Route::get('/adm/solicitacoes/show/{codigo}',[ 'as' => 'adm.solicitacoes.show', 'uses' => 'ADMSolicitacoesController@show']);
+Route::put('/adm/solicitacoes/update/{codigo}',[ 'as' => 'adm.solicitacoes.update', 'uses' => 'ADMSolicitacaoController@update']);
+
+
 
 
 Route::get('/usr/perfil', 'ProfileController@index')->name('perfil');

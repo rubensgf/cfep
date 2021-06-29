@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Entidade;
 
-class DashboardController extends Controller
+class ADMDashboardController extends Controller
 {
     public function index()
     {

@@ -12,7 +12,7 @@
                     <h1 class="h2">Entidades</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <a href="{{ route('adm.entidade.create') }}" type="button" class="btn btn-sm btn-outline-danger"> + Cadastrar</a>
+
                     </div><!--
                     <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                         <span data-feather="calendar"></span>
