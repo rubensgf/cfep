@@ -16,8 +16,8 @@ class AddColumnUserIdMembrosTable extends Migration
         Schema::table('membros', function (Blueprint $table) {
             $table->integer('user_id')->after('id');
             $table->string('uuid')->after('user_id');
-
             $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

@@ -43,10 +43,11 @@ class ADMEntidadeController extends Controller
     {
 
         $e = Entidade::find($id);
-        $e->situacaoCadastro = $request->input('situacaoCadastro');
+        $e->status = $request->input('status');
         $e->save();
 
-        dd($e);
+        return redirect()->route('entidades')
+        ->with('success','Dados alterados com sucesso!');
 
        /*
         $e->situacaoCadastro = $request->input('situacaoCadastro');

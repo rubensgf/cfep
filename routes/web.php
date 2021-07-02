@@ -39,10 +39,14 @@ Route::put('/adm/solicitacoes/update/{codigo}',[ 'as' => 'adm.solicitacoes.updat
 
 
 
-Route::get('/usr/perfil', 'ProfileController@index')->name('perfil');
+Route::get('/usr/perfil', 'USRMembroController@index')->name('perfil');
+Route::get('/usr/certificado', 'USRCertificadoController@index')->name('certificado');
+Route::get('/usr/carteirinha', 'USRCarteirinhaController@index')->name('carteirinha');
+Route::post('/usr/carterinha', 'USRCarterinhaController@store')->name('carterinha');
+
+
 Route::get('/usr/qrcode', 'QrCodeController@index')->name('qrcode');
 Route::get('/usr/2via', '2viaController@index')->name('2via');
-Route::get('/usr/certificado', 'CertificadoController@index')->name('certificado');
 
 Route::get('/inscricao', 'SiteInscricaoController@index')->name('inscricao');
 Route::post('/inscricao', 'SiteInscricaoController@index')->name('inscricao');

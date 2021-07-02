@@ -8,10 +8,8 @@
 <hr>
                     <li><a href="{{ route('perfil') }}"><span class="nav-link">Perfil</span></a></li>
                     <li><a href="{{ route('certificado') }}"><span class="nav-link">Certificado</span></a></li>
-                    <li><a href="{{ route('membros') }}"><span class="nav-link">Cartetinha</span></a></li>
-
+                    <li><a href="{{ route('carteirinha') }}"><span class="nav-link">Carteitinha</span></a></li>
                     <li><a href="{{ route('qrcode') }}"><span class="nav-link">QrCcode</span></a></li>
-                    <li><a href="{{ route('2via') }}"><span class="nav-link">2 Via</span></a></li>
                     </ul>
 
 

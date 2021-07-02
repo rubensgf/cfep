@@ -18,6 +18,11 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
                         <form id="remove" action="{{ route('adm.membro.update')}}" method="post" onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success">
+                                    <p>{{ $message }}</p>
+                                </div>
+                            @endif
                             <input type="hidden" name="colegios_id" value="{{$i->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-danger">
