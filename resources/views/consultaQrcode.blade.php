@@ -3,7 +3,7 @@
 @section('content')
     <center>
     {{ $membro->nome }}<br>
-                {{ $membro->foto }}<br>
+        {{ $membro->foto }}<br>
         {{ $membro->id}}<br>
         {{ $membro->nome}}<br>
         {{ $membro->nomeM}}<br>

@@ -1,91 +1,115 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@section('header')
+    @include('partials.layout.header')
+@show
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+<div class="page-welcome full-height pt-5">
+    <div class="container">
+        <div class="row">
+            <h3 class="col-md-12">Bem vindo!</h3>
+        </div>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-3 col-sm-6 mb-3 mb-sm-0">
+                <div class="card-stats card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="text-center text-primary fs-14">
+                                    @include('icons.icon-users')
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <p class="card-category">Total de Membros</p>
+                                    <h4 class="card-title mb-0">5488</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            @include('icons.icon-atualizado')
+                            Atualizado
+                        </div>
+                    </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <p><a href="http://127.0.0.1:8001/consulta-instituicoes"> consulta instituicoes </a> - <a href="http://127.0.0.1:8001/consulta-instituicoes/colegio"> resultado consulta instituicoes </a></p>
-                <p><a href="http://127.0.0.1:8001/consulta-inscritos/16000001"> consulta inscritos </a> - <a href="http://127.0.0.1:8001/consulta-inscritos/16000001"> resultado consulta inscritos </a></p>
-                <p><a href="http://127.0.0.1:8001/consulta-qrcode/12345"> resultado Qr CODE </a></p>
-                <p><a href="http://127.0.0.1:8001/inscricao"> formulario - inscricao </a></p>
-                <p><a href="http://127.0.0.1:8001/seja-um-parceiro"> formulario - seja-um-parceiro </a></p>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-stats card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="text-center text-primary">
+                                    @include('icons.icon-parceiro')
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="numbers">
+                                    <p class="card-category">Empresas Parceiras</p>
+                                    <h4 class="card-title mb-0">47</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            @include('icons.icon-atualizado')
+                            Atualizado
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+        <hr>
+        <div class="c-options-box">
+            <ul class="c-options-box__list">
+                <li>
+                    <a class="c-options-box__button btn" href="./consulta-inscritos/">
+                        @include('icons.search')
+                        <span>Consulta de Membro<span>
+                    </a>
+                </li>
+                <li>
+                    <a class="c-options-box__button btn" href="./inscricao/">
+                        @include('icons.address-card-regular')
+                        <span>Inscrever-se no CFEP</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="c-options-box__button btn" href="./consulta-instituicoes/">
+                        @include('icons.search')
+                        <span>Consulta de Instituição Parceira<span>
+                    </a>
+                </li>
+                <li>
+                    <a class="c-options-box__button btn" href="./seja-um-parceiro/">
+                        @include('icons.icon-parceiro')
+                        <span>Seja um Parceiro</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="c-options-box__button btn" href="./consulta-qrcode/">
+                        @include('icons.icon-qrcode')
+                        <span>Consulta de Membro via QR Code<span>
+                    </a>
+                </li>
+                <li style="margin-right: 0">
+                    <a class="c-options-box__button btn" href="./home">
+                        @include('icons.icon-user')
+                        <span>Meu CFEP</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section('footer')
+    @include('partials.footer')
+@show
+
+@stop

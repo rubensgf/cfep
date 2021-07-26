@@ -1,0 +1,220 @@
+html, body {
+    background-color: $white;
+    color: #F8FAFC;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+fieldset {
+    label {
+        display: block !important;
+        margin-bottom: 0.3rem !important;
+    }
+}
+
+//form
+.filelabel {
+    width: 120px;
+    border: 2px dashed grey;
+    border-radius: 5px;
+    display: block;
+    padding: 5px;
+    transition: border 300ms ease;
+    cursor: pointer;
+    text-align: center;
+    margin: 0;
+}
+
+.filelabel svg {
+    display: block;
+    font-size: 30px;
+    padding-bottom: 5px;
+    align-items: center;
+}
+.filelabel svg,
+.filelabel .title-anexo {
+  color: grey;
+  transition: 200ms color;
+}
+.filelabel:hover {
+  border: 2px solid #1665c4;
+}
+.filelabel:hover svg,
+.filelabel:hover .title-anexo {
+  color: #1665c4;
+}
+#FileInput{
+    display:none;
+}
+
+.modal {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline-info {
+    color: rgba(3,92,148,0.85) !important;
+
+    &:hover {
+        color: $white !important;
+        background-color: rgba(3,92,148,0.85) !important;
+    }
+}
+
+.btn-primary {
+    background-color: rgba(3,92,148,0.85) !important;
+
+    &:hover {
+        background-color: rgba(3,92,148,0.99) !important;
+    }
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+ul {
+    margin: 0!important;
+}
+
+li {
+    list-style: none;
+}
+
+
+// svgtens animados
+
+.btn-anime {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: transparent;
+    border: 1px solid $white;
+    border-radius: 2px;
+    color: $white;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+    font-weight: normal;
+    line-height: 1;
+    margin: 20px;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .btn-anime:hover, .btn:focus {
+    color: rgba(3,108,166,0.85);
+    outline: 0;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  
+  .anime-1 {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .anime-1:hover {
+    background-color: rgba(255,255,255,0.6);
+  }
+
+  //// Form
+
+.main-form-inscricao {
+    background-color: #F8FAFC;
+}
+
+main {
+    background-color: #F8FAFC;
+
+}
+
+input[type=file] {
+    background-color: $white;
+}
+
+// fieldset {
+//     margin-bottom: 30px !important;
+// }
+
+/////////////////////////////////
+
+footer {
+    background-color: transparent;
+}
+
+
+////////// Font
+.fs-10 {
+    font-size: 10px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}

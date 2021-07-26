@@ -1,0 +1,20 @@
+.page-welcome {
+    background: linear-gradient(45deg, rgba(65,163,179,0.75) 0%, rgba(3,108,166,0.85) 20%, rgba(3,92,148,0.85) 70%, rgba(95,85,173,0.7542367288712359) 100%);
+    align-items: center;
+
+    h3 {
+        color: $white;
+    }
+
+    .card {
+        background-color: #ffffffed;
+    }
+
+    hr {
+        background-color: #ffffff3a;
+        
+    }
+
+}
+
+

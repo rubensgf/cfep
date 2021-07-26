@@ -4,5 +4,15 @@
 // Variables
 @import 'variables';
 
+// Default
+@import 'default';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Components
+@import 'nav';
+@import 'option-box';
+
+// Pages
+@import 'welcome';
