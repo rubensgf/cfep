@@ -15,6 +15,7 @@ class USRMembroController extends Controller
         ->where('membros.user_id', '=', $user_id)
         ->first();
 
+
         return view('user.membro.show', compact('dados'));
 
     }

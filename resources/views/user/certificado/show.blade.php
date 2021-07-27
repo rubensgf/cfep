@@ -9,9 +9,7 @@
             <h1 class="h2">Certificado</h1>
 
         </div>
-
-
-        <h2>Section title</h2>
+        @if($dados)
         <div class="table-responsive">
 
             {{ $dados->foto }} <br>
@@ -36,6 +34,7 @@
             {{ $dados->dataFormacao }} <br>
             {{ $dados->observacao }} <br>
         </div>
+        @endif
     </main>
 
 

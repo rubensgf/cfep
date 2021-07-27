@@ -45,7 +45,7 @@ Route::get('/usr/carteirinha', 'USRCarteirinhaController@index')->name('carteiri
 Route::post('/usr/carterinha', 'USRCarterinhaController@store')->name('carterinha');
 
 
-Route::get('/usr/qrcode', 'QrCodeController@index')->name('qrcode');
+Route::get('/usr/qrcode', 'USRQrcodeController@index')->name('qrcode');
 Route::get('/usr/2via', '2viaController@index')->name('2via');
 
 Route::get('/inscricao', 'SiteInscricaoController@index')->name('inscricao');

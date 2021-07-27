@@ -18,9 +18,6 @@
                 </div>
             </div>
         </div>
-
-
-        <h2>Section title</h2>
         <div class="table-responsive">
 
             {{ $dados->foto }} <br>
