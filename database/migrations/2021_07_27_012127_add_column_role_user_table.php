@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnTimestampEndidadeTable extends Migration
+class AddColumnroleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnTimestampEndidadeTable extends Migration
      */
     public function up()
     {
-        Schema::table('entidade', function (Blueprint $table) {
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('role',['adm', 'user'])->default('user');
         });
     }
 
@@ -25,6 +25,8 @@ class AddColumnTimestampEndidadeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entidade');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 }
