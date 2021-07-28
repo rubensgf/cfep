@@ -16,6 +16,8 @@ class USRMembroController extends Controller
         ->first();
 
 
+
+
         return view('user.membro.show', compact('dados'));
 
     }

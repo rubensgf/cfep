@@ -24,11 +24,12 @@ Route::get('/adm/dashboard', 'ADMDashboardController@index')->name('dashboard');
 Route::get('/adm/membros', 'ADMMembroController@index')->name('membros');
 Route::get('/adm/membros/show/{codigo}',[ 'as' => 'adm.membros.show', 'uses' => 'ADMMembroController@show']);
 Route::put('/adm/membros/update/{codigo}',[ 'as' => 'adm.membros.update', 'uses' => 'ADMMembroController@update']);
+Route::get('/adm/membros/create',[ 'as' => 'adm.membros.create', 'uses' => 'ADMMembrosController@create']);
 
 
 Route::get('/adm/entidades', 'ADMEntidadeController@index')->name('entidades');
 Route::get('/adm/endidades/show/{codigo}',[ 'as' => 'adm.entidade.show', 'uses' => 'ADMEntidadeController@show']);
-//Route::get('/adm/endidades/create',[ 'as' => 'adm.entidade.create', 'uses' => 'ADMEntidadeController@create']);
+Route::get('/adm/endidades/create',[ 'as' => 'adm.entidade.create', 'uses' => 'ADMEntidadeController@create']);
 Route::get('/adm/endidades/store',[ 'as' => 'adm.entidade.store', 'uses' => 'ADMEntidadeController@store']);
 Route::any('/adm/entidades/update/{codigo}',[ 'as' => 'adm.entidade.update', 'uses' => 'ADMEntidadeController@update']);
 

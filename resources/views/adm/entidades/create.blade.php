@@ -4,30 +4,9 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Cadastro - Entidade</h1>
-
                 </div>
 
-                {{ $entidade->razaoSocial }} <br>
-                    {{ $entidade->nomeFantasma }} <br>
-                    {{ $entidade->webSite }} <br>
-                    {{ $entidade->cnpj }} <br>
-                    {{ $entidade->endereco }} <br>
-                    {{ $entidade->numero }} <br>
-                    {{ $entidade->complemento }} <br>
-                    {{ $entidade->cep }} <br>
-                    {{ $entidade->bairro }} <br>
-                    {{ $entidade->cidade }} <br>
-                    {{ $entidade->uf }} <br>
-                    {{ $entidade->email }} <br>
-                    {{ $entidade->telefone }} <br>
-                    {{ $entidade->situacaoCadastro }} <br>
-                    {{ $entidade->nomeCompleto }} <br>
-                    {{ $entidade->sexo }} <br>
-                    {{ $entidade->rg }} <br>
-                    {{ $entidade->cpf }} <br>
-                    {{ $entidade->expedido }} <br>
-                    {{ $entidade->validade }} <br>
-                    {{ $entidade->status }}
+
  <form>
   <div class="form-row">
     <div class="form-group col-md-6">

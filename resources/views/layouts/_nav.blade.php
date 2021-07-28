@@ -7,13 +7,13 @@
             <li><a href="{{ route('solicitacoes') }}"><span class="nav-link">Solicitaçãos</span></a></li>
             <li><a href="{{ route('membros') }}"><span class="nav-link">Membros</span></a></li>
             <li><a href="{{ route('entidades') }}"><span class="nav-link">Entidades</span></a></li>
-        @else
+        @endif
             <hr>
             <li><a href="{{ route('perfil') }}"><span class="nav-link">Perfil</span></a></li>
             <li><a href="{{ route('certificado') }}"><span class="nav-link">Certificado</span></a></li>
             <li><a href="{{ route('carteirinha') }}"><span class="nav-link">Carteitinha</span></a></li>
             <li><a href="{{ route('qrcode') }}"><span class="nav-link">QrCcode</span></a></li>
-        @endif
+
         </ul>
 
 

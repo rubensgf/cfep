@@ -42,8 +42,6 @@ class LoginController extends Controller
     {
 
         $role = Auth::user()->role;
-
-
         switch ($role) {
             case 'adm':
                 return '/adm/dashboard';
@@ -54,7 +52,7 @@ class LoginController extends Controller
                 break;
 
             default:
-                return '/';
+                return '/home';
                 break;
         }
     }
