@@ -1,4 +1,6 @@
 {{-- <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1, user-scalable=no"> --}}
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,3 +32,5 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
+
+

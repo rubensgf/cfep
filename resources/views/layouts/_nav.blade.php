@@ -2,12 +2,12 @@
     <div class="position-sticky pt-3">
         <ul class="nav flex-column">
 
-        @if(Auth::user()->role == 'adm')
+        {{-- @if(Auth::user()->role == 'adm') --}}
             <li><a href="{{ route('dashboard') }}"><span class="nav-link">Dashboard</span></a></li>
             <li><a href="{{ route('solicitacoes') }}"><span class="nav-link">Solicitaçãos</span></a></li>
             <li><a href="{{ route('membros') }}"><span class="nav-link">Membros</span></a></li>
             <li><a href="{{ route('entidades') }}"><span class="nav-link">Entidades</span></a></li>
-        @endif
+        {{-- @endif --}}
             <hr>
             <li><a href="{{ route('perfil') }}"><span class="nav-link">Perfil</span></a></li>
             <li><a href="{{ route('certificado') }}"><span class="nav-link">Certificado</span></a></li>

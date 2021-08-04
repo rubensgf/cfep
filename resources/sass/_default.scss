@@ -179,6 +179,12 @@ input[type=file] {
     background-color: $white;
 }
 
+.input-group-prepend {
+    svg {
+        width: 16px;
+    }
+}
+
 // fieldset {
 //     margin-bottom: 30px !important;
 // }
@@ -192,29 +198,51 @@ footer {
 
 ////////// Font
 .fs-10 {
-    font-size: 10px;
+    font-size: 10px !important;
 }
 
 .fs-12 {
-    font-size: 12px;
+    font-size: 12px !important;
 }
 
 .fs-14 {
-    font-size: 14px;
+    font-size: 14px !important;
 }
 
 .fs-16 {
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 .fs-18 {
-    font-size: 18px;
+    font-size: 18px !important;
 }
 
 .fs-20 {
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 .fs-22 {
-    font-size: 22px;
+    font-size: 22px !important;
+}
+
+.consulta-perfil {
+    .foto-img {
+        max-width: 180px !important;
+        min-height: 220px !important;
+    }
+
+    li {
+
+        span {
+            font-weight: bolder;
+            font-size: 15px;
+        }
+
+        
+    }
+    li:first-child {
+        span {
+            font-size: 18px;
+        }
+    }
 }

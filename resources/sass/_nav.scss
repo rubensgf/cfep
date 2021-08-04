@@ -32,3 +32,27 @@ nav {
         }
     }
 }
+
+.sidebar {
+    background: linear-gradient(45deg, rgba(65,163,179,0.75) 0%, rgba(3,108,166,0.85) 20%, rgba(3,92,148,0.85) 70%, rgba(3, 66, 148, 0.719) 100%);
+    color: $white;
+    
+    a {
+        color: white;
+    }
+}
+
+.consulta-perfil {
+    .foto-img {
+        max-width: 180px !important;
+        min-height: 220px !important;
+    }
+
+    li {
+
+        span {
+            font-weight: bolder;
+            font-size: 15px;
+        }
+    }
+}

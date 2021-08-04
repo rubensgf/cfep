@@ -1,13 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="page-welcome flex position-ref full-height">
+    <div class="page-welcome flex full-height">
     @section('header')
         @include('partials.layout.header')
     @show
 
     <div class="content">
         {{-- @if (isset($) && isset($)) --}}
+        @include('partials.layout.indicadores')
+        <hr>
+        
         <div class="c-options-box">
             <ul class="c-options-box__list">
                 <li>

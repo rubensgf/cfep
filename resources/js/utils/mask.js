@@ -1,5 +1,3 @@
-$(document).ready(function () {
-    alert('rertgh')
     $('input[data-mask="date"]').mask('00/00/0000');
     $('input[data-mask="cep"]').mask('00000-000');
     $('input[data-mask="phone_cel"]').mask('(00) 00000-0000');
@@ -55,4 +53,3 @@ $(document).ready(function () {
     $('.selectonfocus').mask("00/00/0000", {
         selectOnFocus: true
     });
-});

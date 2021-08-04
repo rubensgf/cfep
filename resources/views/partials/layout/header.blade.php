@@ -20,9 +20,12 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link btn btn-outline-info" data-toggle="modal"
                                 data-target="#modal-login">{{ __('Fazer Login') }}</a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a class="nav-button--login btn btn-outline-info" href="{{ route('login') }}">Fazer Login</a>
                         </li>
                         {{-- @if (Route::has('register'))
                             <li class="nav-item">

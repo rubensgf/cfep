@@ -175,36 +175,54 @@ input[type=file] {
   background-color: #ffffff;
 }
 
+.input-group-prepend svg {
+  width: 16px;
+}
+
 footer {
   background-color: transparent;
 }
 
 .fs-10 {
-  font-size: 10px;
+  font-size: 10px !important;
 }
 
 .fs-12 {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 .fs-14 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .fs-16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .fs-18 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .fs-20 {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
 .fs-22 {
-  font-size: 22px;
+  font-size: 22px !important;
+}
+
+.consulta-perfil .foto-img {
+  max-width: 180px !important;
+  min-height: 220px !important;
+}
+
+.consulta-perfil li span {
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.consulta-perfil li:first-child span {
+  font-size: 18px;
 }
 
 /*!
@@ -11162,6 +11180,25 @@ nav {
 .nav-welcome figure {
   color: inherit;
   padding-left: 20px;
+}
+
+.sidebar {
+  background: linear-gradient(45deg, rgba(65, 163, 179, 0.75) 0%, rgba(3, 108, 166, 0.85) 20%, rgba(3, 92, 148, 0.85) 70%, rgba(3, 66, 148, 0.719) 100%);
+  color: #ffffff;
+}
+
+.sidebar a {
+  color: white;
+}
+
+.consulta-perfil .foto-img {
+  max-width: 180px !important;
+  min-height: 220px !important;
+}
+
+.consulta-perfil li span {
+  font-weight: bolder;
+  font-size: 15px;
 }
 
 .c-options-box {

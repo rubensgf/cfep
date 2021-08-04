@@ -1,48 +1,50 @@
 @extends('layouts.adm')
 
-@section('stylesheet')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('dist/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-@endsection
-
 @section('content')
+    <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="form-row justify-content-between flex-wrap flex-md-nowrap align-items-center py-3 mb-5 border-bottom">
+            <h2 class="mb-md-0">Solicitações (Novos inscritos, 2ª via)</h2>
+        </div>
 
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Solicitações - novo membros/parceiros/2 via</h1>
+        <div class="form-row justify-content-end">
+            <div class="col-md-6 input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        @include('icons.icon-search')
+                    </span>
                 </div>
+                <input class="form-control" data-filter-table type="text" placeholder="Digite para filtrar"
+                    aria-label="Digite para filtrar" aria-describedby="basic-addon1">
+            </div>
+        </div>
 
-                <div class="table-responsive">
-                    <table class="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                        <th>Nome</th>
-                           <th>Telefone</th>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Nº inscrição</th>
+                        <th>Nome / Email</th>
+                        <th>Telefone</th>
                         <th>Situação</th>
                         <th></th>
+                    </tr>
+                </thead>
+                <tbody data-filter-table>
+                    @foreach ($membros as $membro)
+                        <tr>
+                            <td>{{ $membro->id }}</td>
+                            <td>
+                                {{ $membro->nome }}<br>
+                                {{ $membro->email }}
+                            </td>
+                            <td>{{ $membro->fone }}</td>
+                            <td>{{ $membro->situacao }}</td>
+                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $membro->id) }}">ver</a></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($membros as $i)
-
-                            <tr>
-                                <td>{{ $i->nome }}<br>{{ $i->email }}</td>
-
-                                <td>{{ $i->fone }}</td>
-                                <td>{{ $i->situacao }}</td>
-                                <td><a class="btn btn-success" href="{{ route('adm.solicitacoes.show',$i->id) }}">ver</a></td>
-
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
-                </main>
-
-
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </main>
 @endsection
 
-@section('scripts')
-
-<script type="text/javascript" src="{{ asset('dist/js/jquery-te-1.4.0.min.js') }}" charset="utf-8"></script>
-
-@endsection
