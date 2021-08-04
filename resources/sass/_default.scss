@@ -225,6 +225,10 @@ footer {
     font-size: 22px !important;
 }
 
+.bg-white {
+    background-color: $white;
+}
+
 .consulta-perfil {
     .foto-img {
         max-width: 180px !important;
@@ -232,9 +236,10 @@ footer {
     }
 
     li {
+        font-weight: bolder;
 
         span {
-            font-weight: bolder;
+            font-weight: normal;
             font-size: 15px;
         }
 
@@ -245,4 +250,28 @@ footer {
             font-size: 18px;
         }
     }
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.box-aviso > div {
+    background-color: #ececec;
+}
+
+span[data-msg-error] {
+    position: absolute;
+    bottom: -25px;
+    left: 8px;
+    color: $red;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
+
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
 }

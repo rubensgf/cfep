@@ -211,18 +211,51 @@ footer {
   font-size: 22px !important;
 }
 
+.bg-white {
+  background-color: #ffffff;
+}
+
 .consulta-perfil .foto-img {
   max-width: 180px !important;
   min-height: 220px !important;
 }
 
-.consulta-perfil li span {
+.consulta-perfil li {
   font-weight: bolder;
+}
+
+.consulta-perfil li span {
+  font-weight: normal;
   font-size: 15px;
 }
 
 .consulta-perfil li:first-child span {
   font-size: 18px;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.box-aviso > div {
+  background-color: #ececec;
+}
+
+span[data-msg-error] {
+  position: absolute;
+  bottom: -25px;
+  left: 8px;
+  color: #e3342f;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+          appearance: textfield;
 }
 
 /*!
@@ -11189,16 +11222,6 @@ nav {
 
 .sidebar a {
   color: white;
-}
-
-.consulta-perfil .foto-img {
-  max-width: 180px !important;
-  min-height: 220px !important;
-}
-
-.consulta-perfil li span {
-  font-weight: bolder;
-  font-size: 15px;
 }
 
 .c-options-box {

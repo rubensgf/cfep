@@ -49851,7 +49851,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('./utils/mask');
 
 
-__webpack_require__(/*! ./search/consultaInscrito */ "./resources/js/search/consultaInscrito.js");
+__webpack_require__(/*! ./search/publicSearch */ "./resources/js/search/publicSearch.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -49870,10 +49870,9 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-var app = new Vue({
-  el: '#app'
-});
+// const app = new Vue({
+//     el: '#app',
+// });
 
 /***/ }),
 
@@ -49991,15 +49990,118 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/search/consultaInscrito.js":
-/*!*************************************************!*\
-  !*** ./resources/js/search/consultaInscrito.js ***!
-  \*************************************************/
+/***/ "./resources/js/search/publicSearch.js":
+/*!*********************************************!*\
+  !*** ./resources/js/search/publicSearch.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 // Consulta de Membros
-// Consulta de Membros
+// Variáveis Globais
+var $elem = document.querySelector('[data-search-public]');
+var inputSearch = $elem.querySelector('[data-term-search]');
+var btnSearch = $elem.querySelector('[data-btn-search]');
+var boxResultSearch = $elem.querySelector('[data-box-result-search]');
+var loaderGift = $elem.querySelector('[data-loader-gift]');
+var boxResultSearchFail = $elem.querySelector('[data-box-result-search-fail]');
+var msgError = $elem.querySelector('[data-msg-error]');
+var dataFotoResult = $elem.querySelector('[data-search="foto"]');
+var dataNameResult = $elem.querySelector('[data-search="nome"]');
+var dataIdResult = $elem.querySelector('[data-search="id"]');
+var dataExpedidoResult = $elem.querySelector('[data-search="expedido"]');
+var dataValidadeResult = $elem.querySelector('[data-search="validade"]');
+var dataSituacaoResult = $elem.querySelector('[data-search="situacao"]');
+
+var triggerSearch = function triggerSearch() {
+  btnSearch.addEventListener("click", function () {
+    var term = inputSearch.value;
+    var termLength = term.length;
+    msgError.classList.add('is-hidden');
+
+    if (termLength >= 8) {
+      searchTerm(term);
+    } else {
+      msgError.classList.remove('is-hidden');
+    }
+  });
+  inputSearch.addEventListener("keyup", function (e) {
+    var key = e.which || e.keyCode;
+    var term = inputSearch.value;
+    var termLength = term.length;
+    msgError.classList.add('is-hidden');
+
+    if (key == 13 && termLength >= 8) {
+      searchTerm(term);
+    } else if (key == 13) {
+      msgError.classList.remove('is-hidden');
+    }
+  });
+};
+
+var searchTerm = function searchTerm(term) {
+  boxResultSearch.classList.add('is-hidden');
+  boxResultSearchFail.classList.add('is-hidden');
+  loaderGift.classList.remove('is-hidden');
+  var request = $.get("http://127.0.0.1:8000/consulta-inscritos/".concat(term));
+  request.done(function (data) {
+    console.log("success");
+    dataFotoResult.setAttribute('src', "/images/fotos-membros/".concat(data.foto));
+    dataNameResult.innerHTML = data.nome;
+    dataIdResult.innerHTML = data.id;
+    dataExpedidoResult.innerHTML = data.expedido;
+    dataValidadeResult.innerHTML = data.validade;
+    dataSituacaoResult.innerHTML = data.situacao;
+    boxResultSearch.classList.remove('is-hidden');
+    boxResultSearchFail.classList.add('is-hidden');
+  });
+  request.fail(function () {
+    console.log("error");
+    boxResultSearchFail.classList.remove('is-hidden');
+  });
+  request.always(function () {
+    console.log("finished");
+    loaderGift.classList.add('is-hidden');
+  });
+}; // $init
+
+
+triggerSearch(); //////////////
+//   $.get("http://127.0.0.1:8000/consulta-inscritos/1d6000001", function(data, status){
+//     console.log("Data: " + data + "\nStatus: " + status);
+//   });
+// Assign handlers immediately after making the request,
+// and remember the jqxhr object for this request
+// var jqxhr = $.get( "http://127.0.0.1:8000/consulta-inscritos/116000001", () => {
+//     alert( "success" );
+//   })
+//     .done((data) => {
+//       alert( "second success" );
+//       console.log('data', data)
+//     })
+//     .fail(function() {
+//       alert( "error" );
+//     })
+//     .always(function() {
+//       alert( "finished" );
+//     });
+//   // Perform other work here ...
+//   // Set another completion function for the request above
+//   jqxhr.always(function() {
+//     alert( "second finished" );
+//   });
+// $.ajax({
+//     url: "http://127.0.0.1:8000/consulta-inscritos/16000001",
+//     context: document.body
+//   }).done(function() {
+//     $( this ).addClass( "done" );
+//     console.log('data', data)
+// });
+// console.log(term)
+// "init"
+// searchTerm();
+// Filtrar tabela
+
 $(document).ready(function () {
   $('[data-filter-table]').on('keyup', function () {
     var value = $(this).val().toLowerCase();
@@ -50007,7 +50109,7 @@ $(document).ready(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
   });
-});
+}); ///
 
 /***/ }),
 
