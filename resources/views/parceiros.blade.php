@@ -14,12 +14,12 @@
             </div>
         </div>
         <div class="row justify-content-end pr-3">
-            <a href="https//www.cfep.org.br/indentidade-profissional" target="_blank">
-                Quem pode se inscrever no conselho?</a>
+            <a href="https://www.cfep.org.br/parceiro" target="_blank">
+                Seja também um parceiro do CFEP</a>
         </div>
 
         <form action="funcao/cadastrar_entidade.php" method="POST" enctype="multipart/form-data">
-            <fieldset class="border p-3 mb-3">
+            <fieldset class="p-3 mb-3">
                 <legend class="w-auto">Dados da Empresa</legend>
 
                 <div class="form-row">
@@ -113,7 +113,7 @@
             </fieldset>
 
 
-            <fieldset class="border p-3 mb-4">
+            <fieldset class="p-3 mb-4">
                 <legend class="w-auto">Representante legal</legend>
 
                 <div class="form-row">
@@ -157,21 +157,8 @@
             </fieldset>
 
             <div class="form-group text-center col-md-12">
-                {{-- <div class="form-row align-items-center mb-2">
-                    <input type="checkbox" id="aceite-dados" aria-label="Declaro que esses dados são verdadeiros"
-                        required>
-                    <label class="mb-0 ml-1" for="aceite-dados">Declaro que todos os dados/arquivos aqui enviados, são
-                        verdadeiros.</label>
-                </div>
-                <div class="form-row align-items-center">
-                    <input type="checkbox" id="aceite-termos"
-                        aria-label="Declaro que, aceito os termos de uso e Politicas de privacidade" required>
-                    <label class="mb-0 ml-1" for="aceite-termos">Declaro que, aceito os <a href="http//"
-                            target="_blank" rel="noopener noreferrer">Termos de uso</a> e <a href="http//"
-                            target="_blank" rel="noopener noreferrer">Politicas de privacidade</a>.</label>
-                </div> --}}
                 <div class="form-row">
-                    <button type="submit" id="submit" class="btn btn-primary btn-lg col-md-4 mb-5">Enviar
+                    <button type="submit" id="submit" class="btn btn-primary col-md-4 mb-5">Enviar
                         Solicitação</button>
                 </div>
             </div>

@@ -1,9 +1,11 @@
 @if (Route::has('login'))
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                CFEP
-            </a>
+            @guest
+                <a class="navbar-brand" href="{{ url('/') }}">CFEP</a>
+            @else
+                <a class="navbar-brand" href="{{ url('/home') }}">CFEP</a>
+            @endguest
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
@@ -59,7 +61,4 @@
             </div>
         </div>
     </nav>
-
-    @include('partials.modals.modal-login')
-    @include('partials.modals.modal-password-request')
 @endif

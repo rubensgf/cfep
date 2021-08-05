@@ -11,9 +11,6 @@
         <div class="row">
             <h3 class="col-md-12">Bem vindo!</h3>
         </div>
-
-        @include('partials.layout.indicadores')
-        
         <hr>
         <div class="c-options-box">
             <ul class="c-options-box__list">

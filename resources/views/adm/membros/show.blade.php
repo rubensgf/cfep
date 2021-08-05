@@ -35,40 +35,40 @@
             </div>
 
             <ul class="col-md-9 p-0">
-                <li class="font-weight-bold mb-3"><span>{{ $membro->nome }}</span></li>
+                <li class="mb-3"><span class="font-weight-bold">{{ $membro->nome }}</span></li>
 
-                <fieldset class="border p-2 mb-2">
+                <fieldset class="p-2 mb-2">
                     <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
 
-                    <li><span>Nº inscrição: </span>{{ $membro->id }}</li>
-                    <li><span>Expedido: </span>{{ $membro->expedido }}</li>
-                    <li><span>Validade: </span>{{ $membro->validade }}</li>
-                    <li><span>Situação: </span>{{ $membro->situacao }}</li>
+                    <li>N° inscrição: <span >{{ $membro->id }}</span></li>
+                    <li>Expedido: <span>{{ $membro->expedido }}</span></li>
+                    <li>Validade: <span>{{ $membro->validade }}</span></li>
+                    <li>Situação: <span>{{ $membro->situacao }}</span></li>
                 </fieldset>
-                <fieldset class="border p-2 mb-2">
+                <fieldset class="p-2 mb-2">
                     <legend class="w-auto m-0 fs-20">Dados pessoais</legend>
 
-                    <li><span>Nome: </span>{{ $membro->nome }}</li>
-                    <li><span>Mãe: </span>{{ $membro->nomeM }}</li>
-                    <li><span>Pai: </span>{{ $membro->nomeP }}</li>
-                    <li><span>Nascimento: </span>{{ $membro->dataNasc }}</li>
-                    <li><span>Sexo: </span>{{ $membro->sexo }}</li>
-                    <li><span>RG: </span>{{ $membro->rg }}</li>
-                    <li><span>CPF: </span>{{ $membro->cpf }}</li>
-                    <li><span>Endereço: </span>{{ $membro->endereco }}</li>
-                    <li><span>UF: </span>{{ $membro->uf }}</li>
-                    <li><span>E-mail: </span>{{ $membro->email }}</li>
-                    <li><span>Telefone: </span>{{ $membro->foneF }} / {{ $membro->fone }}</li>
+                    <li>Nome: <span>{{ $membro->nome }}</span></li>
+                    <li>Mãe: <span>{{ $membro->nomeM }}</span></li>
+                    <li>Pai: <span>{{ $membro->nomeP }}</span></li>
+                    <li>Nascimento: <span>{{ $membro->dataNasc }}</span></li>
+                    <li>Sexo: <span>{{ $membro->sexo }}</span></li>
+                    <li>RG: <span>{{ $membro->rg }}</span></li>
+                    <li>CPF: <span>{{ $membro->cpf }}</span></li>
+                    <li>Endereço: <span>{{ $membro->endereco }}</span></li>
+                    <li>UF: <span>{{ $membro->uf }}</span></li>
+                    <li>E-mail: <span>{{ $membro->email }}</span></li>
+                    <li>Telefone: <span>{{ $membro->foneF }} / {{ $membro->fone }}</span></li>
                 </fieldset>
-                <fieldset class="border p-2 mb-2">
+                <fieldset class="p-2 mb-2">
                     <legend class="w-auto m-0 fs-20">Graduação</legend>
 
-                    <li><span>Graduação: </span>{{ $membro->graduacao }}</li>
-                    <li><span>Universidade: </span>{{ $membro->universidade }}</li>
-                    <li><span>Data Formação: </span>{{ $membro->dataFormacao }}</li>
+                    <li>Graduação: <span>{{ $membro->graduacao }}</span></li>
+                    <li>Universidade: <span>{{ $membro->universidade }}</span></li>
+                    <li>Data Formação: <span>{{ $membro->dataFormacao }}</span></li>
 
                 </fieldset>
-                <fieldset class="border p-2 mb-2">
+                <fieldset class="p-2 mb-2">
                     <legend class="w-auto m-0 fs-20">Documentação</legend>
 
                     <li><span>PDF </span><a href="#">Baixar</a></li>
