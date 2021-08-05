@@ -179,6 +179,10 @@ input[type=file] {
   width: 16px;
 }
 
+fieldset {
+  background-color: #ffffff;
+}
+
 footer {
   background-color: transparent;
 }

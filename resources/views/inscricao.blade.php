@@ -19,23 +19,46 @@
         </div>
 
         <form id="formInsc" action="funcao/subir_arquivos.php" method="POST" enctype="multipart/form-data">
-            <fieldset class="border p-3 mb-3">
+            <fieldset class="p-3 mb-3">
                 <legend class="w-auto">Dados Pessoais</legend>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>Seu nome</label>
+                        <label>Nome completo</label>
                         <input type="text" class="form-control" id="nome" name="nome" size="40" maxlength="70"
-                            placeholder="Nome completo">
+                            placeholder="Nome completo" required>
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label>Seu E-mail</label>
-                        <input type="text" class="form-control" id="email" name="email" size="40" maxlength="70"
-                            placeholder="usuario@cfep.com.br" data-mask="email" required>
+                        <label>Nome da mãe</label>
+                        <input type="text" class="form-control" id="nome-mae" name="nome-mae" size="40" maxlength="70"
+                            placeholder="Nome completo da mãe" required>
                     </div>
                 </div>
 
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Nome do pai</label>
+                        <input type="text" class="form-control" id="nome-pai" name="nome-pai" size="40" maxlength="70"
+                            placeholder="Nome completo do pai" required>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label>Sexo</label>
+                        <select name="sexo" class="form-control">
+                            <option value="">Selecione...</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label>Data nascimento</label>
+                        <input type="text" class="form-control" id="nasc" name="nasc"
+                            placeholder="dd/mm/aaaa" data-mask="date" required>
+                    </div>
+                </div>
+                
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label>RG</label>
@@ -59,10 +82,73 @@
                             placeholder="(00) 90000-0000" data-mask="phone_cel" required>
                     </div>
                 </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>E-mail</label>
+                        <input type="text" class="form-control" id="email" name="email" size="40" maxlength="70"
+                            placeholder="usuario@cfep.com.br" data-mask="email" required>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Endereço</label>
+                        <input type="text" class="form-control" id="endereco" name="endereco" size="40" maxlength="100" placeholder="Av. Paulista" required>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>Número</label>
+                        <input id="numero" type="text" class="form-control" name="nemero" size="40"  placeholder="1224 - B" required>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade" size="40" maxlength="100" placeholder="São Paulo" required>
+                    </div>
+
+                    <div class="form-group col-md-1">
+                        <label>UF</label>
+                        <select id="uf" name="uf" class="form-control" >
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AM">AM</option>
+                            <option value="AP">AP</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MG">MG</option>
+                            <option value="MS">MS</option>
+                            <option value="MT">MT</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="PR">PR</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="RS">RS</option>
+                            <option value="SC">SC</option>
+                            <option value="SE">SE</option>
+                            <option value="SP">SP</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group col-md-3">
+                        <label>CEP</label>
+                        <input id="cep" type="text" class="form-control" name="cep" size="40" maxlength="100" placeholder="01290100" required>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Foto 3x4</label>
+                        <input type="file" class="btn btn-default border" id="foto" name="foto" accept="image/jpeg, image/png" required>
+                    </div>
+				</div>
             </fieldset>
 
 
-            <fieldset class="border p-3 mb-4">
+            <fieldset class="p-3 mb-4">
                 <legend class="w-auto">Tipo/Ficha</legend>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -86,13 +172,16 @@
                 </div>
             </fieldset>
 
-            <fieldset class="border p-3 mb-4">
+            <fieldset class="p-3 mb-4">
                 <legend class="w-auto">Uploads</legend>
 
-                <div class="form-row flex-column mb-3 font-weight-bold">
-                    <p>*O tamanho máximo dos arquivos são de 1,2MB.</p>
-                    <p>**Os arquivos precisam estar digitalizados (escaneados). Caso contrário, não
+                <div class="box-aviso row w-auto mb-4 px-3">
+                    <div class="col-md-9 py-2">
+                        <p class="font-weight-bold mb-1">ATENÇÃO:</p>
+                        <p class="mb-0">*O tamanho máximo dos arquivos são de 1,2MB.<br>
+                            **Os arquivos precisam estar digitalizados (escaneados). Caso contrário, não
                         serão aceitos.</p>
+                    </div>
                 </div>
 
                 <div class="form-row">
@@ -109,18 +198,6 @@
                         </label>
                         <input type="file" class="btn btn-default border" id="diploma verso" name="diploma verso"
                             required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label>Foto 3x4</label>
-                        <input type="file" class="btn btn-default border" id="foto" name="foto" required>
-                    </div>
-
-                    <div class="form-group col-md-5">
-                        <label>Comprovante de residência</label>
-                        <input type="file" class="btn btn-default border" id="comprovante" name="comprovante" required>
                     </div>
                 </div>
 
@@ -150,6 +227,11 @@
                         </label>
                         <input type="file" class="btn btn-default border" id="titulo" name="titulo" required />
                     </div>
+
+                    <div class="form-group col-md-5">
+                        <label>Comprovante de residência</label>
+                        <input type="file" class="btn btn-default border" id="comprovante" name="comprovante" required>
+                    </div>
                 </div>
             </fieldset>
 
@@ -168,7 +250,7 @@
                             target="_blank" rel="noopener noreferrer">Politicas de privacidade</a>.</label>
                 </div>
                 <div class="form-row">
-                    <button type="submit" id="submit" class="btn btn-primary btn-lg col-md-4 my-5">Continuar</button>
+                    <button type="submit" class="btn btn-primary col-md-4 my-5">Continuar</button>
                 </div>
             </div>
         </form>
