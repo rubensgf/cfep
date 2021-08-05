@@ -233,6 +233,8 @@ footer {
     .foto-img {
         max-width: 180px !important;
         min-height: 220px !important;
+        min-width: 180px;
+        background: #ececec;
     }
 
     li {

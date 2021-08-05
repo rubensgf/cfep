@@ -49997,21 +49997,22 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+// import { TABS_ITEMS, COMBO_TAB_ITEM, LONG_SLUG_PROPERTIES_BY } from './constants';
 // Consulta de Membros
 // Variáveis Globais
 var $elem = document.querySelector('[data-search-public]');
-var inputSearch = $elem.querySelector('[data-term-search]');
-var btnSearch = $elem.querySelector('[data-btn-search]');
-var boxResultSearch = $elem.querySelector('[data-box-result-search]');
-var loaderGift = $elem.querySelector('[data-loader-gift]');
-var boxResultSearchFail = $elem.querySelector('[data-box-result-search-fail]');
-var msgError = $elem.querySelector('[data-msg-error]');
-var dataFotoResult = $elem.querySelector('[data-search="foto"]');
-var dataNameResult = $elem.querySelector('[data-search="nome"]');
-var dataIdResult = $elem.querySelector('[data-search="id"]');
-var dataExpedidoResult = $elem.querySelector('[data-search="expedido"]');
-var dataValidadeResult = $elem.querySelector('[data-search="validade"]');
-var dataSituacaoResult = $elem.querySelector('[data-search="situacao"]');
+var btnSearch = $elem ? $elem.querySelector('[data-btn-search]') : null;
+var boxResultSearch = $elem ? $elem.querySelector('[data-box-result-search]') : null;
+var boxResultSearchFail = $elem ? $elem.querySelector('[data-box-result-search-fail]') : null;
+var dataFotoResult = $elem ? $elem.querySelector('[data-search="foto"]') : null;
+var dataExpedidoResult = $elem ? $elem.querySelector('[data-search="expedido"]') : null;
+var dataIdResult = $elem ? $elem.querySelector('[data-search="id"]') : null;
+var dataNameResult = $elem ? $elem.querySelector('[data-search="nome"]') : null;
+var dataSituacaoResult = $elem ? $elem.querySelector('[data-search="situacao"]') : null;
+var dataValidadeResult = $elem ? $elem.querySelector('[data-search="validade"]') : null;
+var inputSearch = $elem ? $elem.querySelector('[data-term-search]') : null;
+var loaderGift = $elem ? $elem.querySelector('[data-loader-gift]') : null;
+var msgError = $elem ? $elem.querySelector('[data-msg-error]') : null;
 
 var triggerSearch = function triggerSearch() {
   btnSearch.addEventListener("click", function () {
@@ -50019,7 +50020,7 @@ var triggerSearch = function triggerSearch() {
     var termLength = term.length;
     msgError.classList.add('is-hidden');
 
-    if (termLength >= 8) {
+    if (termLength >= 5) {
       searchTerm(term);
     } else {
       msgError.classList.remove('is-hidden');
@@ -50031,7 +50032,7 @@ var triggerSearch = function triggerSearch() {
     var termLength = term.length;
     msgError.classList.add('is-hidden');
 
-    if (key == 13 && termLength >= 8) {
+    if (key == 13 && termLength >= 5) {
       searchTerm(term);
     } else if (key == 13) {
       msgError.classList.remove('is-hidden');
@@ -50039,68 +50040,49 @@ var triggerSearch = function triggerSearch() {
   });
 };
 
-var searchTerm = function searchTerm(term) {
-  boxResultSearch.classList.add('is-hidden');
-  boxResultSearchFail.classList.add('is-hidden');
-  loaderGift.classList.remove('is-hidden');
-  var request = $.get("http://127.0.0.1:8000/consulta-inscritos/".concat(term));
+var request = function request(term) {
+  var request = $.get("./".concat(term));
   request.done(function (data) {
-    console.log("success");
-    dataFotoResult.setAttribute('src', "/images/fotos-membros/".concat(data.foto));
-    dataNameResult.innerHTML = data.nome;
-    dataIdResult.innerHTML = data.id;
-    dataExpedidoResult.innerHTML = data.expedido;
-    dataValidadeResult.innerHTML = data.validade;
-    dataSituacaoResult.innerHTML = data.situacao;
+    setValues(data);
     boxResultSearch.classList.remove('is-hidden');
     boxResultSearchFail.classList.add('is-hidden');
   });
   request.fail(function () {
-    console.log("error");
     boxResultSearchFail.classList.remove('is-hidden');
   });
   request.always(function () {
-    console.log("finished");
     loaderGift.classList.add('is-hidden');
   });
+};
+
+var searchTerm = function searchTerm(term) {
+  boxResultSearch.classList.add('is-hidden');
+  boxResultSearchFail.classList.add('is-hidden');
+  loaderGift.classList.remove('is-hidden');
+  request(term);
+};
+
+var setValues = function setValues(data) {
+  var isMembro = data.cpf;
+  data = isMembro ? data : data[0];
+
+  if (dataFotoResult) {
+    dataFotoResult.setAttribute('src', "/images/fotos-membros/".concat(data.foto));
+  }
+
+  dataNameResult.innerHTML = isMembro ? data.nome : data.nomeFantasma;
+  dataIdResult.innerHTML = data.id;
+  dataExpedidoResult.innerHTML = data.expedido;
+  dataValidadeResult.innerHTML = data.validade;
+  dataSituacaoResult.innerHTML = isMembro ? data.situacao : data.situacaoCadastro;
 }; // $init
 
 
-triggerSearch(); //////////////
-//   $.get("http://127.0.0.1:8000/consulta-inscritos/1d6000001", function(data, status){
-//     console.log("Data: " + data + "\nStatus: " + status);
-//   });
-// Assign handlers immediately after making the request,
-// and remember the jqxhr object for this request
-// var jqxhr = $.get( "http://127.0.0.1:8000/consulta-inscritos/116000001", () => {
-//     alert( "success" );
-//   })
-//     .done((data) => {
-//       alert( "second success" );
-//       console.log('data', data)
-//     })
-//     .fail(function() {
-//       alert( "error" );
-//     })
-//     .always(function() {
-//       alert( "finished" );
-//     });
-//   // Perform other work here ...
-//   // Set another completion function for the request above
-//   jqxhr.always(function() {
-//     alert( "second finished" );
-//   });
-// $.ajax({
-//     url: "http://127.0.0.1:8000/consulta-inscritos/16000001",
-//     context: document.body
-//   }).done(function() {
-//     $( this ).addClass( "done" );
-//     console.log('data', data)
-// });
-// console.log(term)
-// "init"
-// searchTerm();
+if ($elem) {
+  triggerSearch();
+} //////////////
 // Filtrar tabela
+
 
 $(document).ready(function () {
   $('[data-filter-table]').on('keyup', function () {

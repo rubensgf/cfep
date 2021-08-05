@@ -26,10 +26,10 @@
                 </div> --}}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label class="d-block w-100">Digite o CPF ou Nº de Registro CFEP para pesquisar</label>
+                        <label class="d-block w-100">Digite o CPF ou Nº de Registro CFEP</label>
                         <input type="number" data-term-search class="form-control"
                             placeholder="Digite apenas números"/>
-                        <span class="is-hidden" data-msg-error>Valor digitado é inválido.</span>
+                        <span class="is-hidden" data-msg-error>Valor digitado é inválido</span>
                     </div>
                     <div class="form-group col-md-2 col-sm-12 d-flex flex-column justify-content-end">
                         <button type="button" class="btn btn-primary" data-btn-search>Pesquisar</button>
@@ -61,7 +61,7 @@
                                 <img data-search="foto" class="mb-4 mb-md-0 foto-img img-fluid border" src="">                                
                             @else
                                 <div
-                                    class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
+                                    class="foto-img mb-4 mb-md-0 img-fluid border d-flex justify-content-center align-items-center">
                                     <small>Sem Foto</small>
                                 </div>
                             @endif
@@ -102,12 +102,3 @@
 @show
 @endsection
 
-{{-- <div class="perfil">
-<ul><img src="https://intranet.oabsp.org.br/oabsp/apps/inscricoes/imagens/Fotos/87/F05789923887.GIF" border="0">
-    <li><span>JOSE ABDALA</span></li>
-    <li><span>OABSP nº: </span>75699 - Definitivo</li>
-    <li><span>Data Inscrição: </span>19/10/1984</li>
-    <li><span>Subseção: </span>São Paulo</li>
-    <li><span>Situação: </span>Ativo - Normal</li>
-</ul>
-</div> --}}
