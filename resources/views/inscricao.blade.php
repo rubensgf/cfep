@@ -84,11 +84,7 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>E-mail</label>
-                        <input type="text" class="form-control" id="email" name="email" size="40" maxlength="70"
-                            placeholder="usuario@cfep.com.br" data-mask="email" required>
-                    </div>
+                    
                     <div class="form-group col-md-5">
                         <label>Endereço</label>
                         <input type="text" class="form-control" id="endereco" name="endereco" size="40" maxlength="100" placeholder="Av. Paulista" required>
@@ -147,10 +143,24 @@
 				</div>
             </fieldset>
 
-
             <fieldset class="p-3 mb-4">
-                <legend class="w-auto">Tipo/Ficha</legend>
+                <legend class="w-auto">Acesso Meu CFEP</legend>
                 <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>E-mail</label>
+                        <input type="text" class="form-control" id="email" name="email" size="40" maxlength="70"
+                            placeholder="usuario@cfep.com.br" data-mask="email" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Senha</label>
+                        <input type="password" class="form-control" id="password" name="password" size="40" maxlength="70"
+                            placeholder="No mínimo 8 caracteres" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Confirme a senha</label>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password" size="40" maxlength="70"
+                            placeholder="Deve ser identica ao campo Senha" required>
+                    </div>
                     <div class="form-group col-md-6">
                         <label>Tipo de inscrição </label>
                         <select name="inscricao" form="formInsc" class="form-control col-md-10">
@@ -158,16 +168,6 @@
                             <option value="pedagogo">Pedagogo</option>
                             <option value="educador">Educador (outras licenciaturas)</option>
                         </select>
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label>Ficha de inscrição
-                            {{-- <i id="fichaICO" data-tippy-arrow="true"
-                            data-tippy='<h5>�� imprescind�vel que esteja preenchido o campo "Doador de �rg�os" e que a assinatura esteja centralizada no campo de assinatura</h5>'
-                            class="fas fa-question-circle"></i> --}}
-                            (<a class="font-weight-bold" target="_blank" href="../images/pdf/ficha-de-inscricao.pdf">Obter Ficha</a>)
-                        </label>
-                        <input type="file" class="btn btn-default border" id="ficha" name="ficha" required>
                     </div>
                 </div>
             </fieldset>
@@ -181,6 +181,22 @@
                         <p class="mb-0">*O tamanho máximo dos arquivos são de 1,2MB.<br>
                             **Os arquivos precisam estar digitalizados (escaneados). Caso contrário, não
                         serão aceitos.</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label>Ficha de inscrição
+                            {{-- <i id="fichaICO" data-tippy-arrow="true"
+                            data-tippy='<h5>�� imprescind�vel que esteja preenchido o campo "Doador de �rg�os" e que a assinatura esteja centralizada no campo de assinatura</h5>'
+                            class="fas fa-question-circle"></i> --}}
+                            (<a class="font-weight-bold" target="_blank" href="../images/pdf/ficha-de-inscricao.pdf">Obter Ficha</a>)
+                        </label>
+                        <input type="file" class="btn btn-default border" id="ficha" name="ficha" required>
+                    </div>
+
+                    <div class="form-group col-md-5 d-flex align-items-end">
+                        <p>Essa ficha de ser preenchida e assinada pelo titular.</p>
                     </div>
                 </div>
 
