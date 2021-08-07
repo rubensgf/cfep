@@ -1,11 +1,14 @@
 .page-welcome {
     background: linear-gradient(45deg, rgba(65,163,179,0.75) 0%, rgba(3,108,166,0.85) 20%, rgba(3,92,148,0.85) 70%, rgba(95,85,173,0.7542367288712359) 100%);
     align-items: center;
-
-    // background: url(https://i.stack.imgur.com/CIy6w.jpg) center center;
+    // background-image: url({{url('images/certificado.jpg')}});
+    // background: url('/public/images/certificado.jpg') center center;
+    // background-image: url(`{{url('images/certificado.jpg')}}`);
+    // background-image: url("{{ asset('images/certificado.jpg') }}");
     // opacity: .4;
     h3 {
         color: $white;
+
     }
 
     .card {

@@ -2,6 +2,36 @@
 
 @section('content')
 
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-2 mb-5 border-bottom">
+        <h1 class="h2">Certificado CFEP</h1>
+
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="row">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" value="A">
+                <button type="button" class="btn btn-primary" data-certificado-pdf><span>Baixar PDF</span></button>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="row consulta-perfil">
+        <div class="box-certificado border" style="width: 2480px; height: 3508px">
+
+            <h1 style="font-size: 32px">Fulano de Tal da Silva de Melo Dias</h1>
+
+        </div>
+    </div> --}}
+</div
+@endsection
+
+
+
+
+{{-- @extends('layouts.adm')
+
+@section('content')
+
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
@@ -9,7 +39,7 @@
             <h1 class="h2">Certificado</h1>
 
         </div>
-        @if($dados)
+        @if(!$dados)
         <div class="table-responsive">
 
             {{ $dados->foto }} <br>
@@ -40,4 +70,4 @@
 
 
 
-@endsection
+@endsection --}}
