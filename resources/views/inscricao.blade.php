@@ -2,7 +2,6 @@
 
 @section('content')
 
-<main id="main" class="main-form-inscricao">
     <div class="container">
         <div class="row justify-content-center">
             <div class="form-title flex-column my-5 text-center font-weight-bold">
@@ -224,7 +223,7 @@
                                 data-tippy="<h5>A digitaliza��o deve conter a frente e o verso do RG em uma p�gina s�</h5>"
                                 class="fas fa-question-circle"></i> --}}
                         </label>
-                        <input type="file" class="btn btn-default border" id="rg" name="rg" required>
+                        <input type="file" class="btn btn-default border" id="rg-file" name="rg-file" required>
                     </div>
                     <div class="form-group col-md-5">
                         <label>CPF
@@ -251,27 +250,27 @@
                 </div>
             </fieldset>
 
-            <div class="form-group text-center col-md-12">
-                <div class="form-row align-items-center mb-2">
+            <div class="form-group">
+                <div class="form-check">
                     <input type="checkbox" id="aceite-dados" aria-label="Declaro que esses dados são verdadeiros"
                         required>
                     <label class="mb-0 ml-1" for="aceite-dados">Declaro que todos os dados/arquivos aqui enviados, são
                         verdadeiros.</label>
                 </div>
-                <div class="form-row align-items-center">
+                <div class="form-check">
                     <input type="checkbox" id="aceite-termos"
                         aria-label="Declaro que, aceito os termos de uso e Politicas de privacidade" required>
                     <label class="mb-0 ml-1" for="aceite-termos">Declaro que, aceito os <a href="http://"
                             target="_blank" rel="noopener noreferrer">Termos de uso</a> e <a href="http://"
                             target="_blank" rel="noopener noreferrer">Politicas de privacidade</a>.</label>
                 </div>
-                <div class="form-row">
+
+                <div class="form-row pl-3">
                     <button type="submit" class="btn btn-primary col-md-4 my-5">Continuar</button>
                 </div>
             </div>
         </form>
     </div>
-</main>
 
 @section('footer')
     @include('partials.footer')

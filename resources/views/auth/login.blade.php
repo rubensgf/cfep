@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     <div class="container">
@@ -39,7 +39,7 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="email">{{ __('CPF') }}</label>
+                                <label for="email">{{ __('E-mail') }}</label>
 
                                 <input id="email" type="email"
                                     class="form-control form-control @error('email') is-invalid @enderror" name="email"
@@ -76,10 +76,6 @@
                                 <button type="submit" class="btn btn-primary btn-block">
                                     {{ __('Entrar') }}
                                 </button>
-                                {{-- <div class="sign-up text-center mt-3 w-100">
-                                    Ainda não tem conta no CFEP? <a class="btn-block" href="../inscricao/">Faça sua
-                                        inscrição</a>
-                                </div> --}}
                             </div>
                         </form>
                     </div>

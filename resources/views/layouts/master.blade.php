@@ -8,10 +8,18 @@
 </head>
 
 <body>
-    <main id="conteudo" class="main">
-        @yield('content')
-    </main>
+    <div id="app">
+        <main class="main">
+            @section('header')
+                @include('partials.layout.header')
+            @show
 
+            {{-- @include('layouts._nav') --}}
+
+
+                @yield('content')
+        </main>
+    </div>
     {{-- @section('footer')
         @include('partials.layout.footer')
       @show --}}

@@ -5,11 +5,11 @@
  */
 
 require('./bootstrap');
-// require('./utils/mask');
-require('./search/publicSearch');
-require('./utils/jsPDF');
+// require('./components/publicSearch');
+// require('./utils/filterTable')
+require('.');
 
-// window.Vue = require('vue');
+window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your

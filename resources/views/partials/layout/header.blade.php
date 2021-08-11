@@ -1,10 +1,17 @@
 @if (Route::has('login'))
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="c-nav navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             @guest
-                <a class="navbar-brand" href="{{ url('/') }}">CFEP</a>
+                <a class="navbar-brand fs-18 font-weight-bold d-flex justify-content-center align-items-center"
+                    href="{{ url('/') }}">
+                    <img src="/images/icon-logo-cfep.png" width="50" alt="Logo CFEP"><span class="ml-2"> CFEP</span>
+                </a>
             @else
-                <a class="navbar-brand" href="{{ url('/home') }}">CFEP</a>
+                <a class="navbar-brand fs-18 font-weight-bold d-flex justify-content-center align-items-center"
+                    href="{{ url('/home') }}">
+                    <img src="/images/icon-logo-cfep.png" width="50" alt="Logo CFEP"><span class="ml-2"> CFEP</span>
+                </a>
+
             @endguest
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,7 +53,7 @@
                                 </a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Sair') }}
                                 </a>
 
