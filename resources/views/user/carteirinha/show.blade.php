@@ -11,7 +11,7 @@
                     <form id="remove" action="">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="status" value="A">
-                        <button type="submit" class="btn btn-success"><span>Solicitar 2° via </span></button>
+                        <button type="submit" class="btn btn-success"><span><a href="{{ route('2via', $dados->id) }}">Solicitar 2° via</a> </span></button>
 
                     </form>
                 </div>

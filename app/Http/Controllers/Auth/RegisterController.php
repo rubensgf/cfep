@@ -72,22 +72,22 @@ class RegisterController extends Controller
     }
 
     protected function redirectTo()
-{
+    {
 
-    $role = Auth::user()->role;
+        $role = Auth::user()->role;
 
-    switch ($role) {
-        case 'adm':
-            return '/adm/dashboard';
-            break;
+        switch ($role) {
+            case 'adm':
+                return '/adm/dashboard';
+                break;
 
-        case 'user':
-            return '/clients';
-            break;
+            case 'user':
+                return '/clients';
+                break;
 
-        default:
-            return '/login';
-            break;
+            default:
+                return '/login';
+                break;
+        }
     }
-}
 }

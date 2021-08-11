@@ -15,6 +15,11 @@ class ADMMembroController extends Controller
 
     }
 
+    public function create()
+    {
+        return view('adm.membros.create');
+    }
+
     public function store(Request $request)
     {
         //
