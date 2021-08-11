@@ -64,3 +64,6 @@ Route::get('/seja-um-parceiro', 'SiteParceirosController@index')->name('seja-um-
 Route::get('/parceiros', 'SiteParceirosController@store')->name('parceiros');
 
 Route::get('/pagamento/{id}/{id2}/{id3}', 'SitePagamentoController@index')->name('pagamento');
+Route::get('/2via/{id}', 'USR2viaController@index')->name('2via');
+
+Route::get('/pagamento/{id}', 'SitePagamentoController@store')->name('confirmar');

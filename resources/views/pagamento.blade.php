@@ -10,7 +10,12 @@
                 <p class="d-flex align-items-center justify-content-center">
                     non no no no no non o non on on ono
                 </p>
-                <button></button>
+                <form id="remove" action="">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="status" value="A">
+                        <button type="submit" class="btn btn-success"><span><a href="{{ route('confirmar', '1234') }}">Confirmar</a> </span></button>
+
+                    </form>
             </div>
         </div>
 
