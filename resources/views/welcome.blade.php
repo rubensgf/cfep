@@ -2,10 +2,6 @@
 
 @section('content')
 
-@section('header')
-    @include('partials.layout.header')
-@show
-
 <div class="page-welcome full-height pt-5">
     <div class="container">
         <div class="row">
@@ -29,7 +25,7 @@
                 <li>
                     <a class="c-options-box__button btn" href="./consulta-instituicoes/">
                         @include('icons.icon-search')
-                        <span>Consulta de Instituição Parceira<span>
+                        <span>Consulta de Parceiro<span>
                     </a>
                 </li>
                 <li>
@@ -39,9 +35,9 @@
                     </a>
                 </li>
                 <li>
-                    <a class="c-options-box__button btn" href="./consulta-qrcode/">
-                        @include('icons.icon-qrcode')
-                        <span>Consulta de Membro via QR Code<span>
+                    <a class="c-options-box__button btn" href="#">
+                        @include('icons.address-card-regular')
+                        <span>2ª via Identidade Profissional<span>
                     </a>
                 </li>
                 <li style="margin-right: 0">

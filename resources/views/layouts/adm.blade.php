@@ -15,24 +15,25 @@
 
 <body>
     <div id="app">
+        <main class="wrapper">
 
-        @section('header')
-            @include('partials.layout.header')
-        @show
-        <!------------------------------------------------->
-        <main class="py-4">
-            <div class="container-fluid">
-                <div class="row">
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                        @include('layouts._nav')
-                    </nav>
+            @include('layouts._nav')
 
-                    @yield('content')
+            <div id="content">
+                @section('header')
+                    @include('partials.layout.header')
+                @show
 
+                <div class="navbar-light">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        @include('icons.icon-chevron-double-right')
+                    </button>
                 </div>
+
+                @yield('content')
             </div>
         </main>
-
     </div>
 </body>
 

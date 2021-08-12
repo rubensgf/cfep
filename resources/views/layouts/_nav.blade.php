@@ -1,21 +1,41 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-
-        {{-- @if(Auth::user()->role == 'adm') --}}
-            <li><a href="{{ route('dashboard') }}"><span class="nav-link">Dashboard</span></a></li>
-            <li><a href="{{ route('solicitacoes') }}"><span class="nav-link">Solicitaçãos</span></a></li>
-            <li><a href="{{ route('membros') }}"><span class="nav-link">Membros</span></a></li>
-            <li><a href="{{ route('entidades') }}"><span class="nav-link">Entidades</span></a></li>
-        {{-- @endif --}}
-            <hr>
-            <li><a href="{{ route('perfil') }}"><span class="nav-link">Perfil</span></a></li>
-            <li><a href="{{ route('certificado') }}"><span class="nav-link">Certificado</span></a></li>
-            <li><a href="{{ route('carteirinha') }}"><span class="nav-link">Carteitinha</span></a></li>
-            <li><a href="{{ route('qrcode') }}"><span class="nav-link">QrCcode</span></a></li>
-
-        </ul>
-
-
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3 class="text-center mb-0">CFEP</h3>
     </div>
+
+    <ul class="list-unstyled components">
+        @guest
+            <p></p>
+            <li class="active"><a href="{{ route('inscricao') }}">Inscrever-se</a></li>
+            <li><a href="./consulta-inscritos/">Consulta de Membro</a></li>
+            <li><a href="./consulta-instituicoes/">Consulta de Parceiro</a></li>
+            <li><a href="./seja-um-parceiro/">Seja um Parceiro</a></li>
+            <li><a href="#">2ª Via</a></li>
+            <li><a href="./home">Meu CFEP</a></li>
+        @else
+            <p></p>
+            {{-- @if (Auth::user()->role == 'adm') --}}
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('entidades') }}">Entidades</a></li>
+            <li><a href="{{ route('membros') }}">Membros</a></li>
+            <li><a href="{{ route('solicitacoes') }}">Solicitaçãos</a></li>
+            {{-- @endif --}}
+            <hr>
+            <li><a href="{{ route('perfil') }}">Perfil</a></li>
+            <li><a href="{{ route('carteirinha') }}">Carteitinha</a></li>
+            <li><a href="">2ª via</a></li>
+            <li><a href="{{ route('certificado') }}">Certificado</a></li>
+            <li><a href="{{ route('qrcode') }}">QrCcode</a></li>
+        @endguest
+
+    </ul>
+
+    {{-- <ul class="list-unstyled CTAs">
+        <li>
+            <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+        </li>
+        <li>
+            <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+        </li>
+    </ul> --}}
 </nav>

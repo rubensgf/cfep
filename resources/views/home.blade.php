@@ -2,16 +2,16 @@
 
 @section('content')
     <div class="page-welcome flex full-height">
-    @section('header')
-        @include('partials.layout.header')
-    @show
-
+    
     <div class="content">
         {{-- @if (isset($) && isset($)) --}}
-        @include('partials.layout.indicadores')
-        <hr>
+        {{-- <div class="row">
+            <h3 class="col-md-12">Bem vindo!</h3>
+        </div> --}}
+        {{-- @include('partials.layout.indicadores') --}}
+        {{-- <hr> --}}
         
-        <div class="c-options-box">
+        <div class="c-options-box pb-0">
             <ul class="c-options-box__list">
                 <li>
                     <a class="c-options-box__button btn" href="{{ route('solicitacoes') }}">
@@ -53,8 +53,7 @@
         </div>
 
         {{-- @else --}}
-        <div class="c-options-box">
-            MEMBRO
+        <div class="c-options-box pt-0">
             <ul class="c-options-box__list">
                 <li>
                     <a class="c-options-box__button btn" href="{{ route('certificado') }}">
@@ -66,18 +65,6 @@
                     <a class="c-options-box__button btn" href="{{ route('carteirinha') }}">
                         @include('icons.address-card-regular')
                         <span>Identidade profissional</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="c-options-box__button btn" href="#">
-                        @include('icons.icon-pay')
-                        <span>Pagamento<span>
-                    </a>
-                </li>
-                <li>
-                    <a class="c-options-box__button btn" href="#">
-                        @include('icons.address-card-regular')
-                        <span>2ª via Identidade Profissional<span>
                     </a>
                 </li>
                 <li class="mr-0">
