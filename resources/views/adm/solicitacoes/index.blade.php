@@ -41,8 +41,28 @@
                         <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $membro->id) }}">ver</a>
                         </td>
                     </tr>
+<<<<<<< HEAD
                 @endforeach
             </tbody>
         </table>
     </div>
+=======
+                </thead>
+                <tbody data-filter-table>
+                    @foreach ($pedidos as $pedido)
+                        <tr>
+                            <td>{{ $pedido->id }}</td>
+                            <td>{{ $pedido->nome }}</td>
+                            <td>{{ $pedido->produto_id }} - {{ $pedido->valor }} </td>
+                            <td>{{ $pedido->code_payment }}</td>
+                            <td>{{ $pedido->transaction_id }}</td>
+                            <td>{{ $pedido->status }}</td>
+                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->id) }}">ver</a></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </main>
+>>>>>>> feature/pagamento
 @endsection
