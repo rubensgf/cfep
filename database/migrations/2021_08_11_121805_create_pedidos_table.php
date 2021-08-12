@@ -17,8 +17,11 @@ class CreatePedidosTable extends Migration
             $table->bigIncrements('id');
             $table->string('membro_id');
             $table->string('produto_id');
+            $table->string('code_payment')->nullable();;
+            $table->string('transaction_id')->nullable();;
             $table->decimal('valor');
-            $table->enum('ativo',['0', '1'])->default('1');
+            $table->string('status')->nullable();;
+           // $table->enum('ativo',['0', '1'])->default('1');
             $table->timestamps();
         });
     }

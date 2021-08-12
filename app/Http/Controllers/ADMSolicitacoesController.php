@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Membro;
+use App\Pedido;
 
 class ADMSolicitacoesController extends Controller
 {
     public function index()
     {
-        $membros = Membro::orderBy('nome')->get();
+        $pedidos = Pedido::orderBy('id')->get();
 
-        return view('adm.solicitacoes.index', compact('membros'));
+
+        return view('adm.solicitacoes.index', compact('pedidos'));
 
     }
 

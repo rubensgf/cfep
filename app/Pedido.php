@@ -10,9 +10,12 @@ class Pedido extends Model
 
         'membro_id',
         'produto_id',
+        'code_payment',
+        'transaction_id',
         'valor',
         'status'
 
     ];
 
 }
+

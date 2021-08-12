@@ -63,7 +63,7 @@ Route::get('/consulta-qrcode/{codigo}', 'SiteQrcodeController@show')->name('cons
 Route::get('/seja-um-parceiro', 'SiteParceirosController@index')->name('seja-um-parceiro');
 Route::get('/parceiros', 'SiteParceirosController@store')->name('parceiros');
 
-Route::get('/pagamento/{id}/{id2}/{id3}', 'SitePagamentoController@index')->name('pagamento');
+Route::get('/pagamento/{id}/{id2}', 'SitePagamentoController@index')->name('pagamentos');
 Route::get('/2via/{id}', 'USR2viaController@index')->name('2via');
 
-Route::get('/pagamento/{id}', 'SitePagamentoController@store')->name('confirmar');
+Route::get('/pagamento/{id}/{id2}/confirmar', 'SitePagamentoController@store')->name('confirmar');

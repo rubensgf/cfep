@@ -22,24 +22,26 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Nº inscrição</th>
+                    <th>Id</th>
                         <th>Nome / Email</th>
-                        <th>Telefone</th>
-                        <th>Situação</th>
+                        <th>Produto / valor</th>
+                        <th>Cod. payment</th>
+                        <th>Cod. transação</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody data-filter-table>
-                    @foreach ($membros as $membro)
+                    @foreach ($pedidos as $pedido)
                         <tr>
-                            <td>{{ $membro->id }}</td>
-                            <td>
-                                {{ $membro->nome }}<br>
-                                {{ $membro->email }}
-                            </td>
-                            <td>{{ $membro->fone }}</td>
-                            <td>{{ $membro->situacao }}</td>
-                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $membro->id) }}">ver</a></td>
+                            <td>{{ $pedido->id }}</td>
+                            <td>{{ $pedido->nome }}</td>
+                            <td>{{ $pedido->produto_id }} - {{ $pedido->valor }} </td>
+                            <td>{{ $pedido->code_payment }}</td>
+                            <td>{{ $pedido->transaction_id }}</td>
+                            <td>{{ $pedido->status }}</td>
+                            <td></td>
+                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->id) }}">ver</a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -47,4 +49,5 @@
         </div>
     </main>
 @endsection
+
 

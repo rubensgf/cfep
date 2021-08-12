@@ -13,7 +13,7 @@
                 <form id="remove" action="">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="status" value="A">
-                        <button type="submit" class="btn btn-success"><span><a href="{{ route('confirmar', '1234') }}">Confirmar</a> </span></button>
+                        <button type="submit" class="btn btn-success"><span><a href="{{ route('confirmar', [$membro_id, $produto_id]) }}">Confirmar</a> </span></button>
 
                     </form>
             </div>
