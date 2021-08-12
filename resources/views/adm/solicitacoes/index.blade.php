@@ -40,7 +40,6 @@
                             <td>{{ $pedido->code_payment }}</td>
                             <td>{{ $pedido->transaction_id }}</td>
                             <td>{{ $pedido->status }}</td>
-                            <td></td>
                             <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->id) }}">ver</a></td>
                         </tr>
                     @endforeach
