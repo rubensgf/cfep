@@ -4,8 +4,8 @@
 
     <div class="form-row justify-content-between flex-wrap flex-md-nowrap align-items-center py-3 mb-5 border-bottom">
         <h2 class="mb-md-0">Membros</h2>
-        <a href="{{ route('adm.membros.create') }}" type="button" class="btn btn-success"
-            title="Cadastrar novo membro">+ Cadastrar</a>
+       <!-- <a href="{{ route('adm.membros.create') }}" type="button" class="btn btn-success"
+            title="Cadastrar novo membro">+ Cadastrar</a>-->
     </div>
 
     <div class="form-row justify-content-end">
@@ -25,23 +25,27 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Nº inscrição</th>
+                    <th>Nº </th>
                     <th>Nome / Email</th>
                     <th>Telefone</th>
-                    <th>Situação</th>
+                    <th>Vigência</th>
+                    <th>Auditado <th>
                     <th></th>
                 </tr>
             </thead>
             <tbody data-filter-table>
                 @foreach ($membros as $membro)
                     <tr>
-                        <td>{{ $membro->id }}</td>
+                        <td>{{ $membro->ncarteirinha }}</td>
                         <td>
                             {{ $membro->nome }}<br>
                             {{ $membro->email }}
                         </td>
-                        <td>{{ $membro->fone }}</td>
-                        <td>{{ $membro->situacao }}</td>
+                        <td>{{ $membro->telefone }}</td>
+                        <td>{{ $membro->vigencia }}</td>
+                        <td>{{ $membro->auditado == '0' ? 'Não' : 'Sim' }}</td>
+
+
                         <td><a class="btn btn-primary" href="{{ route('adm.membros.show', $membro->id) }}">Ver</a>
                         </td>
                     </tr>

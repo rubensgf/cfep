@@ -11,11 +11,11 @@ class USRQrcodeController extends Controller
     public function index() {
         $user_id = Auth::id();
 
-        $membro = DB::table('membros')
-        ->where('membros.user_id', '=', $user_id)
+        $dados = DB::table('user_dados')
+        ->where('user_dados.user_id', '=', $user_id)
         ->first();
 
-        return view('user.qrcode.show', compact('membro'));
+        return view('user.qrcode.show', compact('dados'));
 
     }
 }

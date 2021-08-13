@@ -17,29 +17,27 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="table-responsive">
+         <div class="table-responsive">
 
-            {{ $dados->foto }} <br>
-            {{ $dados->id }} <br>
-            {{ $dados->nome }} <br>
-            {{ $dados->nomeM }} <br>
-            {{ $dados->nomeP }} <br>
-            {{ $dados->dataNasc }} <br>
-            {{ $dados->sexo }} <br>
-            {{ $dados->rg }} <br>
-            {{ $dados->cpf }} <br>
-            {{ $dados->endereco }} <br>
-            {{ $dados->uf }} <br>
-            {{ $dados->foneF }} <br>
-            {{ $dados->fone }} <br>
-            {{ $dados->email }} <br>
-            {{ $dados->expedido }} <br>
-            {{ $dados->validade }} <br>
-            {{ $dados->situacao }} <br>
-            {{ $dados->graduacao }} <br>
-            {{ $dados->universidade }} <br>
-            {{ $dados->dataFormacao }} <br>
-            {{ $dados->observacao }} <br>
-        </div> --}}
+         {{ $dados->foto }} <br>
+    {{ $dados->user_id }} <br>
+    {{ $dados->ncarteirinha }} <br>
+    {{ $dados->nome }} <br> {{ $dados->nome_mae }} <br>
+    {{ $dados->nome_pai }} <br>         {{ $dados->sexo}} <br>
+    {{ $dados->data_nascimento}} <br>
+    {{ $dados->rg }} <br>
+    {{ $dados->cpf}} <br>
+    {{ $dados->telefone }} <br>
+    {{ $dados->celular}} <br>
+    {{ $dados->endereco }} <br>
+    {{ $dados->numero}} <br>
+    {{ $dados->cidade }} <br>
+    {{ $dados->uf}} <br>
+    {{ $dados->cep }} <br>
+    {{ $dados->foto}} <br>
+    {{ $dados->expedido }} <br>
+    {{ $dados->vigencia}} <br>
+    {{ $dados->ativo }} <br>
+        </div>
 
 @endsection

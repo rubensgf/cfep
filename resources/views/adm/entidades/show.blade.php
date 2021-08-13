@@ -19,11 +19,11 @@
                 <form id="remove" action="{{ route('adm.entidade.update', $entidade->id) }}" method="post"
                     onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    @if ($entidade->status == 'I')
-                        <input type="hidden" name="status" value="A">
+                    @if ($entidade->ativo == '0')
+                        <input type="hidden" name="ativo" value="1">
                         <button type="submit" class="btn btn-success"><span>Ativar</span></button>
                     @else
-                        <input type="hidden" name="status" value="I">
+                        <input type="hidden" name="ativo" value="0">
                         <button type="submit" class="btn btn-danger"><span>Bloquear</span></button>
                     @endif
                 </form>
@@ -35,9 +35,9 @@
 
                     <h2>Section title</h2>-->
     <div class="table-responsive">
-        {{ $entidade->razaoSocial }} <br>
-        {{ $entidade->nomeFantasma }} <br>
-        {{ $entidade->webSite }} <br>
+        {{ $entidade->razao_social }} <br>
+        {{ $entidade->nome_fantasia }} <br>
+        {{ $entidade->site }} <br>
         {{ $entidade->cnpj }} <br>
         {{ $entidade->endereco }} <br>
         {{ $entidade->numero }} <br>
@@ -48,13 +48,13 @@
         {{ $entidade->uf }} <br>
         {{ $entidade->email }} <br>
         {{ $entidade->telefone }} <br>
-        {{ $entidade->situacaoCadastro }} <br>
-        {{ $entidade->nomeCompleto }} <br>
+        {{ $entidade->celular }} <br>
+        {{ $entidade->nome }} <br>
         {{ $entidade->sexo }} <br>
         {{ $entidade->rg }} <br>
         {{ $entidade->cpf }} <br>
         {{ $entidade->expedido }} <br>
         {{ $entidade->validade }} <br>
-        {{ $entidade->status }}
+        {{ $entidade->ativo }}
     </div>
 @endsection

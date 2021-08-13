@@ -17,7 +17,8 @@
                 Quem pode se inscrever no conselho?</a>
         </div>
 
-        <form id="formInsc" action="funcao/subir_arquivos.php" method="POST" enctype="multipart/form-data">
+        <form id="formInsc" action="{{ route('inscricao.store') }}" method="POST" enctype="multipart/form-data">
+        {{csrf_field()}}
             <fieldset class="p-3 mb-3">
                 <legend class="w-auto">Dados Pessoais</legend>
 
@@ -28,9 +29,9 @@
                             placeholder="Nome completo" required>
                     </div>
 
-                    <div class="form-group col-md-6">
+                  <div class="form-group col-md-6">
                         <label>Nome da mãe</label>
-                        <input type="text" class="form-control" id="nome-mae" name="nome-mae" size="40" maxlength="70"
+                        <input type="text" class="form-control" id="nome_mae" name="nome_mae" size="40" maxlength="70"
                             placeholder="Nome completo da mãe" required>
                     </div>
                 </div>
@@ -38,7 +39,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>Nome do pai</label>
-                        <input type="text" class="form-control" id="nome-pai" name="nome-pai" size="40" maxlength="70"
+                        <input type="text" class="form-control" id="nome_pai" name="nome_pai" size="40" maxlength="70"
                             placeholder="Nome completo do pai" required>
                     </div>
 
@@ -53,11 +54,11 @@
 
                     <div class="form-group col-md-3">
                         <label>Data nascimento</label>
-                        <input type="text" class="form-control" id="nasc" name="nasc"
+                        <input type="text" class="form-control" id="data_nascimento" name="data_nascimento"
                             placeholder="dd/mm/aaaa" data-mask="date" required>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label>RG</label>
@@ -83,14 +84,14 @@
                 </div>
 
                 <div class="form-row">
-                    
+
                     <div class="form-group col-md-5">
                         <label>Endereço</label>
                         <input type="text" class="form-control" id="endereco" name="endereco" size="40" maxlength="100" placeholder="Av. Paulista" required>
                     </div>
                     <div class="form-group col-md-1">
                         <label>Número</label>
-                        <input id="numero" type="text" class="form-control" name="nemero" size="40"  placeholder="1224 - B" required>
+                        <input id="numero" type="text" class="form-control" name="numero" size="40"  placeholder="1224 - B" required>
                     </div>
                     <div class="form-group col-md-5">
                         <label>Cidade</label>
@@ -129,7 +130,7 @@
                             <option value="TO">TO</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group col-md-3">
                         <label>CEP</label>
                         <input id="cep" type="text" class="form-control" name="cep" size="40" maxlength="100" placeholder="01290100" required>
@@ -191,7 +192,7 @@
                             class="fas fa-question-circle"></i> --}}
                             (<a class="font-weight-bold" target="_blank" href="../images/pdf/ficha-de-inscricao.pdf">Obter Ficha</a>)
                         </label>
-                        <input type="file" class="btn btn-default border" id="ficha" name="ficha" required>
+                        <input type="file" class="btn btn-default border" id="arq_ficha" name="arq_ficha" required>
                     </div>
 
                     <div class="form-group col-md-5 d-flex align-items-end">
@@ -202,7 +203,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-5">
                         <label>Diploma frente</label>
-                        <input type="file" class="btn btn-default border" id="diploma" name="diploma" required>
+                        <input type="file" class="btn btn-default border" id="arq_diploma" name="arq_diploma" required>
                     </div>
 
                     <div class="form-group col-md-5">
@@ -211,7 +212,7 @@
                             data-tippy='<h5>Voc� pode optar por deixar a frente e o verso em um arquivo e envia-lo no campo do "Diploma Frente", neste caso, mantenha este campo sem arquivos</h5>'
                             class="fas fa-question-circle"></i> --}}
                         </label>
-                        <input type="file" class="btn btn-default border" id="diploma verso" name="diploma verso"
+                        <input type="file" class="btn btn-default border" id="arq_diploma_verso" name="arq_diploma_verso"
                             required>
                     </div>
                 </div>
@@ -223,7 +224,7 @@
                                 data-tippy="<h5>A digitaliza��o deve conter a frente e o verso do RG em uma p�gina s�</h5>"
                                 class="fas fa-question-circle"></i> --}}
                         </label>
-                        <input type="file" class="btn btn-default border" id="rg-file" name="rg-file" required>
+                        <input type="file" class="btn btn-default border" id="arq_rg" name="arq_rg" required>
                     </div>
                     <div class="form-group col-md-5">
                         <label>CPF
@@ -231,7 +232,7 @@
                                 data-tippy="<h5>Se o seu RG possui seu nº de CPF mantenha este campo sem arquivos</h5>"
                                 class="fas fa-question-circle"></i> --}}
                         </label>
-                        <input type="file" class="btn btn-default border" id="CPF" name="CPF">
+                        <input type="file" class="btn btn-default border" id="arq_cpf" name="arq_cpf">
                     </div>
                 </div>
                 <div class="form-row">
@@ -240,12 +241,12 @@
                             {{-- <i id="titICO" data-tippy-arrow="true" data-tippy="<h5>Somente a frente é necessária</h5>"
                             class="fas fa-question-circle"></i> --}}
                         </label>
-                        <input type="file" class="btn btn-default border" id="titulo" name="titulo" required />
+                        <input type="file" class="btn btn-default border" id="arq_titulo" name="arq_titulo" required />
                     </div>
 
                     <div class="form-group col-md-5">
                         <label>Comprovante de residência</label>
-                        <input type="file" class="btn btn-default border" id="comprovante" name="comprovante" required>
+                        <input type="file" class="btn btn-default border" id="arq_comprovante" name="arq_comprovante" required>
                     </div>
                 </div>
             </fieldset>

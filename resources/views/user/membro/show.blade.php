@@ -8,30 +8,30 @@
                     <h1 class="h2">Perfil</h1>
                 </div>
                 <div class="table-responsive">
-@if($dados)
-                    {{ $dados->foto }} <br>
-                    {{ $dados->id }} <br>
-                    {{ $dados->nome }} <br>
-                    {{ $dados->nomeM }} <br>
-                    {{ $dados->nomeP }} <br>
-                    {{ $dados->dataNasc }} <br>
-                    {{ $dados->sexo }} <br>
-                    {{ $dados->rg }} <br>
-                    {{ $dados->cpf }} <br>
-                    {{ $dados->endereco }} <br>
-                    {{ $dados->uf }} <br>
-                    {{ $dados->foneF }} <br>
-        {{ $dados->fone }} <br>
-        {{ $dados->email }} <br>
-        {{ $dados->expedido }} <br>
-        {{ $dados->validade }} <br>
-        {{ $dados->situacao }} <br>
-        {{ $dados->graduacao }} <br>
-        {{ $dados->universidade }} <br>
-        {{ $dados->dataFormacao }} <br>
-        {{ $dados->observacao }} <br>
 
- @endif
+                @foreach ($dados as $i)
+                    {{ $i->foto }} <br>
+                    {{ $i->user_id }} <br>
+                    {{ $i->ncarteirinha }} <br>
+                    {{ $i->nome }} <br> {{ $i->nome_mae }} <br>
+                    {{ $i->nome_pai }} <br>         {{ $i->sexo}} <br>
+                    {{ $i->data_nascimento}} <br>
+                    {{ $i->rg }} <br>
+                    {{ $i->cpf}} <br>
+                    {{ $i->telefone }} <br>
+                    {{ $i->celular}} <br>
+                    {{ $i->endereco }} <br>
+                    {{ $i->numero}} <br>
+                    {{ $i->cidade }} <br>
+                    {{ $i->uf}} <br>
+                    {{ $i->cep }} <br>
+                    {{ $i->foto}} <br>
+                    {{ $i->expedido }} <br>
+                    {{ $i->vigencia}} <br>
+                    {{ $i->ativo }} <br>
+                    {{$i->email }} <br>
+                @endforeach
+
 </div>
             </main>
 

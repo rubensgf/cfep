@@ -25,20 +25,21 @@
                 <tr>
                     <th>Razão Social / Site</th>
                     <th>CNPJ</th>
-                    <th>Telefone</th>
-                    <th>Status</th>
+                    <th>Nome/celular</th>
+                    <th>Ativo</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody data-filter-table>
                 @foreach ($entidades as $entidade)
                     <tr>
                         <td>
-                            {{ $entidade->razaoSocial }}<br>
-                            {{ $entidade->webSite }}
+                            {{ $entidade->razao_social }}<br>
+                            {{ $entidade->site }}
                         </td>
                         <td>{{ $entidade->cnpj }}</td>
-                        <td>{{ $entidade->fone }}</td>
-                        <td>{{ $entidade->status }}</td>
+                        <td>{{ $entidade->nome }}<br>{{ $entidade->celular }}</td>
+                        <td>{{ $entidade->ativo == '0' ? 'Não' : 'Sim' }}</td>
                         <td><a class="btn btn-primary" href="{{ route('adm.entidade.show', $entidade->id) }}">Ver</a>
                         </td>
                     </tr>

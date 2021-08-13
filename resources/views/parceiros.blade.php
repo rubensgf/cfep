@@ -18,20 +18,21 @@
                 Seja também um parceiro do CFEP</a>
         </div>
 
-        <form action="funcao/cadastrar_entidade.php" method="POST" enctype="multipart/form-data">
+        <form id="formInsc" action="{{ route('seja-um-parceiro.store') }}" method="POST" enctype="multipart/form-data">
+        {{csrf_field()}}
             <fieldset class="p-3 mb-3">
                 <legend class="w-auto">Dados da Empresa</legend>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="razaoSocial">Razão Social</label>
-                        <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" size="40"
+                        <input type="text" class="form-control" id="razao_social" name="razao_social" size="40"
                             maxlength="100" placeholder="Informe a Razão Social" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="nomeFantasia">Nome Fantasia</label>
-                        <input type="text" class="form-control" id="nomeFantasma" name="nomeFantasma" size="40"
+                        <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia" size="40"
                             maxlength="100" placeholder="Informe o Nome Fantasia da empresa" required>
                     </div>
                 </div>
@@ -55,7 +56,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="compl"> Complemento</label>
-                        <input type="text" class="form-control" id="compl" name="compl" size="40" maxlength="100"
+                        <input type="text" class="form-control" id="complemento" name="complemento" size="40" maxlength="100"
                             placeholder="digite o complemento do endereço">
                     </div>
                 </div>
@@ -119,7 +120,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="representante">Nome Completo</label>
-                        <input type="text" class="form-control" id="representante" name="representante" size="40"
+                        <input type="text" class="form-control" id="nome" name="nome" size="40"
                             maxlength="100" placeholder="Informe o Nome do Representante Legal empresa" required>
                     </div>
                     <div class="form-group col-md-3">
@@ -151,6 +152,11 @@
                     <div class="form-group col-md-3">
                         <label for="fone">Telefone</label>
                         <input type="text" class="form-control" id="telefone" name="telefone" size="40" maxlength="100"
+                            placeholder="Digite no formato 99 9999-9999">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="fone">Celular</label>
+                        <input type="text" class="form-control" id="celular" name="celular" size="40" maxlength="100"
                             placeholder="Digite no formato 99 9999-9999">
                     </div>
                 </div>

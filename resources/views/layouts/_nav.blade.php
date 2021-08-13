@@ -7,23 +7,22 @@
         @guest
             <p></p>
             <li class="active"><a href="{{ route('inscricao') }}">Inscrever-se</a></li>
-            <li><a href="./consulta-inscritos/">Consulta de Membro</a></li>
-            <li><a href="./consulta-instituicoes/">Consulta de Parceiro</a></li>
-            <li><a href="./seja-um-parceiro/">Seja um Parceiro</a></li>
-            <li><a href="#">2ª Via</a></li>
-            <li><a href="./home">Meu CFEP</a></li>
+            <li><a href="/consulta-inscritos/">Consulta de Membro</a></li>
+            <li><a href="/consulta-instituicoes/">Consulta de Parceiro</a></li>
+            <li><a href="/seja-um-parceiro/">Seja um Parceiro</a></li>
+            <li><a href="{{ route('carteirinha') }}">2ª Via</a></li>
+            <li><a href="{{ route('perfil') }}">Meu CFEP</a></li>
         @else
             <p></p>
-            {{-- @if (Auth::user()->role == 'adm') --}}
+            @if (Auth::user()->role == 'adm')
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('entidades') }}">Entidades</a></li>
             <li><a href="{{ route('membros') }}">Membros</a></li>
-            <li><a href="{{ route('solicitacoes') }}">Solicitaçãos</a></li>
-            {{-- @endif --}}
+            <li><a href="{{ route('solicitacoes') }}">Solicitações</a></li>
+            @endif
             <hr>
-            <li><a href="{{ route('perfil') }}">Perfil</a></li>
-            <li><a href="{{ route('carteirinha') }}">Carteitinha</a></li>
-            <li><a href="">2ª via</a></li>
+            <li><a href="{{ route('perfil') }}">Meus dados</a></li>
+            <li><a href="{{ route('carteirinha') }}">Carteirinha</a></li>
             <li><a href="{{ route('certificado') }}">Certificado</a></li>
             <li><a href="{{ route('qrcode') }}">QrCcode</a></li>
         @endguest

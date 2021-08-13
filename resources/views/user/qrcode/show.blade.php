@@ -8,28 +8,25 @@
                     <h1 class="h2">QrCode</h1>
                 </div>
                 <div class="table-responsive">
-                {{ $membro->nome }}<br>
-        {{ $membro->foto }}<br>
-        {{ $membro->id}}<br>
-        {{ $membro->nome}}<br>
-        {{ $membro->nomeM}}<br>
-        {{ $membro->nomeP}}<br>
-        {{ $membro->dataNasc}}<br>
-        {{ $membro->sexo}}<br>
-        {{ $membro->rg}}<br>
-        {{ $membro->cpf}}<br>
-        {{ $membro->endereco}}<br>
-        {{ $membro->uf}}<br>
-        {{ $membro->foneF}}<br>
-        {{ $membro->fone}}<br>
-        {{ $membro->email}}<br>
-        {{ $membro->expedido}}<br>
-        {{ $membro->validade}}<br>
-        {{ $membro->situacao}}<br>
-        {{ $membro->graduacao}}<br>
-        {{ $membro->universidade}}<br>
-        {{ $membro->dataFormacao}}<br>
-        {{ $membro->observacao }}
+                {{ $dados->foto }} <br>
+    {{ $dados->user_id }} <br>
+    {{ $dados->ncarteirinha }} <br>
+    {{ $dados->nome }} <br> {{ $dados->nome_mae }} <br>
+    {{ $dados->nome_pai }} <br>         {{ $dados->sexo}} <br>
+    {{ $dados->data_nascimento}} <br>
+    {{ $dados->rg }} <br>
+    {{ $dados->cpf}} <br>
+    {{ $dados->telefone }} <br>
+    {{ $dados->celular}} <br>
+    {{ $dados->endereco }} <br>
+    {{ $dados->numero}} <br>
+    {{ $dados->cidade }} <br>
+    {{ $dados->uf}} <br>
+    {{ $dados->cep }} <br>
+    {{ $dados->foto}} <br>
+    {{ $dados->expedido }} <br>
+    {{ $dados->vigencia}} <br>
+    {{ $dados->ativo }} <br>
         </div>
             </main>
 

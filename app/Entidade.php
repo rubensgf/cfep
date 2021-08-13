@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Entidade extends Model
 {
-    protected $table = 'entidade';
+    protected $table = 'entidades';
 
     protected $fillable = [
-        'razaoSocial',
-        'nomeFantasma',
-        'webSite',
+        'razao_social',
+        'nome_fantasia',
+        'site',
         'cnpj',
         'endereco',
         'numero',
@@ -22,13 +22,14 @@ class Entidade extends Model
         'uf',
         'email',
         'telefone',
-        'situacaoCadastro',
-        'nomeCompleto',
+        'celular',
+        'nome',
         'sexo',
         'rg',
         'cpf',
         'expedido',
         'validade',
-        'status'
+        'ativo'
     ];
 }
+

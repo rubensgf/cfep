@@ -13,12 +13,12 @@
                 d-flex
                 justify-content-md-end
                 justify-content-center
-                align-items-md-center 
+                align-items-md-center
                 font-weight-bold"
             >
                 <span class="fs-14">Ainda não tem uma conta?</span>
             </div>
-            <div class="col-md-6 
+            <div class="col-md-6
                 d-md-block
                 d-flex
                 justify-content-md-start
@@ -26,7 +26,7 @@
                 mt-2
                 mt-md-0"
             >
-                <a class="btn btn-outline-info" href="../inscricao.blade.php">Faça sua inscrição</a>
+                <a class="btn btn-outline-info" href="{{ route('inscricao') }}">Faça sua inscrição</a>
             </div>
         </div>
         <div class="row justify-content-center mt-5">

@@ -12,7 +12,7 @@ class SitePagamentoController extends Controller
     public function index(Request $request, $id1, $id2) //$membro_id, $produto_id, $pedido_id
     {
 
-        $membro_id = $id1;
+        $user_id = $id1;
         $produto_id = $id2;
        // $pedido_id = $id3;
 
@@ -20,7 +20,7 @@ class SitePagamentoController extends Controller
 
        //return view('pagamentos');
 
-        return view('pagamento',compact('membro_id', 'produto_id'));
+        return view('pagamento',compact('user_id', 'produto_id'));
     }
 
 
@@ -30,7 +30,7 @@ class SitePagamentoController extends Controller
 
        // $membro_id = $request->get('membro_id');
        // $produto_id = $request->get('produto_id');
-        $membro_id = $id;
+        $user_id = $id;
         $produto_id = $id2;
         $valor = '100.00';
 

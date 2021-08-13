@@ -14,14 +14,15 @@ class CreatePedidosTable extends Migration
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('membro_id');
+            $table->uuid('id')->primary();
+            $table->integer('user_id');
             $table->string('produto_id');
-            $table->string('code_payment')->nullable();;
-            $table->string('transaction_id')->nullable();;
+            $table->string('code_payment')->nullable();
+            $table->string('transaction_id')->nullable();
             $table->decimal('valor');
-            $table->string('status')->nullable();;
-           // $table->enum('ativo',['0', '1'])->default('1');
+            $table->string('observacao')->nullable();
+            $table->enum('situacao',['aguardando', 'finalizado'])->default('aguardando');
+            $table->enum('status',['criado', 'confirmado','negado','cancelado'])->default('criado');
             $table->timestamps();
         });
     }

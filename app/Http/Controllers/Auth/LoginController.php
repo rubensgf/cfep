@@ -43,13 +43,13 @@ class LoginController extends Controller
 
         $role = Auth::user()->role;
         switch ($role) {
-            case 'adm':
+           /* case 'adm':
                 return '/adm/dashboard';
                 break;
 
             case 'user':
                 return '/usr/perfil';
-                break;
+                break; */
 
             default:
                 return '/home';
