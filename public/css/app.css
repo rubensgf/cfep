@@ -1,6 +1,95 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html,
 body {
   background-color: #ffffff;
   color: #F8FAFC;
@@ -286,6 +375,10 @@ input[type=number] {
   60%, 100% {
     background-color: #035c94;
   }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /*!
@@ -11526,6 +11619,125 @@ nav {
   background-color: rgba(255, 255, 255, 0.25);
   box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
   color: #fff;
+}
+
+.box-carteira {
+  border-radius: 18px;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.box-carteira .carteira {
+  width: 508px;
+  height: 319px;
+  font-family: sans-serif;
+  border-radius: 16px;
+}
+
+.box-carteira .carteira__frente {
+  background-image: url("/images/carteira-frente.jpg");
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.box-carteira .carteira__frente .info-membro img {
+  width: 127px;
+  height: 150px;
+}
+
+.box-carteira .carteira__frente .info-membro .col {
+  display: flex;
+  align-items: flex-end;
+}
+
+.box-carteira .carteira__verso {
+  background-image: url("/images/carteira-verso.jpg");
+  padding-top: 110px;
+}
+
+.box-carteira .carteira__verso .info-membro {
+  padding: 0 20px;
+}
+
+.box-carteira .carteira__verso .info-membro .col-3 {
+  padding-left: 0;
+}
+
+.box-carteira .carteira .info-membro {
+  font-weight: bold;
+}
+
+.box-carteira .carteira .info-membro label {
+  margin-bottom: 0;
+  font-size: 10px;
+  margin-bottom: 0;
+}
+
+.box-carteira .carteira .info-membro p {
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 12px;
+}
+
+.flip-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  display: block;
+  width: 508px;
+  height: 319px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.flip-container .box-carteira {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all 600ms;
+  z-index: 20;
+}
+
+.flip-container .box-carteira .carteira {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 18px;
+}
+
+.flip-container .box-carteira .back {
+  transform: rotateX(180deg);
+}
+
+.flip-container input {
+  display: none;
+}
+
+.flip-container :checked + .box-carteira {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+}
+
+.flip-container:hover .box-carteira {
+  transform: rotateX(10deg);
+  box-shadow: 0 10px 15px rgba(50, 50, 50, 0.2);
+}
+
+.flip-container:hover :checked + .box-carteira {
+  transform: rotateX(170deg);
+  -webkit-transform: rotateX(170deg);
+  box-shadow: 0 10px 15px rgba(50, 50, 50, 0.2);
 }
 
 .page-welcome {

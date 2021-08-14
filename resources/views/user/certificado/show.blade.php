@@ -9,6 +9,9 @@
             <div class="row">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
+                <div class="pull-right">
+                    <a href="javascript:history.back()" class="btn btn-secondary mr-1">Voltar</a>
+                </div>
                 <button type="button" class="btn btn-primary" data-certificado-pdf><span>Baixar PDF</span></button>
             </div>
         </div>

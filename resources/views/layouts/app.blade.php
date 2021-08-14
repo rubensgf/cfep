@@ -30,7 +30,9 @@
                     </button>
                 </div>
 
-                @yield('content')
+                <div class="container">
+                    @yield('content')
+                </div>
             </div>
         </main>
     </div>

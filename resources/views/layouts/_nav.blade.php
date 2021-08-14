@@ -1,6 +1,15 @@
 <nav id="sidebar">
-    <div class="sidebar-header">
-        <h3 class="text-center mb-0">CFEP</h3>
+    <div class="sidebar-header" style="z-index: 99">
+        @guest
+            <h3 class="text-center mb-0">
+                <a class="navbar-brand" href="{{ url('/') }}">CFEP</a>
+            </h3>
+        @else
+            <h3 class="text-center mb-0">
+                <a class="navbar-brand" href="{{ url('/home') }}">CFEP</a>
+            </h3>
+        @endguest
+        {{-- <h3 class="text-center mb-0">CFEP</h3> --}}
     </div>
 
     <ul class="list-unstyled components">
