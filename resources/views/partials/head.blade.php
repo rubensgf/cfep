@@ -10,6 +10,7 @@
     $(document).ready(function($) {
         $('input[data-mask="date"]').mask('00/00/0000');
         $('input[data-mask="cep"]').mask('00000-000');
+        $('input[data-mask="rg"]').mask('000.000.000');
         $('input[data-mask="phone_cel"]').mask('(00) 00000-0000');
         $('input[data-mask="phone"]').mask('(00) 0000-0000');
         $('input[data-mask="email"]').mask("A", {

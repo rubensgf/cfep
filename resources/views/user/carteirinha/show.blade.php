@@ -13,7 +13,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
                 {{-- <button type="submit" class="btn btn-success"><span><a href="{{ route('2via', $dados->id) }}">Solicitar 2° via</a> </span></button> --}}
-                <button type="button" class="btn btn-primary">Baixar</button>
+                {{-- <button type="button" class="btn btn-primary">Baixar</button> --}}
                 <button type="submit" class="btn btn-primary">Solicitar 2° via</button>
             </form>
         </div>
@@ -25,22 +25,22 @@
                 <div class="row info-membro">
                     <div class="col-9">
                         <label>Nome</label>
-                        <p>Geraldo de Paiva Gonçalves</p>
+                        <p>{{ $dados->nome }}</p>
                     </div>
                     <div class="col-3">
                         <label>Data de nascimento</label>
-                        <p>25/02/1960</p>
+                        <p>{{ $dados->data_nascimento}}</p>
                     </div>
                 </div>
                 <div class="row info-membro">
                     <div class="col-9">
                         <label>Filiação</label>
-                        <p>Mãe Geraldo de Paiva Gonçalves</p>
-                        <p>Pai Geraldo de Paiva Gonçalves</p>
+                        <p>{{ $dados->nome_mae }}</p>
+                        <p>{{ $dados->nome_pai }}</p>
                     </div>
                     <div class="col-3">
                         <label>CPF</label>
-                        <p>123.123.123-99</p>
+                        <p>{{ $dados->cpf }}</p>
                     </div>
                 </div>
                 <div class="row info-membro">
@@ -50,17 +50,17 @@
                     </div>
                     <div class="col-3">
                         <label>Expedido</label>
-                        <p>31/02/2021</p>
+                        <p>{{ $dados->expedido }}</p>
                     </div>
                 </div>
                 <div class="row info-membro">
                     <div class="col-9">
                         <label>RG</label>
-                        <p>234552344</p>
+                        <p>{{ $dados->rg }}</p>
                     </div>
                     <div class="col-3">
                         <label>Validade</label>
-                        <p>31/02/2022</p>
+                        <p>{{ $dados->vigencia}}</p>
                     </div>
                 </div>
                 <div class="row info-membro">
@@ -77,12 +77,12 @@
             <div class="carteira carteira__frente front">
                 <div class="row info-membro">
                     <div class="col justify-content-end align-items-start pt-1">
-                        <p>Registro CFEP Nº 16000001</p>
+                        <p>Registro CFEP Nº {{ $dados->ncarteirinha }}</p>
                     </div>
                 </div>
                 <div class="row info-membro">
                     <div class="col col-4">
-                        <img src="/images/fotos-membros/16 000 001 Dr. Paiva (foto).jpg" alt="">
+                        <img src="/images/fotos-membros/{{ $dados->foto }}" alt="">
                         {{-- <div class="img-test">foto</div> --}}
                     </div>
                     <div class="col col-4 justify-content-center pb-3">
@@ -95,12 +95,10 @@
             </div>
         </div>
     </label>
- 
-    
+@endsection
 
-    {{-- <div class="table-responsive">
 
-         {{ $dados->foto }} <br>
+    {{-- {{ $dados->foto }} <br>
     {{ $dados->user_id }} <br>
     {{ $dados->ncarteirinha }} <br>
     {{ $dados->nome }} <br> {{ $dados->nome_mae }} <br>
@@ -118,7 +116,4 @@
     {{ $dados->foto}} <br>
     {{ $dados->expedido }} <br>
     {{ $dados->vigencia}} <br>
-    {{ $dados->ativo }} <br>
-        </div>
-
-@endsection
+    {{ $dados->ativo }} <br> --}}

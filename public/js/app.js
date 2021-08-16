@@ -52490,13 +52490,18 @@ var DownloadPDF = /*#__PURE__*/function () {
   _createClass(DownloadPDF, [{
     key: "downloadCertificado",
     value: function downloadCertificado() {
+      var _this = this;
+
       this.btnCertificadoDownload = this.element.querySelector('[data-certificado-pdf]');
       this.btnCertificadoDownload.addEventListener('click', function () {
         var certificado = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]('landscape');
-        var nome = 'Rubens Rubão da Silva Gimenez da Cunha';
-        var cpf = '100.000.100-00';
-        var inscricao = '16.000.001';
-        var expedido = '28 de maio de 1991';
+        var dataUser = _this.element.dataset;
+        var nome = dataUser.name;
+        var cpf = dataUser.cpf;
+        var inscricao = dataUser.inscricao;
+        var expedido = dataUser.expedido;
+        var data = '28/02/1991'; // const dia = 
+
         certificado.addImage('/images/certificado.jpg', 'JPEG', 0, 0, 297, 210);
         certificado.setFontSize(32);
         certificado.text(nome, certificado.internal.pageSize.getWidth() / 2, 103, null, null, 'center');

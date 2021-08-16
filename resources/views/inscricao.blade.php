@@ -115,7 +115,7 @@
                         placeholder="(00) 0000-0000" data-mask="phone" required>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="nomeP">Celular</label>
+                    <label>Celular</label>
                     <input type="text" class="form-control" id="celular" name="celular" size="40" maxlength="70"
                         placeholder="(00) 90000-0000" data-mask="phone_cel" required>
                 </div>

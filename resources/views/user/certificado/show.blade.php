@@ -2,7 +2,22 @@
 
 @section('content')
 
-    <div data-download-pdf class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-2 mb-5 border-bottom">
+    <div 
+        data-download-pdf 
+        data-name="{{ $dados->nome }}"
+        data-cpf="{{ $dados->cpf }}"
+        data-inscricao="{{ $dados->ncarteirinha }}"
+        data-expedido="{{ $dados->expedido }}"
+        class="
+        d-flex 
+        justify-content-between 
+        flex-wrap 
+        flex-md-nowrap 
+        align-items-center 
+        py-2 
+        mb-5 
+        border-bottom"
+    >
         <h1 class="h2">Certificado CFEP</h1>
 
         <div class="btn-toolbar mb-2 mb-md-0">
@@ -17,7 +32,7 @@
         </div>
     </div>
 
-    <div>
+    {{-- <div>
     {{ $dados->foto }} <br>
     {{ $dados->user_id }} <br>
     {{ $dados->ncarteirinha }} <br>
@@ -37,7 +52,7 @@
     {{ $dados->expedido }} <br>
     {{ $dados->vigencia}} <br>
     {{ $dados->ativo }} <br>
-</div>
+</div> --}}
 </div>
 
 @endsection

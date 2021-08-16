@@ -16,11 +16,15 @@ export default class DownloadPDF {
 
         this.btnCertificadoDownload.addEventListener('click', () => {
             const certificado = new jsPDF('landscape');
+            
+            const dataUser = this.element.dataset;
+            const nome = dataUser.name;
+            const cpf = dataUser.cpf;
+            const inscricao = dataUser.inscricao;
+            const expedido = dataUser.expedido;
 
-            const nome = 'Rubens Rubão da Silva Gimenez da Cunha';
-            const cpf = '100.000.100-00';
-            const inscricao = '16.000.001';
-            const expedido = '28 de maio de 1991';
+            const data = '28/02/1991';
+            // const dia = 
 
             certificado.addImage('/images/certificado.jpg', 'JPEG', 0, 0, 297, 210);
 
