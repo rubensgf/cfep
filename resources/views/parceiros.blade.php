@@ -24,40 +24,21 @@
                 <legend class="w-auto">Dados da Empresa</legend>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
                         <label for="razaoSocial">Razão Social</label>
                         <input type="text" class="form-control" id="razao_social" name="razao_social" size="40"
                             maxlength="100" placeholder="Informe a Razão Social" required>
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="nomeFantasia">Nome Fantasia</label>
                         <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia" size="40"
                             maxlength="100" placeholder="Informe o Nome Fantasia da empresa" required>
                     </div>
-                </div>
-
-                <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="cnpj"> CNPJ</label>
                         <input type="text" class="form-control" id="cnpj" name="cnpj" size="40" maxlength="20"
-                            placeholder="Digite o número do CNPJ sem pontos e traços">
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="endereco"> Endereço</label>
-                        <input type="text" class="form-control" id="endereco" name="endereco" size="40" maxlength="100"
-                            placeholder="digite o endereço">
-                    </div>
-                    <div class="form-group col-md-1">
-                        <label for="numero"> Número</label>
-                        <input type="text" class="form-control" id="numero" name="numero" size="40" maxlength="15"
-                            placeholder="digite o número">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="compl"> Complemento</label>
-                        <input type="text" class="form-control" id="complemento" name="complemento" size="40" maxlength="100"
-                            placeholder="digite o complemento do endereço">
+                            placeholder="Digite o número do CNPJ sem pontos e traços" data-mask="cnpj" required>
                     </div>
                 </div>
 
@@ -65,17 +46,38 @@
                     <div class="form-group col-md-3">
                         <label for="cep"> CEP</label>
                         <input type="text" class="form-control" id="cep" name="cep" size="40" maxlength="12"
-                            placeholder="digite o Código Postal">
+                            placeholder="digite o Código Postal" data-mask="cep" required>
+                        <span class="font-weight-bold" id="cep-error"></span>
                     </div>
+
+                    <div class="form-group col-md-7">
+                        <label for="endereco"> Endereço</label>
+                        <input type="text" class="form-control" id="endereco" name="endereco" size="40" maxlength="100"
+                            placeholder="digite o endereço">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="numero"> Número</label>
+                        <input type="text" class="form-control" id="numero" name="numero" size="40" maxlength="15"
+                            placeholder="digite o número">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="compl"> Complemento</label>
+                        <input type="text" class="form-control" id="complemento" name="complemento" size="40" maxlength="100"
+                            placeholder="digite o complemento do endereço">
+                    </div>
+                    
                     <div class="form-group col-md-3">
                         <label for="bairro"> Bairro</label>
                         <input type="text" class="form-control" id="bairro" name="bairro" size="40" maxlength="100"
                             placeholder="digite o Bairro">
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="municipio"> Cidade</label>
-                        <input type="text" class="form-control" id="municipio" name="municipio" size="40"
-                            maxlength="100" placeholder="digite o Município">
+                    <div class="form-group col-md-5">
+                        <label for="cidade"> Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade" size="40"
+                            maxlength="100" placeholder="digite a Cidade">
                     </div>
 
                     <div class="form-group col-md-2">
@@ -146,17 +148,17 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="email">E-mail</label>
-                        <input type="text" class="form-control" id="email" name="email" size="40" maxlength="50"
+                        <input type="email" class="form-control" id="email" name="email" size="40" maxlength="50"
                             placeholder="Digite um e-mail válido">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="fone">Telefone</label>
-                        <input type="text" class="form-control" id="telefone" name="telefone" size="40" maxlength="100"
+                        <input type="text" class="form-control" id="telefone" name="telefone" data-mask="phone"
                             placeholder="Digite no formato 99 9999-9999">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="fone">Celular</label>
-                        <input type="text" class="form-control" id="celular" name="celular" size="40" maxlength="100"
+                        <input type="text" class="form-control" id="celular" name="celular" data-mask="phone_cel"
                             placeholder="Digite no formato 99 9999-9999">
                     </div>
                 </div>
