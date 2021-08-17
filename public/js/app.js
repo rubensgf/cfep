@@ -52479,7 +52479,6 @@ var DownloadPDF = /*#__PURE__*/function () {
   function DownloadPDF(elem) {
     _classCallCheck(this, DownloadPDF);
 
-    // alert('teste')
     this.element = document.querySelector(elem);
 
     if (this.element) {
@@ -52488,25 +52487,36 @@ var DownloadPDF = /*#__PURE__*/function () {
   }
 
   _createClass(DownloadPDF, [{
+    key: "formatarData",
+    value: function formatarData(str) {
+      var partes = str.split('/').map(Number);
+      var data = new Date('20' + partes[2], partes[1] - 1, partes[0]);
+      return data.toLocaleString([], {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+  }, {
     key: "downloadCertificado",
     value: function downloadCertificado() {
-      var _this = this;
-
       this.btnCertificadoDownload = this.element.querySelector('[data-certificado-pdf]');
+      var dataUser = this.element.dataset;
+      var cpf = dataUser.cpf;
+      var expedido = this.formatarData("".concat(dataUser.expedido));
+      var inscricao = dataUser.inscricao;
+      inscricao = inscricao.substring(0, 2) + ' ' + inscricao.substring(2, 5) + ' ' + inscricao.substring(5);
+      var nome = dataUser.name;
+      nome = nome.toUpperCase();
       this.btnCertificadoDownload.addEventListener('click', function () {
-        var certificado = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]('landscape');
-        var dataUser = _this.element.dataset;
-        var nome = dataUser.name;
-        var cpf = dataUser.cpf;
-        var inscricao = dataUser.inscricao;
-        var expedido = dataUser.expedido;
-        var data = '28/02/1991'; // const dia = 
+        var certificado = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]('landscape'); // Background do certificado
 
-        certificado.addImage('/images/certificado.jpg', 'JPEG', 0, 0, 297, 210);
-        certificado.setFontSize(32);
+        certificado.addImage('/images/certificado.jpg', 'JPEG', 0, 0, 297, 210); // Nome do Membro
+
+        certificado.setFontSize(26);
         certificado.text(nome, certificado.internal.pageSize.getWidth() / 2, 103, null, null, 'center');
         certificado.setFontSize(16);
-        certificado.text("portador do CPF N\xBA".concat(cpf, ", obteve inscri\xE7\xE3o de N\xBA").concat(inscricao, " no quadro"), certificado.internal.pageSize.getWidth() / 2, 114, null, null, 'center');
+        certificado.text("portador do CPF N\xBA ".concat(cpf, ", obteve inscri\xE7\xE3o de N\xBA ").concat(inscricao, " no quadro"), certificado.internal.pageSize.getWidth() / 2, 114, null, null, 'center');
         certificado.setFontSize(16);
         certificado.text('de educadores e pedagogos do Conselho Federal de Educadores e Pedagogos.', certificado.internal.pageSize.getWidth() / 2, 121, null, null, 'center');
         certificado.setFontSize(16);
@@ -53002,8 +53012,8 @@ var PasswordValidate = /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rubens/Projects/desenv/docker/docker_php_mysql/www/cfep/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/rubens/Projects/desenv/docker/docker_php_mysql/www/cfep/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\willy\OneDrive\Área de Trabalho\projeto-cfep\cfep\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\willy\OneDrive\Área de Trabalho\projeto-cfep\cfep\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

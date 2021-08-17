@@ -3,7 +3,6 @@ import { jsPDF } from "jspdf";
 
 export default class DownloadPDF {
     constructor(elem) {
-        // alert('teste')
         this.element = document.querySelector(elem);
 
         if (this.element) {
@@ -11,31 +10,42 @@ export default class DownloadPDF {
         }
     }
 
+    formatarData(str) {
+        const partes = str.split('/').map(Number);
+        const data = new Date('20' + partes[2], partes[1] - 1, partes[0]);
+        return data.toLocaleString([], { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+      
     downloadCertificado() {
         this.btnCertificadoDownload = this.element.querySelector('[data-certificado-pdf]');
 
+        const dataUser = this.element.dataset;
+        const cpf = dataUser.cpf;
+        const expedido = this.formatarData(`${dataUser.expedido}`);
+        
+        let inscricao = dataUser.inscricao;
+        inscricao = inscricao.substring(0, 2) + 
+        ' ' + inscricao.substring(2, 5) + 
+        ' ' + inscricao.substring(5);
+        
+        let nome = dataUser.name;
+        nome = nome.toUpperCase();
+        
         this.btnCertificadoDownload.addEventListener('click', () => {
             const certificado = new jsPDF('landscape');
-            
-            const dataUser = this.element.dataset;
-            const nome = dataUser.name;
-            const cpf = dataUser.cpf;
-            const inscricao = dataUser.inscricao;
-            const expedido = dataUser.expedido;
 
-            const data = '28/02/1991';
-            // const dia = 
-
+            // Background do certificado
             certificado.addImage('/images/certificado.jpg', 'JPEG', 0, 0, 297, 210);
 
-            certificado.setFontSize(32);
+            // Nome do Membro
+            certificado.setFontSize(26);
             certificado.text(
                 nome,
                 certificado.internal.pageSize.getWidth() / 2, 103, null, null, 'center');
 
             certificado.setFontSize(16);
             certificado.text(
-                `portador do CPF Nº${cpf}, obteve inscrição de Nº${inscricao} no quadro`,
+                `portador do CPF Nº ${cpf}, obteve inscrição de Nº ${inscricao} no quadro`,
                 certificado.internal.pageSize.getWidth() / 2, 114, null, null, 'center');
 
             certificado.setFontSize(16);

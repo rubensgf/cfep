@@ -8,15 +8,9 @@
         data-cpf="{{ $dados->cpf }}"
         data-inscricao="{{ $dados->ncarteirinha }}"
         data-expedido="{{ $dados->expedido }}"
-        class="
-        d-flex 
-        justify-content-between 
-        flex-wrap 
-        flex-md-nowrap 
-        align-items-center 
-        py-2 
-        mb-5 
-        border-bottom"
+        class="d-flex justify-content-between flex-wrap 
+        flex-md-nowrap align-items-center 
+        py-2 px-3 mb-5 border-bottom"
     >
         <h1 class="h2">Certificado CFEP</h1>
 
