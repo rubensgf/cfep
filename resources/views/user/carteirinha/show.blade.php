@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center p-3 mb-3 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-2 px-3 mb-3 border-bottom">
         <h1 class="h2">Indentidade Profissional</h1>
 
         <div class="btn-group">
