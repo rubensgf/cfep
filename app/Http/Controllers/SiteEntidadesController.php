@@ -15,9 +15,10 @@ class SiteEntidadesController extends Controller
     public function show($id)
     {
         
-        $entidade = Entidade::where('cnpj', $id)->first();
+        $entidade = Entidade::where('cnpj', $id)->where('ativo','1')->first();
         if(!$entidade){
-            $entidade = UserDados::where('nomeFantasma', 'LIKE',"%{$id}%")->get();
+            $entidade = Entidade::where('nomeFantasma', 'LIKE',"%{$id}%")
+            ->where('ativo','1')->get();
         }
         return response()->json($entidade);
         
