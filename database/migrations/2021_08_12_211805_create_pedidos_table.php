@@ -14,7 +14,8 @@ class CreatePedidosTable extends Migration
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            //$table->uuid('id')->primary();
+            $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('produto_id');
             $table->string('code_payment')->nullable();

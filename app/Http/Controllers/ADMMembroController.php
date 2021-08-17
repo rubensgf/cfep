@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Membro;
 use App\UserDados;
 use Illuminate\Support\Facades\DB;
 

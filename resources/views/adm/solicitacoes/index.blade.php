@@ -35,8 +35,8 @@
                     @foreach ($pedidos as $pedido)
                         <tr>
                             <td>{{ $pedido->id }}</td>
-                            <td>{{ $pedido->nome }}</td>
-                            <td>{{ $pedido->produto_id }} - {{ $pedido->valor }} </td>
+                            <td>{{ $pedido->nome }} <br> {{ $pedido->email }} </td>
+                            <td>{{ $pedido->descricao }} - {{ $pedido->valor }} </td>
                             <td>{{ $pedido->code_payment }}</td>
                             <td>{{ $pedido->transaction_id }}</td>
                             <td>{{ $pedido->status }}</td>
