@@ -23,7 +23,7 @@
             <li><a href="{{ route('perfil') }}">Meu CFEP</a></li>
         @else
             <p></p>
-            @if (Auth::user()->role == 'adm')
+            @if (Auth::user()->role == 'adm' || Auth::user()->role == 'user'  )
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('entidades') }}">Entidades</a></li>
             <li><a href="{{ route('membros') }}">Membros</a></li>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Membro;
+use App\UserDados;
 
 class SiteMembrosController extends Controller
 {
@@ -14,9 +14,11 @@ class SiteMembrosController extends Controller
 
     public function show($id)
     {
-        $membro = Membro::where('cpf', $id)->first();
+      
+        $membro = UserDados::where('cpf', $id)->first();
+        
         if(!$membro){
-            $membro = Membro::where('id', $id)->first();
+            $membro = UserDados::where('ncarteirinha', $id)->first();
         }
         return response()->json($membro);
     }

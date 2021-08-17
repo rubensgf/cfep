@@ -12,9 +12,7 @@
             <form id="remove" action="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
-                {{-- <button type="submit" class="btn btn-success"><span><a href="{{ route('2via', $dados->id) }}">Solicitar 2° via</a> </span></button> --}}
-                {{-- <button type="button" class="btn btn-primary">Baixar</button> --}}
-                <button type="submit" class="btn btn-primary">Solicitar 2° via</button>
+                <button type="submit" class="btn btn-primary"><a href="{{ route('2via', $dados->id) }}">Solicitar 2° via</a> </button> 
             </form>
         </div>
     </div>

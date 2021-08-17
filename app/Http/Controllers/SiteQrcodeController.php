@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Membro;
+use App\UserDados;
 
 class SiteQrcodeController extends Controller
 {
     public function show($id)
     {
-        $membro = Membro::where('uuid', $id)->first();
+
+        $membro = UserDados::where('ncarteirinha', $id)->first();
 
         return view('consultaQrcode', compact('membro'));
     }
