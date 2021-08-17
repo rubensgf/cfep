@@ -55,6 +55,9 @@ class SiteInscricaoController extends Controller
             'uf' => $request->input('uf'),
             'cep' => $request->input('cep'),
             'foto' => $request->input('foto'),
+            //'naturalidade' => $request->input('naturalidade'),
+            //'naturalidade_uf' => $request->input('naturalidade_uf'),
+            //'doador' => $request->input('doador'),
         ]);
         $ud->save();
 
