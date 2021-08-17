@@ -15,7 +15,7 @@
 
 <body>
     <div id="app">
-        <main class="wrapper">
+        <main class="wrapper-sidebar">
 
             @include('layouts._nav')
 

@@ -141,6 +141,14 @@ li {
     list-style: none;
 }
 
+.btn-primary,
+.btn-secondary {
+    color: $white !important;
+
+    a {
+        color: inherit;
+    }
+}
 
 // svgtens animados
 

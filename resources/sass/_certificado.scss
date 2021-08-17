@@ -1,0 +1,67 @@
+.box-certificado {
+    padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    .certificado {
+        width: 100%;
+        height: 100vh;
+        background-image: url("/images/certificado.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top center;
+        
+        @media (max-width: 768px) {
+            height: 65vh;
+        }
+
+        .row {
+            text-align: center;
+
+            p {
+                font-weight: 600;
+                margin: 0;
+                font-size: 18px;
+                font-family: sans-serif;
+                color: #444;
+
+                @media (max-width: 1219px) {
+                    font-size: 14px;
+                }
+
+                @media (max-width: 959px) {
+                    font-size: 10px;
+                }
+
+                @media (max-width: 479px) {
+                    font-size: 8px;
+                }
+            }
+
+        }
+        
+        .name-row {
+            padding-top: 30%;
+            
+            p {
+                text-transform: uppercase;
+                font-size: 24px;
+                
+                @media (max-width: 959px) {
+                    font-size: 1rem;
+                }
+
+                @media (max-width: 479px) {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        .expedido-row {
+            padding-top: 5%;
+            padding-right: 12%;
+        }
+    }
+}

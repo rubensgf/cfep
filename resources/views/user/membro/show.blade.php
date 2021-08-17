@@ -3,39 +3,65 @@
 @section('content')
 
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Perfil</h1>
-                </div>
-                <div class="table-responsive">
 
-                @foreach ($dados as $i)
-                    {{ $i->foto }} <br>
-                    {{ $i->user_id }} <br>
-                    {{ $i->ncarteirinha }} <br>
-                    {{ $i->nome }} <br> {{ $i->nome_mae }} <br>
-                    {{ $i->nome_pai }} <br>         {{ $i->sexo}} <br>
-                    {{ $i->data_nascimento}} <br>
-                    {{ $i->rg }} <br>
-                    {{ $i->cpf}} <br>
-                    {{ $i->telefone }} <br>
-                    {{ $i->celular}} <br>
-                    {{ $i->endereco }} <br>
-                    {{ $i->numero}} <br>
-                    {{ $i->cidade }} <br>
-                    {{ $i->uf}} <br>
-                    {{ $i->cep }} <br>
-                    {{ $i->foto}} <br>
-                    {{ $i->expedido }} <br>
-                    {{ $i->vigencia}} <br>
-                    {{ $i->ativo }} <br>
-                    {{$i->email }} <br>
-                @endforeach
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Perfil</h1>
+        
+        <div class="pull-right">
+            <a href="javascript:history.back()" class="btn btn-secondary mr-1">Voltar</a>
+        </div>
+    </div>
+    
+    @foreach ($dados as $i)
+        <div class="row consulta-perfil">
+            <div class="col-md-3">
+                @if ($i->foto)
+                    <img class="foto-img img-fluid border mb-4" src="/images/fotos-membros/{{ $i->foto }}">
+                @else
+                    <div
+                        class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
+                        <small>Sem Foto</small>
+                    </div>
+                @endif
+            </div>
 
-</div>
-            </main>
+            <ul class="col-md-9 p-0">
+                <li class="mb-3"><span class="font-weight-bold">{{ $i->nome }}</span></li>
 
+                <fieldset class="p-2 mb-2">
+                    <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
 
+                    <li>N° inscrição: <span>{{ $i->ncarteirinha }}</span></li>
+                    <li>Expedido: <span>{{ $i->expedido }}</span></li>
+                    <li>Validade: <span>{{ $i->vigencia }}</span></li>
+                    <li>Situação: <span>{{ $i->ativo }}</span></li>
+                </fieldset>
 
+                <fieldset class="p-2 mb-2">
+                    <legend class="w-auto m-0 fs-20">Dados pessoais</legend>
 
+                    <li>Nome: <span>{{ $i->nome }}</span></li>
+                    <li>Mãe: <span>{{ $i->nome_mae }}</span></li>
+                    <li>Pai: <span>{{ $i->nome_pai }}</span></li>
+                    <li>Nascimento: <span>{{ $i->data_nascimento }}</span></li>
+                    <li>Sexo: <span>{{ $i->sexo }}</span></li>
+                    <li>RG: <span>{{ $i->rg }}</span></li>
+                    <li>CPF: <span>{{ $i->cpf }}</span></li>
+                    <li>Endereço: <span>{{ $i->endereco }}</span></li>
+                    <li>UF: <span>{{ $i->uf }}</span></li>
+                    <li>E-mail: <span>{{ $i->email }}</span></li>
+                    <li>Telefone: <span>{{ $i->telefone }} / {{ $i->celular }}</span></li>
+                </fieldset>
+                {{-- <fieldset class="p-2 mb-2">
+                    <legend class="w-auto m-0 fs-20">Graduação</legend>
+    
+                    <li>Graduação: <span>{{ $i->graduacao }}</span></li>
+                    <li>Universidade: <span>{{ $i->universidade }}</span></li>
+                    <li>Data Formação: <span>{{ $i->dataFormacao }}</span></li>
+    
+                </fieldset> --}}
+            </ul>
+        </div>
+    @endforeach
+    </div>
 @endsection
