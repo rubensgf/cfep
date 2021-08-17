@@ -37,13 +37,12 @@
                 @foreach ($pedidos as $pedido)
                     <tr>
                         <td>{{ $pedido->id }}</td>
-                        <td>{{ $pedido->nome }}</td>
-                        <td>{{ $pedido->produto_id }} - {{ $pedido->valor }} </td>
+                        <td>{{ $pedido->nome }} <br> {{ $pedido->email }} </td>
+                        <td>{{ $pedido->descricao }} - {{ $pedido->valor }} </td>
                         <td>{{ $pedido->code_payment }}</td>
                         <td>{{ $pedido->transaction_id }}</td>
                         <td>{{ $pedido->status }}</td>
-                        <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->id) }}">ver</a>
-                        </td>
+                        <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->id) }}">ver</a></td>
                     </tr>
                 @endforeach
             </tbody>

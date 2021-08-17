@@ -82,7 +82,9 @@ class SiteInscricaoController extends Controller
         ]);
         $p->save();*/
 
-        return redirect()->route('pagamento', [$user_id, $produto_id]);
+
+
+        return redirect()->route('pagamentos', [$user_id, $produto_id]);
 
     }
 
