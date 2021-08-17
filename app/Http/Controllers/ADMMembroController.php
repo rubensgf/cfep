@@ -73,8 +73,11 @@ class ADMMembroController extends Controller
     public function update(Request $request, $id)
     {
 
-
         UserDados::find($id)->update($request->all());
+
+        //$membro= UserDados::find($id);
+
+        //dd($membro);
         return redirect()->route('membros')
                         ->with('success','Dados alterados com sucesso!');
     }

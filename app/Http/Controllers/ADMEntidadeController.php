@@ -41,6 +41,7 @@ class ADMEntidadeController extends Controller
             'telefone' => $request->input('telefone'),
             'celular' => $request->input('celular'),
             'sexo' => $request->input('sexo'),
+            'ativo' => '1'
         ]);
         $ud->save();
 

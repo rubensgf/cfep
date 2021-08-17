@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="form-row justify-content-between flex-wrap flex-md-nowrap align-items-center py-3 mb-5 border-bottom">
-        <h2 class="mb-md-0">Solicitações (Novos inscritos, 2ª via)</h2>
-        <div class="pull-right">
+        <h2 class="mb-md-0">Solicitações - Inscritos, 2ª Via e Parceiros</h2>
+        <!--<div class="pull-right">
             <a href="javascript:history.back()" class="btn btn-secondary mr-2">Voltar</a>
-        </div>
+        </div>-->
     </div>
 
     <div class="form-row justify-content-end">
@@ -25,11 +25,14 @@
             <thead>
                 <tr>
                     <th>Id</th>
+                    <th>Tipo</th>
                     <th>Nome / Email</th>
-                    <th>Produto / valor</th>
+                    <th>Valor</th>
                     <th>Cod. payment</th>
                     <th>Cod. transação</th>
-                    <th>Status</th>
+                    
+                    <th>Pagamento</th>
+                    <th>Situaçao</th>
                     <th></th>
                 </tr>
             </thead>
@@ -37,12 +40,39 @@
                 @foreach ($pedidos as $pedido)
                     <tr>
                         <td>{{ $pedido->id }}</td>
+                        <td>{{ $pedido->descricao }} </td>
                         <td>{{ $pedido->nome }} <br> {{ $pedido->email }} </td>
-                        <td>{{ $pedido->descricao }} - {{ $pedido->valor }} </td>
+                        <td>{{ $pedido->valor }} </td>
                         <td>{{ $pedido->code_payment }}</td>
                         <td>{{ $pedido->transaction_id }}</td>
+                        
                         <td>{{ $pedido->status }}</td>
-                        <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->id) }}">ver</a></td>
+                        <td>{{ $pedido->situacao }}</td>
+
+                        @if ($pedido->status === 'confirmado' || $pedido->status == 'criado'   )
+                            <!--if ($pedido->descricao === 'inscricao' )-->
+                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.membros', $pedido->id) }}">ver</a></td>
+                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.entidades', $pedido->id) }}">ver</a></td>
+                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->user_id) }}">ver</a></td> 
+                        @else
+                            <td></td>
+                        @endif
+
+                      
+                            
+                    </tr>
+                @endforeach
+                @foreach ($entidades as $e)
+                    <tr>
+                        <td>{{ $e->id }}</td>
+                        <td>Parcerias</td>
+                        <td>{{ $e->nome }} <br>  </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $e->ativo == '0' ? 'aguardando' : '' }}</td>                    
+                        <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.entidades', $e->id) }}">ver</a></td>        
                     </tr>
                 @endforeach
             </tbody>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UserDados;
 use App\Pedido;
+use App\Entidade;
 use Illuminate\Support\Facades\DB;
 
 class ADMSolicitacoesController extends Controller
@@ -22,7 +23,9 @@ class ADMSolicitacoesController extends Controller
          on(pe.produto_id =  po.id)
          WHERE pe.status in('criado','confirmado') order by pe.id asc ");
 
-        return view('adm.solicitacoes.index', compact('pedidos'));
+        $entidades = Entidade::where('ativo','0')->orderBy('id')->get();
+
+        return view('adm.solicitacoes.index', compact('pedidos', 'entidades'));
 
     }
 
@@ -51,8 +54,36 @@ class ADMSolicitacoesController extends Controller
                         ->with('success','Dados alterados com sucesso!');
     }
 
-    public function destroy($id)
+    public function showMembros($id)
     {
-        //
+        $membro = UserDados::findOrFail($id);
+     
+
+        return view('adm.solicitacoes.showMembro',compact('membro'));
+    }
+    public function showEntidades($id)
+    {
+        $entidade = Entidade::findOrFail($id);
+        return view('adm.solicitacoes.showEntidade',compact('entidade'));
+    }
+
+    public function updateMembros(Request $request, $id)
+    {
+
+        UserDados::find($id)->update($request->all());
+        //$membro= UserDados::find($id);
+        //dd($membro);
+        return redirect()->route('solicitacoes')
+                        ->with('success','Dados alterados com sucesso!');
+    }
+
+    public function updateEntidades(Request $request, $id)
+    {
+
+        Entidade::find($id)->update($request->all());
+        //$membro= Entidade::find($id);
+        
+        return redirect()->route('solicitacoes')
+                       ->with('success','Dados alterados com sucesso!');
     }
 }
