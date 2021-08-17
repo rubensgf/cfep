@@ -23,7 +23,7 @@ class CreatePedidosTable extends Migration
             $table->decimal('valor');
             $table->string('observacao')->nullable();
             $table->enum('situacao',['aguardando', 'finalizado'])->default('aguardando');
-            $table->enum('status',['criado', 'confirmado','negado','cancelado'])->default('criado');
+            $table->enum('status',['aguardando', 'confirmado','negado','cancelado'])->default('criado');
             $table->timestamps();
         });
     }

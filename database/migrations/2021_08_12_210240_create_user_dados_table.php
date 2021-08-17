@@ -41,7 +41,7 @@ class CreateUserDadosTable extends Migration
             $table->string('assinatura')->nullable();
             $table->date('expedido')->nullable();
             $table->date('vigencia')->nullable();
-            $table->enum('auditado',['0', '1'])->nullable();
+            $table->enum('auditado',['0', '1', '2'])->nullable();
             $table->enum('ativo',['0', '1'])->default('0');
             $table->timestamps();
         });

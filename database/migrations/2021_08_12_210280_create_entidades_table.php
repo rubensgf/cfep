@@ -35,7 +35,7 @@ class CreateEntidadesTable extends Migration
             $table->string('cpf')->nullable();
             $table->date('expedido')->nullable();
             $table->date('vigencia')->nullable();
-            $table->enum('ativo',['0', '1'])->default('0');
+            $table->enum('ativo',['0','1','2'])->default('0');
             $table->timestamps();
         });
     }

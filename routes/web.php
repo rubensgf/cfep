@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/adm/membros', 'ADMMembroController@index')->name('membros');
     Route::get('/adm/membros/show/{codigo}',[ 'as' => 'adm.membros.show', 'uses' => 'ADMMembroController@show']);
-    Route::put('/adm/membros/update/{codigo}',[ 'as' => 'adm.membros.update', 'uses' => 'ADMMembroController@update']);
+    Route::post('/adm/membros/update/{codigo}',[ 'as' => 'adm.membros.update', 'uses' => 'ADMMembroController@update']);
     Route::get('/adm/membros/create',[ 'as' => 'adm.membros.create', 'uses' => 'ADMMembrosController@create']);
 
     Route::get('/adm/entidades', 'ADMEntidadeController@index')->name('entidades');
@@ -51,7 +51,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/adm/solicitacoes', 'ADMSolicitacoesController@index')->name('solicitacoes');
     Route::get('/adm/solicitacoes/show/{codigo}',[ 'as' => 'adm.solicitacoes.show', 'uses' => 'ADMSolicitacoesController@show']);
-    Route::put('/adm/solicitacoes/update/{codigo}',[ 'as' => 'adm.solicitacoes.update', 'uses' => 'ADMSolicitacaoController@update']);
+    Route::get('/adm/solicitacoes/membros/{codigo}',[ 'as' => 'adm.solicitacoes.membros', 'uses' => 'ADMSolicitacoesController@showMembros']);
+    Route::get('/adm/solicitacoes/entidades/{codigo}',[ 'as' => 'adm.solicitacoes.entidades', 'uses' => 'ADMSolicitacoesController@showEntidades']);
+    Route::put('/adm/solicitacoes/update/{codigo}',[ 'as' => 'adm.solicitacoes.update', 'uses' => 'ADMSolicitacoesController@update']);
+    //Route::put('/adm/solicitacoes/update/{codigo}/membro',[ 'as' => 'adm.solicitacoes.update', 'uses' => 'ADMSolicitacaoController@update']);
+    Route::post('/adm/solicitacoes/membros/update/{codigo}',[ 'as' => 'adm.solicitacoes.membros.update', 'uses' => 'ADMSolicitacoesController@updateMembros']);
+    Route::post('/adm/solicitacoes/entidades/update/{codigo}',[ 'as' => 'adm.solicitacoes.entidades.update', 'uses' => 'ADMSolicitacoesController@updateEntidades']);
+    
 
     Route::get('/usr/perfil', 'USRMembroController@index')->name('perfil');
     Route::get('/usr/certificado', 'USRCertificadoController@index')->name('certificado');

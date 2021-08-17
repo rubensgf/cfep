@@ -25,9 +25,10 @@
             <p></p>
             @if (Auth::user()->role == 'adm' || Auth::user()->role == 'user'  )
             <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('solicitacoes') }}">Solicitações</a></li>
             <li><a href="{{ route('entidades') }}">Entidades</a></li>
             <li><a href="{{ route('membros') }}">Membros</a></li>
-            <li><a href="{{ route('solicitacoes') }}">Solicitações</a></li>
+            
             @endif
             <hr>
             <li><a href="{{ route('perfil') }}">Meus dados</a></li>
