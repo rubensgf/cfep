@@ -38,16 +38,17 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
                 <button type="submit" class="btn btn-success">
-                    <span><a href="{{ route('confirmar', [$user_id, $produto_id]) }}">Realizar Pagamento</a></span>
+                        {{-- <a href="{{ route('confirmar', [$user_id, $produto_id]) }}">Realizar Pagamento</a> --}}
+                        <a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#myModal">Realizar Pagamento</a>
                 </button>
             </form>
         </div>
 
-        <div class="row px-3 mt-4 justify-content-center">
+        {{-- <div class="row px-3 mt-4 justify-content-center">
             
-            <a data-toggle="modal" id="btn-pay" class="btn btn-secondary" href="https://sandbox.pagseguro.uol.com.br/checkout/nc/sender-identification.jhtml?t=b967a71976035ccdf958c6a4c8ddaae9&e=true#rmcl" data-target="#myModal">Realizar Pagamento</a>
+            <a data-toggle="modal" id="btn-pay" class="btn btn-secondary" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#myModal">Realizar Pagamento</a>
             
-        </div>
+        </div> --}}
  
  
         <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
