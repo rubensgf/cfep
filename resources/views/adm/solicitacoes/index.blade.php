@@ -49,7 +49,7 @@
                         <td>{{ $pedido->status }}</td>
                         <td>{{ $pedido->situacao }}</td>
                         <td>
-                        @if ($pedido->status === 'confirmado')
+                        @if ($pedido->status === 'confirmado' ||  $pedido->status === 'aguardando')
                             @if ($pedido->produto_id === '1' ) 
                                 <a class="btn btn-primary" href="{{ route('adm.solicitacoes.membros', $pedido->id) }}">ver</a>
                             @else
