@@ -16,23 +16,26 @@
 
                 <li>N° inscrição: <span>{{ $membro->id }}</span></li>
                 <li>Expedido: <span>{{ $membro->expedido }}</span></li>
-                <li>Validade: <span>{{ $membro->validade }}</span></li>
+                <li>Validade: <span>{{ $membro->vigencia }}</span></li>
                 <li>Situação: <span>{{ $membro->situacao }}</span></li>
             </fieldset>
             <fieldset class="p-2 mb-2">
                 <legend class="w-auto m-0 fs-20">Dados pessoais</legend>
 
                 <li>Nome: <span>{{ $membro->nome }}</span></li>
-                <li>Mãe: <span>{{ $membro->nomeM }}</span></li>
-                <li>Pai: <span>{{ $membro->nomeP }}</span></li>
-                <li>Nascimento: <span>{{ $membro->dataNasc }}</span></li>
+                <li>Mãe: <span>{{ $membro->nome_mae }}</span></li>
+                <li>Pai: <span>{{ $membro->nome_pai }}</span></li>
+                <li>Nascimento: <span>{{ $membro->data_nascimento }}</span></li>
                 <li>Sexo: <span>{{ $membro->sexo }}</span></li>
                 <li>RG: <span>{{ $membro->rg }}</span></li>
                 <li>CPF: <span>{{ $membro->cpf }}</span></li>
+                <li>CEP: <span>{{ $membro->cep }}</span></li>
                 <li>Endereço: <span>{{ $membro->endereco }}</span></li>
+                <li>Cidade: <span>{{ $membro->cidade }}</span></li>
                 <li>UF: <span>{{ $membro->uf }}</span></li>
+
                 <li>E-mail: <span>{{ $membro->email }}</span></li>
-                <li>Telefone: <span>{{ $membro->foneF }} / {{ $membro->fone }}</span></li>
+                <li>Telefone: <span>{{ $membro->telefone }} / {{ $membro->celular }}</span></li>
             </fieldset>
             <fieldset class="p-2 mb-2">
                 <legend class="w-auto m-0 fs-20">Graduação</legend>

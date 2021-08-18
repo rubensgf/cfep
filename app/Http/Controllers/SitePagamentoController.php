@@ -8,6 +8,7 @@ use App\Pedido;
 use App\User;
 use App\Produto;
 use Illuminate\Support\Env;
+use DB;
 
 class SitePagamentoController extends Controller
 {
@@ -40,9 +41,8 @@ class SitePagamentoController extends Controller
         if(!$produto){
             dd('erro produto');
         }
-
+        
         $pedido = new Pedido([
-           // 'uuid' => 'uij1141212',
             'user_id' => $user_id,
             'produto_id' => $produto_id,
             'valor' => $produto->valor
@@ -50,7 +50,6 @@ class SitePagamentoController extends Controller
         $pedido->save();
         $pedido_id = $pedido->id;
 
-//$pedido_id = 1;
         $descricao = $produto->descricao;
         $total = $produto->valor;
 
@@ -66,7 +65,7 @@ class SitePagamentoController extends Controller
         $data['itemId1'] = '1';
         $data['itemQuantity1'] = '1';
         $data['itemDescription1'] = $descricao . '-' . $user_id;
-        $data['itemAmount1'] = '150.00';
+        $data['itemAmount1'] = $total;
         $data['reference'] = $pedido_id;
 
         //Transformando os dados da compra no formato da URL separados por & comercial
@@ -85,8 +84,6 @@ class SitePagamentoController extends Controller
         curl_close($curl);
 
         $xml = simplexml_load_string($xml);
-
-        //dd($xml);
 
 
         return redirect('https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code='.$xml->code);

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pedido extends Model
 {
     protected $fillable = [
+
         'user_id',
         'produto_id',
         'code_payment',
@@ -15,7 +16,9 @@ class Pedido extends Model
         'observacao',
         'situacao',
         'status'
-
     ];
 
 }
+
+
+

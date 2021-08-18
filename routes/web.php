@@ -69,8 +69,11 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-    Route::get('/pagamento/{id}/{id2}', 'SitePagamentoController@index')->name('pagamentos');
+  
     Route::get('/2via/{id}', 'USR2viaController@index')->name('2via');
 
     Route::get('/pagamento/{id}/{id2}/confirmar', 'SitePagamentoController@store')->name('confirmar');
 });
+Route::get('/pagamento/{id}/{id2}', 'SitePagamentoController@index')->name('pagamentos');
+
+Route::post('checkout', 'PagseguroController@checkout');

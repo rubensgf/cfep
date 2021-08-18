@@ -48,16 +48,15 @@
                         
                         <td>{{ $pedido->status }}</td>
                         <td>{{ $pedido->situacao }}</td>
-
-                        @if ($pedido->status === 'confirmado' || $pedido->status == 'criado'   )
-                            <!--if ($pedido->descricao === 'inscricao' )-->
-                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.membros', $pedido->id) }}">ver</a></td>
-                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.entidades', $pedido->id) }}">ver</a></td>
-                            <td><a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->user_id) }}">ver</a></td> 
-                        @else
-                            <td></td>
+                        <td>
+                        @if ($pedido->status === 'confirmado')
+                            @if ($pedido->produto_id === '1' ) 
+                                <a class="btn btn-primary" href="{{ route('adm.solicitacoes.membros', $pedido->id) }}">ver</a>
+                            @else
+                                <a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->user_id) }}">ver</a>
+                            @endif
                         @endif
-
+                        </td>
                       
                             
                     </tr>

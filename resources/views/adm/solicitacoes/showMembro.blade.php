@@ -9,17 +9,19 @@
             <div class="pull-right">
                 <a href="javascript:history.back()" class="btn btn-secondary mr-2">Voltar</a>
             </div>
-            <form id="remove" action="{{ route('adm.solicitacoes.membros.update', $membro->id) }}" method="post"
+            <form id="remove" action="{{ route('adm.solicitacoes.membros.update', $pedido_id) }}" method="post"
                 onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                @if ($membro->auditado === '0')
                     <input type="hidden" name="auditado" value="1">
                     <input type="hidden" name="ativo" value="1">
                     <button type="submit" class="btn btn-success"><span>Confirmar dados</span></button>
-                @else
+            </form>
+            <form id="remove" action="{{ route('adm.solicitacoes.membros.update', $pedido_id) }}" method="post"
+                onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     <input type="hidden" name="auditado" value="2">
+                    <input type="hidden" name="ativo" value="0">
                     <button type="submit" class="btn btn-danger"><span>Bloquear</span></button>
-                @endif
             </form>
         </div>
     </div>

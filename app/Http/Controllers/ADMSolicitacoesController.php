@@ -21,7 +21,7 @@ class ADMSolicitacoesController extends Controller
                 pe.*
          FROM pedidos pe inner join users u on(pe.user_id = u.id) inner join produtos po 
          on(pe.produto_id =  po.id)
-         WHERE pe.status in('criado','confirmado') order by pe.id asc ");
+         WHERE pe.status in('aguardando','confirmado')  and pe.situacao = 'aguardando' order by pe.id asc ");
 
         $entidades = Entidade::where('ativo','0')->orderBy('id')->get();
 
@@ -56,10 +56,14 @@ class ADMSolicitacoesController extends Controller
 
     public function showMembros($id)
     {
-        $membro = UserDados::findOrFail($id);
-     
+        
+        $pedido_id = $id;
 
-        return view('adm.solicitacoes.showMembro',compact('membro'));
+        $pedido = Pedido::findOrFail($id);
+
+        $membro = UserDados::findOrFail($pedido->user_id);
+
+        return view('adm.solicitacoes.showMembro',compact('membro', 'pedido_id'));
     }
     public function showEntidades($id)
     {
@@ -70,9 +74,24 @@ class ADMSolicitacoesController extends Controller
     public function updateMembros(Request $request, $id)
     {
 
-        UserDados::find($id)->update($request->all());
-        //$membro= UserDados::find($id);
-        //dd($membro);
+        $pedido_id = $id;
+        $auditado = $request->get('auditado');
+        $ativo = $request->get('ativo');
+
+        $pedido = Pedido::find($pedido_id)->first();
+        $user_id = $pedido->user_id;
+        $pedido->situacao = 'finalizado';
+        $pedido->save();
+
+        //$p = Pedido::find($pedido_id)->first();
+
+        //dd($p, $pedido_id);
+
+        $user_dados = UserDados::where('user_id', $user_id)->first();
+        $user_dados->auditado = $auditado;
+        $user_dados->ativo = $ativo;
+        $user_dados->save();
+
         return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
     }
