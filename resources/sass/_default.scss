@@ -141,12 +141,16 @@ li {
     list-style: none;
 }
 
-.btn-primary,
-.btn-secondary {
+.btn {
     color: $white !important;
 
     a {
         color: inherit;
+        
+        &:hover {
+            text-decoration: none;
+            color: inherit;
+        }
     }
 }
 

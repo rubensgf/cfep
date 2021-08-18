@@ -23,6 +23,10 @@ export default class CepValidate {
                         $("#cidade").val(resposta.localidade);
                         $("#uf").val(resposta.uf);
                         $("#numero").focus();
+
+                        console.log('resposta:', resposta)
+
+                        $('#cep-error').html("");
                     },
                     error: function () {
                         $('#cep-error').html("<span style='color:red'>*CEP inválido</span>");

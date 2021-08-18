@@ -52805,6 +52805,8 @@ var CepValidate = /*#__PURE__*/function () {
               $("#cidade").val(resposta.localidade);
               $("#uf").val(resposta.uf);
               $("#numero").focus();
+              console.log('resposta:', resposta);
+              $('#cep-error').html("");
             },
             error: function error() {
               $('#cep-error').html("<span style='color:red'>*CEP inválido</span>");

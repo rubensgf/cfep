@@ -6,8 +6,10 @@
         <div class="form-title flex-column my-5 text-center font-weight-bold">
             <h2>Formulário de inscrição</h2>
             <p class="d-flex align-items-center justify-content-center">
-                <span class="mr-1 pb-1">@include('icons.icon-warning-circle')</span>
-                Preencha todos os campos com atenção
+                <span class="mr-1 pb-1">
+                    @include('icons.icon-warning-circle')
+                </span>
+                    Preencha todos os campos com atenção
             </p>
         </div>
     </div>
