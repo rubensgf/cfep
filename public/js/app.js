@@ -52726,7 +52726,12 @@ var publicSearch = new _components_publicSearch_index__WEBPACK_IMPORTED_MODULE_1
 var filterTable = new _utils_filterTable__WEBPACK_IMPORTED_MODULE_2__["default"]('[data-filter-table]');
 var mask = new _utils_mask__WEBPACK_IMPORTED_MODULE_3__["default"]('input[data-mask]');
 var password = new _utils_passwordValidate__WEBPACK_IMPORTED_MODULE_5__["default"]('#password');
-var cepValidate = new _utils_cepValidate__WEBPACK_IMPORTED_MODULE_4__["default"]('#cep'); // function TestaCPF() {
+var cepValidate = new _utils_cepValidate__WEBPACK_IMPORTED_MODULE_4__["default"]('#cep');
+$('#btn-pay').on('click', function (e) {
+  e.preventDefault();
+  var url = $(this).attr('href');
+  $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="' + url + '"></iframe>');
+}); // function TestaCPF() {
 //     var strCPF = "12345678909";
 //     var Soma;
 //     var Resto;
@@ -52791,25 +52796,33 @@ var CepValidate = /*#__PURE__*/function () {
   _createClass(CepValidate, [{
     key: "validate",
     value: function validate() {
-      $("#cep").focusout(function () {
+      $('#cep').focusout(function () {
         if ($('#cep').val().length == 0) {
-          $('#cep-error').html("");
+          $('#cep-error').html('');
         } else {
           $.ajax({
             url: '//viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
             dataType: 'json',
             success: function success(resposta) {
-              $("#endereco").val(resposta.logradouro);
-              $("#complemento").val(resposta.complemento);
-              $("#bairro").val(resposta.bairro);
-              $("#cidade").val(resposta.localidade);
-              $("#uf").val(resposta.uf);
-              $("#numero").focus();
-              console.log('resposta:', resposta);
-              $('#cep-error').html("");
+              if (resposta.erro) {
+                $('#cep-error').html('<span style="color:red">✘CEP inválido</span>');
+                $('#endereco').val('');
+                $('#complemento').val('');
+                $('#bairro').val('');
+                $('#cidade').val('');
+                $('#uf').val('');
+              } else {
+                $('#endereco').val(resposta.logradouro);
+                $('#complemento').val(resposta.complemento);
+                $('#bairro').val(resposta.bairro);
+                $('#cidade').val(resposta.localidade);
+                $('#uf').val(resposta.uf);
+                $('#numero').focus();
+                $('#cep-error').html('<span style="color:green">✔</span>');
+              }
             },
             error: function error() {
-              $('#cep-error').html("<span style='color:red'>*CEP inválido</span>");
+              $('#cep-error').html('<span style="color:red">✘CEP inválido</span>');
             }
           });
         }
@@ -53014,8 +53027,8 @@ var PasswordValidate = /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rubens/Projects/desenv/docker/docker_php_mysql/www/cfep/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/rubens/Projects/desenv/docker/docker_php_mysql/www/cfep/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\willy\OneDrive\Área de Trabalho\projeto-cfep\cfep\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\willy\OneDrive\Área de Trabalho\projeto-cfep\cfep\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -3,6 +3,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" type="image/x-icon" href="/images/icon-logo-cfep.png">
 
+<!-- Styles -->
+<link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
 
@@ -40,6 +43,3 @@
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-<!-- Styles -->
-<link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">

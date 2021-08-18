@@ -31,11 +31,7 @@
             </div>
         </div>
 
-        <div class="row px-3 justify-content-center">
-            
-                <a href="#" class="btn_checkout">Realizar Pagamento</a>
-            
-        </div>
+        
 
         <div class="row px-3 justify-content-center">
             <form id="remove" action="">
@@ -47,6 +43,23 @@
             </form>
         </div>
 
+        <div class="row px-3 mt-4 justify-content-center">
+            
+            <a data-toggle="modal" id="btn-pay" class="btn btn-secondary" href="https://sandbox.pagseguro.uol.com.br/checkout/nc/sender-identification.jhtml?t=b967a71976035ccdf958c6a4c8ddaae9&e=true#rmcl" data-target="#myModal">Realizar Pagamento</a>
+            
+        </div>
+ 
+ 
+        <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            {{-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> --}}
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="height: 100%">
+          </div>
+        </div>
 
 <script 
   src="https://code.jquery.com/jquery-3.6.0.min.js"

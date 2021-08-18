@@ -141,7 +141,9 @@ li {
     list-style: none;
 }
 
-.btn {
+.btn-primary,
+.btn-secondary,
+.btn-success {
     color: $white !important;
 
     a {

@@ -22,7 +22,11 @@ export const password = new Password('#password');
 
 export const cepValidate = new CepValidate('#cep');
 
-
+$('#btn-pay').on('click', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="'+url+'"></iframe>');
+});
 
 // function TestaCPF() {
 //     var strCPF = "12345678909";

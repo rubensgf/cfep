@@ -214,15 +214,21 @@ li {
   list-style: none;
 }
 
-.btn {
+.btn-primary,
+.btn-secondary,
+.btn-success {
   color: #ffffff !important;
 }
 
-.btn a {
+.btn-primary a,
+.btn-secondary a,
+.btn-success a {
   color: inherit;
 }
 
-.btn a:hover {
+.btn-primary a:hover,
+.btn-secondary a:hover,
+.btn-success a:hover {
   text-decoration: none;
   color: inherit;
 }
@@ -11453,6 +11459,7 @@ a.text-dark:focus {
   font-size: 1.1em;
   display: block;
   transition: background-color, 0.5s;
+  text-decoration: none;
 }
 
 .wrapper-sidebar #sidebar ul li a:hover {
