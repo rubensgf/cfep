@@ -23,6 +23,13 @@
                 </div>
             </div> --}}
 
+         
+
+        
+
+
+
+
             <div class="box-aviso row w-auto my-4 px-3">
                 <div class="col-md-8 py-2">
                     <p class="font-weight-bold mb-1">IMPORTANTE:</p>
@@ -32,49 +39,50 @@
                         3360-5181</p>
                 </div>
             </div>
-
+     
             <div data-loader-gift class="row justify-content-center my-5 is-hidden">
                 <img src="/images/gif/loader-blue.gif" width="40">
             </div>
-
-            <div data-box-result-search class="is-hidden">
-                <div class="row justify-content-center my-4">
-                    <div class="form-title flex-column text-center font-weight-bold mt-3">
-                        <h2>Resultado</h2>
-                    </div>
-                </div>
-
-                <div class="row consulta-perfil bg-white p-4">
-                    <div class="col-md-3 d-flex justify-content-center">
-                        @if (1 > 0)
-                            <img data-search="foto" class="mb-4 mb-md-0 foto-img img-fluid border" src="">
-                        @else
-                            <div
-                                class="foto-img mb-4 mb-md-0 img-fluid border d-flex justify-content-center align-items-center">
-                                <small>Sem Foto</small>
-                            </div>
-                        @endif
+            @foreach ($membro as $i)
+                <div data-box-result-search class="is-hidden">
+                    <div class="row justify-content-center my-4">
+                        <div class="form-title flex-column text-center font-weight-bold mt-3">
+                            <h2>Resultado</h2>
+                        </div>
                     </div>
 
-                    <ul class="col-md-9 p-2">
-                        <li class="mb-3">
-                            <span class="font-weight-bold" data-search="nome"></span>
-                        </li>
-                        <li>Nº inscrição:
-                            <span data-search="id"></span>
-                        </li>
-                        <li>Expedido:
-                            <span data-search="expedido"></span>
-                        </li>
-                        <li>Validade:
-                            <span data-search="validade"></span>
-                        </li>
-                        <li>Situação:
-                            <span data-search="situacao"></span>
-                        </li>
-                    </ul>
+                    <div class="row consulta-perfil bg-white p-4">
+                        <div class="col-md-3 d-flex justify-content-center">
+                            @if (1 > 0)
+                                <img data-search="foto" class="mb-4 mb-md-0 foto-img img-fluid border" src="{{ $i->foto}}">
+                            @else
+                                <div
+                                    class="foto-img mb-4 mb-md-0 img-fluid border d-flex justify-content-center align-items-center">
+                                    <small>Sem Foto</small>
+                                </div>
+                            @endif
+                        </div>
+
+                        <ul class="col-md-9 p-2">
+                            <li class="mb-3">
+                                <span class="font-weight-bold" data-search="nome">{{ $i->nome_mae}}</span>
+                            </li>
+                            <li>Nº inscrição:
+                                <span data-search="id">{{ $i->ncarteirinha }}</span>
+                            </li>
+                            <li>Expedido:
+                                <span data-search="expedido">{{ $i->expedido}}</span>
+                            </li>
+                            <li>Validade:
+                                <span data-search="validade">{{ $i->vigencia}}</span>
+                            </li>
+                            <li>Situação:
+                                <span data-search="situacao">{{ $i->ativo}}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @endforeach
 
             <div data-box-result-search-fail class="is-hidden px-3">
                 <div class="row justify-content-center my-5 bg-white">
@@ -85,6 +93,7 @@
             </div>
         </div>
     </div>
+    
 
 @section('footer')
     @include('partials.footer')

@@ -10,8 +10,8 @@ class Pedido extends Model
 
         'user_id',
         'produto_id',
-        'code_payment',
-        'transaction_id',
+        'token',
+        'referencia',
         'valor',
         'observacao',
         'situacao',

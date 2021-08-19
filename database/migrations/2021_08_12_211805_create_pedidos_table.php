@@ -17,8 +17,8 @@ class CreatePedidosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->nullable();
             $table->string('produto_id')->nullable();
-            $table->string('code_payment')->nullable();
-            $table->string('transaction_id')->nullable();
+            $table->string('referencia')->nullable();
+            $table->string('token')->nullable();
             $table->string('valor')->nullable();
             $table->string('observacao')->nullable();
             $table->enum('situacao',['aguardando', 'grafica', 'enviado','finalizado'])->default('aguardando');

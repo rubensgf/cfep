@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/adm/membros', 'ADMMembroController@index')->name('membros');
     Route::get('/adm/membros/show/{codigo}',[ 'as' => 'adm.membros.show', 'uses' => 'ADMMembroController@show']);
     Route::post('/adm/membros/update/{codigo}',[ 'as' => 'adm.membros.update', 'uses' => 'ADMMembroController@update']);
-    Route::get('/adm/membros/create',[ 'as' => 'adm.membros.create', 'uses' => 'ADMMembrosController@create']);
+    Route::get('/adm/membros/create',[ 'as' => 'adm.membros.create', 'uses' => 'ADMMembroController@create']);
 
     Route::get('/adm/entidades', 'ADMEntidadeController@index')->name('entidades');
     Route::get('/adm/entidades/show/{codigo}',[ 'as' => 'adm.entidade.show', 'uses' => 'ADMEntidadeController@show']);

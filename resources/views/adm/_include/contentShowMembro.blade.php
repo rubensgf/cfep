@@ -1,6 +1,6 @@
 <div class="col-md-3">
             @if ($membro->foto)
-                <img class="foto-img img-fluid border mb-4" src="public/files{{ $membro->ncarteirinha }}/{{ $membro->foto }}">
+                <img class="foto-img img-fluid border mb-4" src="{{ env('PATH_FILES') }}/{{ $membro->ncarteirinha }}/{{ $membro->foto }}">
             @else
                 <div class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
                     <small>Sem Foto</small>
@@ -11,8 +11,14 @@
         <ul class="col-md-9 p-0">
             <li class="mb-3"><span class="font-weight-bold">{{ $membro->nome }}</span></li>
 
+            <li>token transacao : <span>{{ env('LINK_REDIRECT')}}/{{ $pedido->token }}</span></li>
+
             <fieldset class="p-2 mb-2">
                 <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
+
+                <li>ref. pedido : <span>{{ $pedido->referencia }}</span></li>
+                <li>token transacao : <span>{{ $pedido->token }}</span></li>
+
 
                 <li>N° inscrição: <span>{{ $membro->id }}</span></li>
                 <li>Expedido: <span>{{ $membro->expedido }}</span></li>
@@ -46,14 +52,14 @@
 
             </fieldset>
             <fieldset class="p-2 mb-2">
-                <legend class="w-auto m-0 fs-20">Documentação</legend>
+                <legend class="w-auto m-0 fs-20">Documentação {{ env('PATH_FILES') }}</legend>
                 <li><span>FICHA </span><a href="#">Baixar</a></li>
-                <li><span>Diploma </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->diploma}}">Baixar</a></li>
-                <li><span>Diploma verso </span><a href="{{env('PATH_FILES')}}/{{$membro->ncarteirinha}}/{{ $arquivos->diploma_verso}}">Baixar</a></li>
-                <li><span>RG </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->rg}}">Baixar</a></li>
-                <li><span>CPF </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->cpf}}">Baixar</a></li>
-                <li><span>Título </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->titulo}}">Baixar</a></li>
-                <li><span>Comprovante </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->comprovante}}">Baixar</a></li>
+                <li><span>Diploma </span><a href="{{ env('PATH_FILES') }}/{{ $membro->ncarteirinha }}/{{ $arquivos->diploma}}">Baixar</a></li>
+                <li><span>Diploma verso </span><a href="{{ env('PATH_FILES') }}/{{$membro->ncarteirinha}}/{{ $arquivos->diploma_verso}}">Baixar</a></li>
+                <li><span>RG </span><a href="{{ env('PATH_FILES') }}/{{$membro->ncarteirinha}}/{{ $arquivos->rg}}">Baixar</a></li>
+                <li><span>CPF </span><a href="{{ env('PATH_FILES') }}/{{$membro->ncarteirinha}}/{{ $arquivos->cpf}}">Baixar</a></li>
+                <li><span>Título </span><a href="{{ env('PATH_FILES') }}/{{$membro->ncarteirinha}}/{{ $arquivos->titulo}}">Baixar</a></li>
+                <li><span>Comprovante </span><a href="{{ env('PATH_FILES') }}/{{$membro->ncarteirinha}}/{{ $arquivos->comprovante}}">Baixar</a></li>
                 
             </fieldset>
         </ul>

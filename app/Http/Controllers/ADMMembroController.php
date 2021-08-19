@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UserDados;
 use App\UserFiles;
+use App\Pedido;
 use Illuminate\Support\Facades\DB;
 
 class ADMMembroController extends Controller
@@ -51,6 +52,7 @@ class ADMMembroController extends Controller
 
     public function create()
     {
+        
         return view('adm.membros.create');
     }
 
@@ -65,7 +67,10 @@ class ADMMembroController extends Controller
 
         $arquivos = UserFiles::findOrFail($id);
 
-        return view('adm.membros.show',compact('membro', 'id', 'arquivos'));
+        //pega o ultimo pedido do usuario
+        $pedido = Pedido::where('user_id',$id)->where('produto_id','1')->orderBy('id', 'desc')->first();
+
+        return view('adm.membros.show',compact('membro', 'id', 'arquivos', 'pedido'));
     }
 
     public function edit($id)

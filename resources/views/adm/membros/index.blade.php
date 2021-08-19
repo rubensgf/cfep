@@ -7,7 +7,7 @@
         <!--<div class="pull-right">
             <a href="javascript:history.back()" class="btn btn-secondary mr-2">Voltar</a>
         </div>-->
-       <a href="{{ route('adm.membros.create') }}" type="button" class="btn btn-success"
+       <a href="{{ route('inscricao') }}" type="button" class="btn btn-success"
             title="Cadastrar novo membro">+ Cadastrar</a>
     </div>
 

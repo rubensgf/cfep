@@ -10,7 +10,8 @@ class SiteQrcodeController extends Controller
     public function show($id)
     {
 
-        $membro = UserDados::where('ncarteirinha', $id)->first();
+        $membro = UserDados::where('ncarteirinha', $id)->get();
+
 
         return view('consultaQrcode', compact('membro'));
     }
