@@ -28,9 +28,7 @@
                     <th>Tipo</th>
                     <th>Nome / Email</th>
                     <th>Valor</th>
-                    <th>Cod. payment</th>
-                    <th>Cod. transação</th>
-                    
+                    <th>Data</th>
                     <th>Pagamento</th>
                     <th>Situaçao</th>
                     <th></th>
@@ -40,25 +38,19 @@
                 @foreach ($pedidos as $pedido)
                     <tr>
                         <td>{{ $pedido->id }}</td>
-                        <td>{{ $pedido->descricao }} </td>
+                        <td>{{ $pedido->produto }} </td>
                         <td>{{ $pedido->nome }} <br> {{ $pedido->email }} </td>
                         <td>{{ $pedido->valor }} </td>
-                        <td>{{ $pedido->code_payment }}</td>
-                        <td>{{ $pedido->transaction_id }}</td>
-                        
+                        <td>{!! date('d/M/y', strtotime($pedido->created_at)) !!}<td>
                         <td>{{ $pedido->status }}</td>
                         <td>{{ $pedido->situacao }}</td>
                         <td>
-                        @if ($pedido->status === 'confirmado' ||  $pedido->status === 'aguardando')
                             @if ($pedido->produto_id === '1' ) 
                                 <a class="btn btn-primary" href="{{ route('adm.solicitacoes.membros', $pedido->id) }}">ver</a>
                             @else
-                                <a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->user_id) }}">ver</a>
+                                <a class="btn btn-primary" href="{{ route('adm.solicitacoes.show', $pedido->id) }}">ver</a>
                             @endif
-                        @endif
                         </td>
-                      
-                            
                     </tr>
                 @endforeach
                 @foreach ($entidades as $e)

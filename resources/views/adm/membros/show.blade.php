@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-2 mb-5 border-bottom">
-        <h1 class="h2">Detalhes do inscritos Nº{{ $membro->id }} {{$membro->ativo}}</h1>
+        <h1 class="h2">Detalhes do inscritos Nº{{ $membro->id }}</h1>
 
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">

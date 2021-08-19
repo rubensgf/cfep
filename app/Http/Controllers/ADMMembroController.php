@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserDados;
+use App\UserFiles;
 use Illuminate\Support\Facades\DB;
 
 class ADMMembroController extends Controller
@@ -42,7 +43,7 @@ class ADMMembroController extends Controller
                 ud.ativo ,
                 u.email
          FROM users u inner join user_dados ud on(ud.user_id = u.id)
-         WHERE ud.ativo = '1' order by auditado asc ");
+         WHERE ud.ativo in('0','1') order by ativo desc, auditado asc ");
 
         return view('adm.membros.index', compact('membros'));
 
@@ -61,7 +62,10 @@ class ADMMembroController extends Controller
     public function show($id)
     {
         $membro = UserDados::findOrFail($id);
-        return view('adm.membros.show',compact('membro', 'id'));
+
+        $arquivos = UserFiles::findOrFail($id);
+
+        return view('adm.membros.show',compact('membro', 'id', 'arquivos'));
     }
 
     public function edit($id)

@@ -17,6 +17,7 @@ class CreateUserFilesTable extends Migration
             //$table->uuid('id')->primary();
             $table->bigIncrements('id');
             $table->integer('user_id');
+            $table->string('ficha')->nullable();
             $table->string('diploma')->nullable();
             $table->string('diploma_verso')->nullable();
             $table->string('rg')->nullable();

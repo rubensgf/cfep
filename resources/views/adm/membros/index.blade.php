@@ -6,9 +6,9 @@
         <h2 class="mb-md-0">Membros</h2>
         <!--<div class="pull-right">
             <a href="javascript:history.back()" class="btn btn-secondary mr-2">Voltar</a>
-        </div>
+        </div>-->
        <a href="{{ route('adm.membros.create') }}" type="button" class="btn btn-success"
-            title="Cadastrar novo membro">+ Cadastrar</a>-->
+            title="Cadastrar novo membro">+ Cadastrar</a>
     </div>
 
     <div class="form-row justify-content-end">
@@ -32,7 +32,8 @@
                     <th>Nome / Email</th>
                     <th>Telefone</th>
                     <th>Vigência</th>
-                    <th>Auditado <th>
+                    <th>Auditado </th>
+                    <th>Ativo </th>    
                     <th></th>
                 </tr>
             </thead>
@@ -47,10 +48,8 @@
                         <td>{{ $membro->telefone }}</td>
                         <td>{{ $membro->vigencia }}</td>
                         <td>{{ $membro->auditado == '0' ? 'Não' : 'Sim' }}</td>
-
-
-                        <td><a class="btn btn-primary" href="{{ route('adm.membros.show', $membro->id) }}">Ver</a>
-                        </td>
+                        <td>{{ $membro->ativo == '0' ? 'Não' : 'Sim' }}</td>
+                        <td><a class="btn btn-primary" href="{{ route('adm.membros.show', $membro->id) }}">Ver</a></td>
                     </tr>
                 @endforeach
             </tbody>

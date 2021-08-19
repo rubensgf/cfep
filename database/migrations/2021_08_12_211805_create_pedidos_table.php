@@ -21,7 +21,7 @@ class CreatePedidosTable extends Migration
             $table->string('transaction_id')->nullable();
             $table->string('valor')->nullable();
             $table->string('observacao')->nullable();
-            $table->enum('situacao',['aguardando', 'finalizado'])->default('aguardando');
+            $table->enum('situacao',['aguardando', 'grafica', 'enviado','finalizado'])->default('aguardando');
             $table->enum('status',['aguardando', 'confirmado','negado','cancelado'])->default('aguardando');
             $table->timestamps();
         });

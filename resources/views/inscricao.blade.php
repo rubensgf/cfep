@@ -260,7 +260,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label>Foto 3x4</label>
+                    <label>Foto 3x4</label> {{{ $errors->first('foto') }}}
                     <input type="file" class="btn btn-default border" id="foto" name="foto" accept="image/jpeg, image/png"
                         required>
                     <p>*A foto deve ter o formato 3x4 (Igual ao RG) e ter fundo branco para ser aceita</p>

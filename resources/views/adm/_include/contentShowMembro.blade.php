@@ -1,6 +1,6 @@
 <div class="col-md-3">
             @if ($membro->foto)
-                <img class="foto-img img-fluid border mb-4" src="/images/fotos-membros/{{ $membro->foto }}">
+                <img class="foto-img img-fluid border mb-4" src="public/files{{ $membro->ncarteirinha }}/{{ $membro->foto }}">
             @else
                 <div class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
                     <small>Sem Foto</small>
@@ -47,12 +47,14 @@
             </fieldset>
             <fieldset class="p-2 mb-2">
                 <legend class="w-auto m-0 fs-20">Documentação</legend>
-
-                <li><span>PDF </span><a href="#">Baixar</a></li>
-                <li><span>PDF </span><a href="#">Baixar</a></li>
-                <li><span>PDF </span><a href="#">Baixar</a></li>
-                <li><span>PDF </span><a href="#">Baixar</a></li>
-                <li><span>PDF </span><a href="#">Baixar</a></li>
+                <li><span>FICHA </span><a href="#">Baixar</a></li>
+                <li><span>Diploma </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->diploma}}">Baixar</a></li>
+                <li><span>Diploma verso </span><a href="{{env('PATH_FILES')}}/{{$membro->ncarteirinha}}/{{ $arquivos->diploma_verso}}">Baixar</a></li>
+                <li><span>RG </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->rg}}">Baixar</a></li>
+                <li><span>CPF </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->cpf}}">Baixar</a></li>
+                <li><span>Título </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->titulo}}">Baixar</a></li>
+                <li><span>Comprovante </span><a href="{{env('PATH_FILES')}}/{{ $arquivos->comprovante}}">Baixar</a></li>
+                
             </fieldset>
         </ul>
     </div>

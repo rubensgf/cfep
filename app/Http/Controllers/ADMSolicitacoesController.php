@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserDados;
+use App\UserFiles;
 use App\Pedido;
 use App\Entidade;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,7 @@ class ADMSolicitacoesController extends Controller
         $pedidos =  DB::select(" SELECT
                 u.name as nome,
                 u.email,
-                po.descricao,
+                po.nome as produto,
                 pe.*
          FROM pedidos pe inner join users u on(pe.user_id = u.id) inner join produtos po 
          on(pe.produto_id =  po.id)
@@ -34,11 +35,7 @@ class ADMSolicitacoesController extends Controller
         //
     }
 
-    public function show($id)
-    {
-        $membro = UserDados::findOrFail($id);
-        return view('adm.solicitacoes.show',compact('membro'));
-    }
+    
 
     public function edit($id)
     {
@@ -46,12 +43,18 @@ class ADMSolicitacoesController extends Controller
         return view('adm.solicitacoes.edit',compact('membro'));
     }
 
-    public function update(Request $request, $id)
+   
+    
+    public function show($id)
     {
+        $pedido_id = $id;
 
-        UserDados::find($id)->update($request->all());
-        return redirect()->route('membros')
-                        ->with('success','Dados alterados com sucesso!');
+        $pedido = Pedido::findOrFail($id);
+
+        $membro = UserDados::findOrFail($pedido->user_id);
+        
+
+        return view('adm.solicitacoes.show',compact('membro', 'pedido_id','pedido'));
     }
 
     public function showMembros($id)
@@ -63,12 +66,42 @@ class ADMSolicitacoesController extends Controller
 
         $membro = UserDados::findOrFail($pedido->user_id);
 
-        return view('adm.solicitacoes.showMembro',compact('membro', 'pedido_id'));
+        $arquivos = UserFiles::findOrFail($pedido->user_id);
+
+        return view('adm.solicitacoes.showMembro',compact('membro', 'pedido_id', 'arquivos', 'pedido'));
     }
+
     public function showEntidades($id)
     {
         $entidade = Entidade::findOrFail($id);
         return view('adm.solicitacoes.showEntidade',compact('entidade'));
+    }
+
+    //soliciacoes 2via
+    public function update(Request $request, $id)
+    {
+        $pedido_id = $id;
+        $situacao = $request->get('situacao');
+
+        //cancelar pedido caso nao tenha sido pago
+        if($request->get('status')){
+            
+            $pedido = Pedido::where('id',$pedido_id)->first();
+            $pedido->situacao = 'finalizado';
+            $pedido->status = 'cancelado';
+            $pedido->save();
+
+            return redirect()->route('solicitacoes')
+                        ->with('success','Dados alterados com sucesso!');
+        }
+
+        $pedido = Pedido::where('id',$pedido_id)->first();
+        $user_id = $pedido->user_id;
+        $pedido->situacao = $situacao;
+        $pedido->save();
+
+        return redirect()->route('solicitacoes')
+                        ->with('success','Dados alterados com sucesso!');
     }
 
     public function updateMembros(Request $request, $id)
@@ -78,14 +111,34 @@ class ADMSolicitacoesController extends Controller
         $auditado = $request->get('auditado');
         $ativo = $request->get('ativo');
 
-        $pedido = Pedido::find($pedido_id)->first();
+        //pagamento manual
+        if($request->get('status') === 'confirmado'){
+            $pedido = Pedido::where('id',$pedido_id)->first();
+            $pedido->situacao = 'aguardando';
+            $pedido->status = 'confirmado';
+            $pedido->save();
+
+            return redirect()->route('solicitacoes')
+                        ->with('success','Dados alterados com sucesso!');
+        }
+
+        //cancelar pedido caso nao tenha sido pago
+        if($request->get('status') === 'cancelado'){
+            
+            $pedido = Pedido::where('id',$pedido_id)->first();
+            $pedido->situacao = 'finalizado';
+            $pedido->status = 'cancelado';
+            $pedido->save();
+
+            return redirect()->route('solicitacoes')
+                        ->with('success','Dados alterados com sucesso!');
+        }
+
+
+        $pedido = Pedido::where('id',$pedido_id)->first();
         $user_id = $pedido->user_id;
         $pedido->situacao = 'finalizado';
         $pedido->save();
-
-        //$p = Pedido::find($pedido_id)->first();
-
-        //dd($p, $pedido_id);
 
         $user_dados = UserDados::where('user_id', $user_id)->first();
         $user_dados->auditado = $auditado;

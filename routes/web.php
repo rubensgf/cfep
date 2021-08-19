@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/adm/solicitacoes/show/{codigo}',[ 'as' => 'adm.solicitacoes.show', 'uses' => 'ADMSolicitacoesController@show']);
     Route::get('/adm/solicitacoes/membros/{codigo}',[ 'as' => 'adm.solicitacoes.membros', 'uses' => 'ADMSolicitacoesController@showMembros']);
     Route::get('/adm/solicitacoes/entidades/{codigo}',[ 'as' => 'adm.solicitacoes.entidades', 'uses' => 'ADMSolicitacoesController@showEntidades']);
-    Route::put('/adm/solicitacoes/update/{codigo}',[ 'as' => 'adm.solicitacoes.update', 'uses' => 'ADMSolicitacoesController@update']);
+    Route::post('/adm/solicitacoes/update/{codigo}',[ 'as' => 'adm.solicitacoes.update', 'uses' => 'ADMSolicitacoesController@update']);
     //Route::put('/adm/solicitacoes/update/{codigo}/membro',[ 'as' => 'adm.solicitacoes.update', 'uses' => 'ADMSolicitacaoController@update']);
     Route::post('/adm/solicitacoes/membros/update/{codigo}',[ 'as' => 'adm.solicitacoes.membros.update', 'uses' => 'ADMSolicitacoesController@updateMembros']);
     Route::post('/adm/solicitacoes/entidades/update/{codigo}',[ 'as' => 'adm.solicitacoes.entidades.update', 'uses' => 'ADMSolicitacoesController@updateEntidades']);
@@ -72,8 +72,8 @@ Route::middleware(['auth'])->group(function () {
   
     Route::get('/2via/{id}', 'USR2viaController@index')->name('2via');
 
-    Route::get('/pagamento/{id}/{id2}/confirmar', 'SitePagamentoController@store')->name('confirmar');
-});
+    });
 Route::get('/pagamento/{id}/{id2}', 'SitePagamentoController@index')->name('pagamentos');
+Route::get('/pagamento/{id}/{id2}/confirmar', 'SitePagamentoController@store')->name('confirmar');
 
 Route::post('checkout', 'PagseguroController@checkout');
