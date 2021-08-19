@@ -14,7 +14,6 @@ class CreateUserFilesTable extends Migration
     public function up()
     {
         Schema::create('user_files', function (Blueprint $table) {
-            //$table->uuid('id')->primary();
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('ficha')->nullable();

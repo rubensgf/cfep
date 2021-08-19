@@ -11,6 +11,7 @@ use App\UserFiles;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Validator,Redirect,Response,File;
+use App\Http\Requests\FileStoreRequest;
 
 class SiteInscricaoController extends Controller
 {
@@ -21,30 +22,33 @@ class SiteInscricaoController extends Controller
 
     public function store(Request $request)
     {
-        //return Redirect::back()->withInput()->withErrors(array('user_name' => $message));
-//<div>{{{ $errors->first('user_name') }}}</div>
+        
 
         $ncarteirinha =  date("y") . substr(str_shuffle("0123456789"), 0, 5);
         $input_data = $request->all();
 
         $validator = Validator::make(
             $input_data, [
-            'foto' => 'required|mimes:pdf,png,jpg|max:2000',
-            'arq_ficha' => 'required|mimes:pdf,png,jpg|max:2000'
+            'foto' => 'required|mimes:pdf,png,jpg,jpeg|max:2000',
+            'arq_ficha' => 'required|mimes:pdf,png,jpg,jpeg|max:2000'
             ],[
                 'foto.required' => 'Please upload an image',
                 'foto.mimes' => 'Only jpeg,png and bmp images are allowed',
                 'foto.max' => 'Sorry! Maximum allowed size for an image is 20MB',
+                'arq_ficha.required' => 'Please upload an image',
+                'arq_ficha.mimes' => 'Only jpeg,png and bmp images are allowed',
+                'arq_ficha.max' => 'Sorry! Maximum allowed size for an image is 20MB',
             ]
         );
+       /* dd($request->all());
 
         //dd($validator->failed());
-        //dd($validator->errors()->messages());
+        dd($validator->errors()->messages());
     
         if ($validator->fails()) {
             //return Redirect::back()->withInput()->withErrors(array(withInput() => $validator->errors()->first()));
             return Redirect::back()->withErrors($messages)->withInput();
-        }
+        } */
 
         $foto = $request->file('foto');
         $arq_ficha = $request->file('arq_ficha');
@@ -158,6 +162,20 @@ class SiteInscricaoController extends Controller
         $p->save();*/
 
         return redirect()->route('pagamentos', [$user_id, $produto_id]);
+
+        /* $pagamento = new Pagamento();
+        $retorno = $pagamento::gerarToken($user_id, $produto_id);
+
+        //dd($retorno);
+        //gerar o pedido
+        /*$p = new Pedido([
+            'membro_id' => $membro_id,
+            'produto_id' = $produto_id,
+            'valor' = $valor_id,
+        ]);
+        $p->save(); 
+
+        return redirect()->route('pagamentos', [$user_id, $produto_id, $retorno]); */
 
     }
 
