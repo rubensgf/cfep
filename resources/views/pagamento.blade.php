@@ -31,44 +31,22 @@
             </div>
         </div>
 
-        
-
         <div class="row px-3 justify-content-center">
             <form id="remove" action="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
                 <button type="submit" class="btn btn-success">
                         {{-- <a href="{{ route('confirmar', [$user_id, $produto_id]) }}">Realizar Pagamento</a> --}}
-                        <a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#myModal">Realizar Pagamento</a>
+                        <a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#modal-pagamento">Realizar Pagamento</a>
                 </button>
             </form>
         </div>
 
-        {{-- <div class="row px-3 mt-4 justify-content-center">
-            
-            <a data-toggle="modal" id="btn-pay" class="btn btn-secondary" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#myModal">Realizar Pagamento</a>
-            
-        </div> --}}
- 
- 
-        <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-header">
-            {{-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> --}}
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" style="height: 100%">
-          </div>
-        </div>
+        @include('partials.modals.modal-pagamento')
 
-<script 
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-    <script src="public/js/fecharpedido.js" >    
-    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js">
-    </script>
+        {{-- <script src="{{ asset('js/fecharpedido.js') }}" defer></script> --}}
+        
+        <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
 
 @section('footer')
     @include('partials.footer')
