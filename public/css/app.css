@@ -11469,8 +11469,8 @@ a.text-dark:focus {
 
 .wrapper-sidebar #sidebar ul li.active > a,
 .wrapper-sidebar a[aria-expanded=true] {
-  color: #fff;
-  background: #035c94;
+  color: #ccc;
+  background: #fff;
 }
 
 .wrapper-sidebar #sidebar ul li.active > a:hover,
@@ -11481,14 +11481,7 @@ a.text-dark:focus {
 
 .wrapper-sidebar a[data-toggle=collapse] {
   position: relative;
-}
-
-.wrapper-sidebar .dropdown-toggle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
+  background-color: black;
 }
 
 .wrapper-sidebar ul ul a {

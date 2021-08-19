@@ -131,8 +131,8 @@
 
     #sidebar ul li.active > a,
     a[aria-expanded="true"] {
-        color: #fff;
-        background: rgb(3, 92, 148);
+        color: #ccc;
+        background: #fff;
 
         &:hover {
             color: rgb(3, 108, 166);
@@ -142,15 +142,16 @@
 
     a[data-toggle="collapse"] {
         position: relative;
+        background-color: black;
     }
 
-    .dropdown-toggle::after {
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
-    }
+    // .dropdown-toggle::after {
+    //     display: block;
+    //     position: absolute;
+    //     top: 50%;
+    //     right: 20px;
+    //     transform: translateY(-50%);
+    // }
 
     ul ul a {
         font-size: 0.9em !important;

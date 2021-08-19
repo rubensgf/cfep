@@ -37,6 +37,7 @@
     });
 </script>
 
+<script src="{{ asset('js/qrcode.min.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 <title>CFEP - Conselho Federal de Educadores e Pedagogos</title>
