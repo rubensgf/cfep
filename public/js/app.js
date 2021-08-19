@@ -52695,7 +52695,7 @@ var PublicSearch = /*#__PURE__*/function () {
 /*!*******************************!*\
   !*** ./resources/js/index.js ***!
   \*******************************/
-/*! exports provided: downloadPDF, publicSearch, filterTable, mask, password, cepValidate */
+/*! exports provided: downloadPDF, publicSearch, filterTable, mask, password, cepValidate, generateQrcode */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52706,12 +52706,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mask", function() { return mask; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "password", function() { return password; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cepValidate", function() { return cepValidate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateQrcode", function() { return generateQrcode; });
 /* harmony import */ var _components_downloadPDF_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/downloadPDF/index */ "./resources/js/components/downloadPDF/index.js");
 /* harmony import */ var _components_publicSearch_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/publicSearch/index */ "./resources/js/components/publicSearch/index.js");
 /* harmony import */ var _utils_filterTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/filterTable */ "./resources/js/utils/filterTable.js");
 /* harmony import */ var _utils_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/mask */ "./resources/js/utils/mask.js");
 /* harmony import */ var _utils_cepValidate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/cepValidate */ "./resources/js/utils/cepValidate.js");
 /* harmony import */ var _utils_passwordValidate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/passwordValidate */ "./resources/js/utils/passwordValidate.js");
+/* harmony import */ var _utils_generateQrcode__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/generateQrcode */ "./resources/js/utils/generateQrcode.js");
+
 
 
 
@@ -52727,11 +52730,17 @@ var filterTable = new _utils_filterTable__WEBPACK_IMPORTED_MODULE_2__["default"]
 var mask = new _utils_mask__WEBPACK_IMPORTED_MODULE_3__["default"]('input[data-mask]');
 var password = new _utils_passwordValidate__WEBPACK_IMPORTED_MODULE_5__["default"]('#password');
 var cepValidate = new _utils_cepValidate__WEBPACK_IMPORTED_MODULE_4__["default"]('#cep');
+var generateQrcode = new _utils_generateQrcode__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-qrcode]');
 $('#btn-pay').on('click', function (e) {
   e.preventDefault();
   var url = $(this).attr('href');
   $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="' + url + '"></iframe>');
-}); // function TestaCPF() {
+}); // new QRCode(document.querySelector('[data-qrcode]'), {
+//     text: '//www.google.com.br',
+//     width: 150,
+//     height: 150,
+// })
+// function TestaCPF() {
 //     var strCPF = "12345678909";
 //     var Soma;
 //     var Resto;
@@ -52807,14 +52816,14 @@ var CepValidate = /*#__PURE__*/function () {
               if (resposta.erro) {
                 $('#cep-error').html('<span style="color:red">✘CEP inválido</span>');
                 $('#endereco').val('');
-                $('#complemento').val('');
-                $('#bairro').val('');
+                $('#complemento').val(''); // $('#bairro').val('');
+
                 $('#cidade').val('');
                 $('#uf').val('');
               } else {
                 $('#endereco').val(resposta.logradouro);
-                $('#complemento').val(resposta.complemento);
-                $('#bairro').val(resposta.bairro);
+                $('#complemento').val(resposta.complemento); // $('#bairro').val(resposta.bairro);
+
                 $('#cidade').val(resposta.localidade);
                 $('#uf').val(resposta.uf);
                 $('#numero').focus();
@@ -52878,6 +52887,54 @@ var FilterTable = /*#__PURE__*/function () {
   }]);
 
   return FilterTable;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/utils/generateQrcode.js":
+/*!**********************************************!*\
+  !*** ./resources/js/utils/generateQrcode.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GenerateQrcode; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var GenerateQrcode = /*#__PURE__*/function () {
+  function GenerateQrcode(elem) {
+    _classCallCheck(this, GenerateQrcode);
+
+    this.element = document.querySelector(elem);
+
+    if (this.element) {}
+
+    this.generate();
+  }
+
+  _createClass(GenerateQrcode, [{
+    key: "generate",
+    value: function generate() {
+      var idQrcode = this.element.dataset.qrcodeId;
+      console.log('idQrcode', idQrcode);
+      new QRCode(this.element, {
+        text: '//www.google.com.br',
+        width: 150,
+        height: 150,
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  }]);
+
+  return GenerateQrcode;
 }();
 
 

@@ -2,27 +2,32 @@
 
 @section('content')
 
-
-
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Perfil</h1>
-        
+
         <div class="pull-right">
             <a href="javascript:history.back()" class="btn btn-secondary mr-1">Voltar</a>
         </div>
     </div>
-    
-    @foreach ($dados as $i)
-        <div class="row consulta-perfil">
+
+    <div class="row consulta-perfil">
+        @foreach ($dados as $i)
             <div class="col-md-3">
-                @if ($i->foto)
-                    <img class="foto-img img-fluid border mb-4" src="/images/fotos-membros/{{ $i->foto }}">
-                @else
-                    <div
-                        class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
-                        <small>Sem Foto</small>
-                    </div>
-                @endif
+                <div class="foto-perfil">
+                    @if ($i->foto)
+                        <img class="foto-img img-fluid border mb-4" src="/images/fotos-membros/{{ $i->foto }}">
+                    @else
+                        <div
+                            class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
+                            <small>Sem Foto</small>
+                        </div>
+                    @endif
+                </div>
+
+                <div data-qrcode data-qrcode-id="{{ $i->ncarteirinha }}" class="qrcode d-flex justify-content-center"></div>
+                {{-- <p>QRCode</p> --}}
+                <p>Clique com botão direito para salvar</p>
+                
             </div>
 
             <ul class="col-md-9 p-0">
@@ -61,7 +66,6 @@
     
                 </fieldset> --}}
             </ul>
-        </div>
-    @endforeach
+        @endforeach
     </div>
 @endsection

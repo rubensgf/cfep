@@ -5,6 +5,7 @@ import FilterTable from './utils/filterTable';
 import Mask from './utils/mask';
 import CepValidate from './utils/cepValidate';
 import Password from './utils/passwordValidate';
+import GenerateQrcode from './utils/generateQrcode';
 
 $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
@@ -22,11 +23,24 @@ export const password = new Password('#password');
 
 export const cepValidate = new CepValidate('#cep');
 
+export const generateQrcode = new GenerateQrcode('[data-qrcode]');
+
+
+
 $('#btn-pay').on('click', function(e) {
     e.preventDefault();
     var url = $(this).attr('href');
     $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="'+url+'"></iframe>');
 });
+
+
+
+// new QRCode(document.querySelector('[data-qrcode]'), {
+//     text: '//www.google.com.br',
+//     width: 150,
+//     height: 150,
+    
+// })
 
 // function TestaCPF() {
 //     var strCPF = "12345678909";
