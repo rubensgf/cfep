@@ -12,11 +12,12 @@ use DB;
 
 class SitePagamentoController extends Controller
 {
-    public function index(Request $request, $id1, $id2) //$user_id, $produto_id, $pedido_id
+    public function index(Request $request, $id1, $id2, $id3) //$user_id, $produto_id, $pedido_id
     {
 
         $user_id = $id1;
         $produto_id = $id2;
+        $referencia = $id3;
 
         $user = User::where('id', $id1)->first();
         if(!$user){
@@ -28,7 +29,7 @@ class SitePagamentoController extends Controller
             dd('erro produto');
         }
 
-        return view('pagamento',compact('user_id', 'produto_id', 'produto'));
+        return view('pagamento',compact('user_id', 'produto_id', 'produto','referencia'));
     }
 
 

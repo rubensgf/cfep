@@ -44,7 +44,7 @@ class ADMMembroController extends Controller
                 ud.ativo ,
                 u.email
          FROM users u inner join user_dados ud on(ud.user_id = u.id)
-         WHERE ud.ativo in('0','1') order by ativo desc, auditado asc ");
+         WHERE ud.ativo in('0','1') order by ud.ativo desc, auditado asc ");
 
         return view('adm.membros.index', compact('membros'));
 

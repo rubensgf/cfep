@@ -8,6 +8,8 @@ use App\Pedido;
 use App\User;
 use App\UserDados;
 use App\UserFiles;
+use App\Produto;
+use App\Pagamento;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Validator,Redirect,Response,File;
@@ -104,6 +106,7 @@ class SiteInscricaoController extends Controller
         //$user_id = Str::uuid()->toString();
         //$ncarteirinha =  date("Y") . substr(str_shuffle("0123456789"), 0, 5);
         $produto_id = 1;
+        $produto = Produto::where('id', $produto_id)->first();
 
         $u = new User([
             'name' => $request->input('nome'),
@@ -114,7 +117,6 @@ class SiteInscricaoController extends Controller
         $u->save();
         $user_id = $u->id;
 
-//$user_id = 5;
         $ud = new UserDados([
             'user_id' => $user_id,
             'ncarteirinha' => $ncarteirinha,
@@ -152,30 +154,22 @@ class SiteInscricaoController extends Controller
         ]);
         $uf->save();
 
-/*
-          //gerar o pedido
-        $p = new Pedido([
-            'membro_id' => $membro_id,
-            'produto_id' = $produto_id,
-            'valor' = $valor_id,
+        $referencia =  substr(str_shuffle("0123456789"), 0, 5);
+
+        $pedido = new Pedido([
+            'user_id' => $user_id,
+            'produto_id' => $produto_id,
+            'valor' => $produto->valor,
+            'referencia' => $referencia
         ]);
-        $p->save();*/
+        $pedido->save();
+        $pedido_id = $pedido->id;
 
-        return redirect()->route('pagamentos', [$user_id, $produto_id]);
+        $pagamento = new Pagamento();
+        //user, produto, reference, descricao, total
+        $retorno = $pagamento::gerarToken($user_id, $produto_id, $referencia, $produto->nome, $produto->valor);
 
-        /* $pagamento = new Pagamento();
-        $retorno = $pagamento::gerarToken($user_id, $produto_id);
-
-        //dd($retorno);
-        //gerar o pedido
-        /*$p = new Pedido([
-            'membro_id' => $membro_id,
-            'produto_id' = $produto_id,
-            'valor' = $valor_id,
-        ]);
-        $p->save(); 
-
-        return redirect()->route('pagamentos', [$user_id, $produto_id, $retorno]); */
+        return redirect()->route('pagamentos', [$user_id, $produto_id, $retorno]);
 
     }
 
