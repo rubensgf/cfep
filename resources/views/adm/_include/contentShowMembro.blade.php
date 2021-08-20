@@ -23,7 +23,7 @@
                 <li>N° inscrição: <span>{{ $membro->id }}</span></li>
                 <li>Expedido: <span>{{ $membro->expedido }}</span></li>
                 <li>Validade: <span>{{ $membro->vigencia }}</span></li>
-                <li>Situação: <span>{{ $membro->situacao }}</span></li>
+                <li>Auditado: <span>{{ $membro->auditado == '0' ? 'Não' : 'Sim' }}</span></li>
             </fieldset>
             <fieldset class="p-2 mb-2">
                 <legend class="w-auto m-0 fs-20">Dados pessoais</legend>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UserDados;
 use App\UserFiles;
+use App\User;
 use App\Pedido;
 use App\Entidade;
 use Illuminate\Support\Facades\DB;
@@ -114,9 +115,16 @@ class ADMSolicitacoesController extends Controller
         //pagamento manual
         if($request->get('status') === 'confirmado'){
             $pedido = Pedido::where('id',$pedido_id)->first();
+            $user_id = $pedido->user_id;
             $pedido->situacao = 'aguardando';
             $pedido->status = 'confirmado';
             $pedido->save();
+
+            //adcionar a data de videncia
+            $userDados = UserDados::where('id',$user_id)->first();
+            $userDados->expedido =  date("Y-m-d");
+            $userDados->vigencia = date('Y-m-d', strtotime('+1 year'));
+            $userDados->save(); 
 
             return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
@@ -142,6 +150,10 @@ class ADMSolicitacoesController extends Controller
 
         $user_dados = UserDados::where('user_id', $user_id)->first();
         $user_dados->auditado = $auditado;
+        $user_dados->ativo = $ativo;
+        $user_dados->save();
+
+        $user_dados = User::where('id', $user_id)->first();
         $user_dados->ativo = $ativo;
         $user_dados->save();
 

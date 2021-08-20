@@ -35,10 +35,14 @@
             <form id="remove" action="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
-                <input type="hidden" name="token" value="{{ $referencia }}">
                 <button type="submit" class="btn btn-success"> 
+<<<<<<< HEAD
+                    <a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }} " data-target="#modal-pagamento">Realizar Pagamento</a> 
+                    {{--<a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#modal-pagamento">Realizar Pagamento</a>--}}
+=======
                     {{-- <a href="{{ route('confirmar', [$user_id, $produto_id]) }}">Realizar Pagamento</a> --}}
                     <a data-toggle="modal" id="btn-pay" href="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code={{ $referencia }}" data-target="#modal-pagamento">Realizar Pagamento</a>
+>>>>>>> 430069883a885f58c648ef5ff57f14fae8299415
                 </button>
             </form>
         </div>
@@ -47,7 +51,7 @@
 
         {{-- <script src="{{ asset('js/fecharpedido.js') }}" defer></script> --}}
         
-        <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+       {{-- <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script> --}}
 
 @section('footer')
     @include('partials.footer')
