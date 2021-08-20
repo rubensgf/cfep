@@ -31,7 +31,7 @@
                     </button>
                 </div>
 
-                <div class="container mb-5">
+                <div class="container mt-5">
                     @yield('content')
                 </div>
             </div>

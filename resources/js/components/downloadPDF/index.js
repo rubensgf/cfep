@@ -13,7 +13,12 @@ export default class DownloadPDF {
     formatarData(str) {
         const partes = str.split('/').map(Number);
         const data = new Date('20' + partes[2], partes[1] - 1, partes[0]);
-        return data.toLocaleString([], { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        return data.toLocaleString([], { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
     }
       
     downloadCertificado() {

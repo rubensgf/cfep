@@ -52902,7 +52902,7 @@ var FilterTable = /*#__PURE__*/function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GenerateQrcode; });
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GenerateQrcode; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -52915,18 +52915,20 @@ var GenerateQrcode = /*#__PURE__*/function () {
 
     this.element = document.querySelector(elem);
 
-    if (this.element) {}
-
-    this.generate();
+    if (this.element) {
+      this.generate();
+    }
   }
 
   _createClass(GenerateQrcode, [{
     key: "generate",
     value: function generate() {
       var idQrcode = this.element.dataset.qrcodeId;
+      var URL = process.env.SEARCH_QRCODE;
+      console.log("URL", URL);
       console.log('idQrcode', idQrcode);
       new QRCode(this.element, {
-        text: '//www.google.com.br',
+        text: "http://127.0.0.1:8000/consulta-qrcode/".concat(idQrcode),
         width: 150,
         height: 150,
         correctLevel: QRCode.CorrectLevel.H
@@ -52938,6 +52940,7 @@ var GenerateQrcode = /*#__PURE__*/function () {
 }();
 
 
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -53084,8 +53087,8 @@ var PasswordValidate = /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rubens/Projects/desenv/docker/docker_php_mysql/www/cfep/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/rubens/Projects/desenv/docker/docker_php_mysql/www/cfep/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\willy\OneDrive\Área de Trabalho\projeto-cfep\cfep\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\willy\OneDrive\Área de Trabalho\projeto-cfep\cfep\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

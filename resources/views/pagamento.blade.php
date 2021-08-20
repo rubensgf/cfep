@@ -38,7 +38,7 @@
                 <input type="hidden" name="token" value="{{ $referencia }}">
                 <button type="submit" class="btn btn-success"> 
                     {{-- <a href="{{ route('confirmar', [$user_id, $produto_id]) }}">Realizar Pagamento</a> --}}
-                    <a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#modal-pagamento">Realizar Pagamento</a>
+                    <a data-toggle="modal" id="btn-pay" href="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code={{ $referencia }}" data-target="#modal-pagamento">Realizar Pagamento</a>
                 </button>
             </form>
         </div>
