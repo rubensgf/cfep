@@ -159,7 +159,7 @@ class SiteInscricaoController extends Controller
         $uf->save();
 
         $referencia =  substr(str_shuffle("0123456789"), 0, 5);
-        $token = 'TEST-4262091083980528-082016-833619448e9c2645f5b9c631fee373ba-66955549';
+        $token = env('MERCADOPAGO_TOKEN');
 
         $pedido = new Pedido([
             'user_id' => $user_id,
