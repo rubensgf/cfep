@@ -82,14 +82,13 @@
                     </div>
                     <div class="row info-membro">
                         <div class="col col-4">
-                            <img src="/images/fotos-membros/{{ $dados->foto }}" alt="">
-                            {{-- <div class="img-test">foto</div> --}}
+                            <img class="foto-carteira" src="{{url('/storage/files/')}}/{{ $dados->ncarteirinha }}/{{ $dados->foto }}" alt="">
                         </div>
                         <div class="col col-4 justify-content-center pb-3">
-                            <p>img assinatura</p>
+                            <p>assinatura digital</p>
                         </div>
                         <div class="col col-4 justify-content-end">
-                            <div style="width: 80px; background-color: #fff"></div>
+                            <div data-qrcode data-qrcode-carteirinha data-qrcode-id="{{ $dados->ncarteirinha }}"></div>
                         </div>
                     </div>
                 </div>

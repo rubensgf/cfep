@@ -11675,7 +11675,7 @@ a.text-dark:focus {
   justify-content: space-between;
 }
 
-.box-carteira .carteira__frente .info-membro img {
+.box-carteira .carteira__frente .info-membro .foto-carteira {
   width: 97%;
   height: 150px;
 }

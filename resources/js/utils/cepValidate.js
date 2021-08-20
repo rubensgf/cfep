@@ -21,13 +21,13 @@ export default class CepValidate {
                             $('#cep-error').html('<span style="color:red">✘CEP inválido</span>');
                             $('#endereco').val('');
                             $('#complemento').val('');
-                            // $('#bairro').val('');
+                            $('#bairro').val('');
                             $('#cidade').val('');
                             $('#uf').val('');
                         } else {
                             $('#endereco').val(resposta.logradouro);
                             $('#complemento').val(resposta.complemento);
-                            // $('#bairro').val(resposta.bairro);
+                            $('#bairro').val(resposta.bairro);
                             $('#cidade').val(resposta.localidade);
                             $('#uf').val(resposta.uf);
                             $('#numero').focus();

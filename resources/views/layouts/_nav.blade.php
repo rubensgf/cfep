@@ -34,7 +34,7 @@
             <li><a href="{{ route('perfil') }}">Meus dados</a></li>
             <li><a href="{{ route('carteirinha') }}">Carteirinha</a></li>
             <li><a href="{{ route('certificado') }}">Certificado</a></li>
-            <li><a href="{{ route('perfil') }}">QrCcode</a></li>
+            <li><a href="{{ route('perfil') }}">QR Code</a></li>
         @endguest
 
     </ul>
