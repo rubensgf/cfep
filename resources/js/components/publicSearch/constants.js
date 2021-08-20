@@ -8,6 +8,7 @@ export const ELEMENTS = {
   dataExpedidoResult: '[data-search="expedido"]',
   dataIdResult: '[data-search="id"]',
   dataNameResult: '[data-search="nome"]',
+  dataSemFoto: '[data-sem-foto]',
   dataSituacaoResult: '[data-search="situacao"]',
   dataValidadeResult: '[data-search="validade"]',
   inputSearch: '[data-term-search]',
@@ -17,4 +18,6 @@ export const ELEMENTS = {
 
 export const IS_HIDDEN = 'is-hidden';
 
-export const PATH_FOTO = '/images/fotos-membros/';
+export const D_FLEX = 'd-flex';
+
+// export const PATH_FOTO = '/images/fotos-membros/';

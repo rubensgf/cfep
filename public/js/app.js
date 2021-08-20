@@ -52537,14 +52537,14 @@ var DownloadPDF = /*#__PURE__*/function () {
 /*!***********************************************************!*\
   !*** ./resources/js/components/publicSearch/constants.js ***!
   \***********************************************************/
-/*! exports provided: ELEMENTS, IS_HIDDEN, PATH_FOTO */
+/*! exports provided: ELEMENTS, IS_HIDDEN, D_FLEX */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ELEMENTS", function() { return ELEMENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IS_HIDDEN", function() { return IS_HIDDEN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PATH_FOTO", function() { return PATH_FOTO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D_FLEX", function() { return D_FLEX; });
 // export const COLUMNS_BLOGS_API = process.env.COLUMNS_BLOGS_API;
 var ELEMENTS = {
   btnSearch: '[data-btn-search]',
@@ -52554,6 +52554,7 @@ var ELEMENTS = {
   dataExpedidoResult: '[data-search="expedido"]',
   dataIdResult: '[data-search="id"]',
   dataNameResult: '[data-search="nome"]',
+  dataSemFoto: '[data-sem-foto]',
   dataSituacaoResult: '[data-search="situacao"]',
   dataValidadeResult: '[data-search="validade"]',
   inputSearch: '[data-term-search]',
@@ -52561,7 +52562,7 @@ var ELEMENTS = {
   msgError: '[data-msg-error]'
 };
 var IS_HIDDEN = 'is-hidden';
-var PATH_FOTO = '/images/fotos-membros/';
+var D_FLEX = 'd-flex'; // export const PATH_FOTO = '/images/fotos-membros/';
 
 /***/ }),
 
@@ -52603,6 +52604,7 @@ var PublicSearch = /*#__PURE__*/function () {
       this.inputSearch = this.element.querySelector(_constants__WEBPACK_IMPORTED_MODULE_0__["ELEMENTS"].inputSearch);
       this.loaderGift = this.element.querySelector(_constants__WEBPACK_IMPORTED_MODULE_0__["ELEMENTS"].loaderGift);
       this.msgError = this.element.querySelector(_constants__WEBPACK_IMPORTED_MODULE_0__["ELEMENTS"].msgError);
+      this.semFoto = this.element.querySelector(_constants__WEBPACK_IMPORTED_MODULE_0__["ELEMENTS"].dataSemFoto);
       this.triggerSearch();
     }
   }
@@ -52653,11 +52655,17 @@ var PublicSearch = /*#__PURE__*/function () {
 
       var request = $.get("./".concat(term));
       request.done(function (data) {
-        _this2.setValues(data);
+        if (data.id || data[0]) {
+          _this2.setValues(data);
 
-        _this2.boxResultSearch.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+          _this2.boxResultSearch.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
 
-        _this2.boxResultSearchFail.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+          _this2.boxResultSearchFail.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+        } else {
+          _this2.loaderGift.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+
+          _this2.boxResultSearchFail.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+        }
       });
       request.fail(function () {
         _this2.boxResultSearchFail.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
@@ -52673,14 +52681,19 @@ var PublicSearch = /*#__PURE__*/function () {
       data = isMembro ? data : data[0];
 
       if (this.dataFotoResult) {
-        this.dataFotoResult.setAttribute('src', "".concat(_constants__WEBPACK_IMPORTED_MODULE_0__["PATH_FOTO"]).concat(data.foto));
+        var pathFoto = this.dataFotoResult.dataset.searchFotoPath;
+        this.dataFotoResult.setAttribute('src', "".concat(pathFoto, "/").concat(data.ncarteirinha, "/").concat(data.foto));
+        this.semFoto.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["D_FLEX"]);
+      } else {
+        this.dataFotoResult.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+        this.semFoto.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
       }
 
       this.dataNameResult.innerHTML = isMembro ? data.nome : data.nomeFantasma;
-      this.dataIdResult.innerHTML = data.id;
+      this.dataIdResult.innerHTML = data.ncarteirinha;
       this.dataExpedidoResult.innerHTML = data.expedido;
-      this.dataValidadeResult.innerHTML = data.validade;
-      this.dataSituacaoResult.innerHTML = isMembro ? data.situacao : data.situacaoCadastro;
+      this.dataValidadeResult.innerHTML = data.vigencia;
+      this.dataSituacaoResult.innerHTML = data.ativo ? 'Ativo' : 'Inativo';
     }
   }]);
 
