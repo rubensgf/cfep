@@ -52,7 +52,7 @@
 
                 <div class="form-group col-md-4">
                     <label>Naturalidade</label>
-                    <input type="text" class="form-control" id="naturalidade_cidade" name="naturalidade_cidade" size="40"
+                    <input type="text" class="form-control" id="naturalidade" name="naturalidade" size="40"
                         maxlength="70" placeholder="Nome da Cidade" required>
                 </div>
 
@@ -191,8 +191,8 @@
                     <label>Doador de orgãos ou tecidos?</label>
                     <select name="doador" class="form-control">
                         <option value="">Selecione...</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
                     </select>
                 </div>
 
