@@ -46,14 +46,12 @@
 
                 <div class="row consulta-perfil bg-white p-4">
                     <div class="col-md-3 d-flex justify-content-center">
-                        @if (1 > 0)
-                            <img data-search="foto" class="mb-4 mb-md-0 foto-img img-fluid border" src="">
-                        @else
-                            <div
-                                class="foto-img mb-4 mb-md-0 img-fluid border d-flex justify-content-center align-items-center">
-                                <small>Sem Foto</small>
-                            </div>
-                        @endif
+                        <img data-search="foto" data-search-foto-path="{{ url('/storage/files/') }}"
+                            class="mb-4 mb-md-0 foto-img img-fluid border" src="">
+                        <div data-sem-foto
+                            class="foto-img mb-4 mb-md-0 img-fluid border is-hidden d-flex justify-content-center align-items-center">
+                            <small>Sem Foto</small>
+                        </div>
                     </div>
 
                     <ul class="col-md-9 p-2">

@@ -1,4 +1,4 @@
-import { ELEMENTS, IS_HIDDEN, PATH_FOTO } from './constants';
+import { ELEMENTS, IS_HIDDEN, D_FLEX } from './constants';
 
 export default class PublicSearch {
     constructor(elem) {
@@ -17,6 +17,7 @@ export default class PublicSearch {
             this.inputSearch = this.element.querySelector(ELEMENTS.inputSearch);
             this.loaderGift = this.element.querySelector(ELEMENTS.loaderGift);
             this.msgError = this.element.querySelector(ELEMENTS.msgError);
+            this.semFoto = this.element.querySelector(ELEMENTS.dataSemFoto);
             
             this.triggerSearch();
         }
@@ -84,13 +85,18 @@ export default class PublicSearch {
         data = isMembro ? data : data[0];
         
         if (this.dataFotoResult) {
-            this.dataFotoResult.setAttribute('src', `${PATH_FOTO}${data.foto}`);
+            const pathFoto = this.dataFotoResult.dataset.searchFotoPath;
+            this.dataFotoResult.setAttribute('src', `${pathFoto}/${data.ncarteirinha}/${data.foto}`);
+            this.semFoto.classList.remove(D_FLEX);
+        } else {
+            this.dataFotoResult.classList.add(IS_HIDDEN);
+            this.semFoto.classList.remove(IS_HIDDEN);
         }
-    
+
         this.dataNameResult.innerHTML = isMembro ? data.nome : data.nomeFantasma;
-        this.dataIdResult.innerHTML = data.id;
+        this.dataIdResult.innerHTML = data.ncarteirinha;
         this.dataExpedidoResult.innerHTML = data.expedido;
-        this.dataValidadeResult.innerHTML = data.validade;
-        this.dataSituacaoResult.innerHTML = isMembro ? data.situacao : data.situacaoCadastro;
+        this.dataValidadeResult.innerHTML = data.vigencia;
+        this.dataSituacaoResult.innerHTML = data.ativo ? 'Ativo' : 'Inativo';
     }
 }

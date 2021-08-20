@@ -15,7 +15,7 @@
             <div class="col-md-3">
                 <div class="foto-perfil">
                     @if ($i->foto)
-                        <img class="foto-img img-fluid border mb-4" src="/images/fotos-membros/{{ $i->foto }}">
+                        <img class="foto-img img-fluid border mb-4" src="{{url('/storage/files/')}}/{{ $i->ncarteirinha }}/{{ $i->foto }}">
                     @else
                         <div
                             class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
