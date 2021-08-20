@@ -12,12 +12,12 @@ use DB;
 
 class SitePagamentoController extends Controller
 {
-    public function index(Request $request, $id1, $id2, $id3) //$user_id, $produto_id, $pedido_id
+    public function index(Request $request, $id1, $id2) //$user_id, $produto_id, $pedido_id
     {
 
         $user_id = $id1;
         $produto_id = $id2;
-        $referencia = $id3;
+        //$referencia = $id3;
 
         $user = User::where('id', $id1)->first();
         if(!$user){
@@ -29,7 +29,7 @@ class SitePagamentoController extends Controller
             dd('erro produto');
         }
 
-        return view('pagamento',compact('user_id', 'produto_id', 'produto','referencia'));
+        return view('pagamento',compact('user_id', 'produto_id', 'produto'));
     }
 
 
@@ -42,18 +42,21 @@ class SitePagamentoController extends Controller
         if(!$produto){
             dd('erro produto');
         }
+        $descricao = $produto->descricao;
+        $total = $produto->valor;
         
+        $referencia =  substr(str_shuffle("0123456789"), 0, 5);
+
         $pedido = new Pedido([
             'user_id' => $user_id,
             'produto_id' => $produto_id,
-            'valor' => $produto->valor
+            'valor' => $produto->valor,
+            'referencia' => $referencia
         ]);
         $pedido->save();
         $pedido_id = $pedido->id;
 
-        $descricao = $produto->descricao;
-        $total = $produto->valor;
-
+       
         //Definindo as credenciais
         $email =  env('EMAIL_PS');
         $token = env('TOKEN_PS');
@@ -67,7 +70,7 @@ class SitePagamentoController extends Controller
         $data['itemQuantity1'] = '1';
         $data['itemDescription1'] = $descricao . '-' . $user_id;
         $data['itemAmount1'] = $total;
-        $data['reference'] = $pedido_id;
+        $data['reference'] = $referencia;
 
         //Transformando os dados da compra no formato da URL separados por & comercial
         $data = http_build_query($data);
@@ -85,7 +88,7 @@ class SitePagamentoController extends Controller
         curl_close($curl);
 
         $xml = simplexml_load_string($xml);
-
+        
 
         return redirect('https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code='.$xml->code);
 

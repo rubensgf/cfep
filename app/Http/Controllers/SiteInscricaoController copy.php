@@ -135,16 +135,16 @@ class SiteInscricaoController extends Controller
             'uf' => $request->input('uf'),
             'cep' => $request->input('cep'),
             'foto' => $arq_foto,
-            'naturalidade' => $request->input('naturalidade'),
-            'naturalidade_uf' => $request->input('naturalidade_uf'),
-            'doador' => $request->input('doador'),
             'status' => '0'
+            //'naturalidade' => $request->input('naturalidade'),
+            //'naturalidade_uf' => $request->input('naturalidade_uf'),
+            //'doador' => $request->input('doador'),
         ]);
         $ud->save();
 
         $uf = new UserFiles([
             'user_id'  => $user_id,
-            'ficha' => $arq_ficha,
+            //'ficha' => $arq_ficha,
             'diploma'  => $arq_diploma,
             'diploma_verso'  => $arq_diploma_verso,
             'rg'  => $arq_rg,
@@ -169,7 +169,7 @@ class SiteInscricaoController extends Controller
         //user, produto, reference, descricao, total
         $retorno = $pagamento::gerarToken($user_id, $produto_id, $referencia, $produto->nome, $produto->valor);
 
-        return redirect()->route('pagamentos', [$user_id, $produto_id]);
+        return redirect()->route('pagamentos', [$user_id, $produto_id, $retorno]);
 
     }
 
