@@ -92,15 +92,18 @@ class SiteInscricaoController extends Controller
 
         $name = 'arq_cpf';
         $extension = $request->$name->extension();
-        $arq_file = "{$name}.{$extension}";
-        $upload = $request->$name->storeAs('public/files/'.$ncarteirinha, $arq_file);
+        $arq_cpf = "{$name}.{$extension}";
+        $upload = $request->$name->storeAs('public/files/'.$ncarteirinha, $arq_cpf);
+
+        $name = 'arq_titulo';
+        $extension = $request->$name->extension();
+        $arq_titulo = "{$name}.{$extension}";
+        $upload = $request->$name->storeAs('public/files/'.$ncarteirinha, $arq_titulo);
 
         $name = 'arq_comprovante';
         $extension = $request->$name->extension();
         $arq_comprovante = "{$name}.{$extension}";
         $upload = $request->$name->storeAs('public/files/'.$ncarteirinha, $arq_comprovante);
-
-
     
         //cadastra usuario
         //$user_id = Str::uuid()->toString();
@@ -154,7 +157,7 @@ class SiteInscricaoController extends Controller
         ]);
         $uf->save();
 
-        $referencia =  substr(str_shuffle("0123456789"), 0, 5);
+   /*     $referencia =  substr(str_shuffle("0123456789"), 0, 5);
 
         $pedido = new Pedido([
             'user_id' => $user_id,
@@ -168,7 +171,7 @@ class SiteInscricaoController extends Controller
         $pagamento = new Pagamento();
         //user, produto, reference, descricao, total
         $retorno = $pagamento::gerarToken($user_id, $produto_id, $referencia, $produto->nome, $produto->valor);
-
+*/
         return redirect()->route('pagamentos', [$user_id, $produto_id]);
 
     }

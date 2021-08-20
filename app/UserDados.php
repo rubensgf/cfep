@@ -36,14 +36,6 @@ class UserDados extends Model
         'auditado',
         'ativo' //aguardando, ativo, cancelado
 
-        /*
-        'expedido',
-        'validade',
-        'situacao',
-        'graduacao',
-        'universidade',
-        'dataFormacao',
-        'observacao' */
 
     ];
 }
