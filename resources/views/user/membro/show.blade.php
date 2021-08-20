@@ -24,8 +24,7 @@
                     @endif
                 </div>
 
-                <div data-qrcode data-qrcode-id="{{ $i->ncarteirinha }}" class="qrcode d-flex justify-content-center"></div>
-                {{-- <p>QRCode</p> --}}
+                <div data-qrcode data-qrcode-perfil data-qrcode-id="{{ $i->ncarteirinha }}" class="qrcode d-flex justify-content-center"></div>
                 <p>Clique com botão direito para salvar</p>
                 
             </div>
