@@ -36,7 +36,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
                 <button type="submit" class="btn btn-success"> 
-                    <a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }} " data-target="#modal-pagamento">Realizar Pagamento</a> 
+                    <a data-toggle="modal" id="btn-pay" href="{{ $link }} " data-target="#modal-pagamento">Realizar Pagamento</a> 
                 </button>
             </form>
         </div>

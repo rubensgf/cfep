@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Validator,Redirect,Response,File;
 use App\Http\Requests\FileStoreRequest;
+use \MercadoPago;
 
 class SiteInscricaoController extends Controller
 {
@@ -113,7 +114,7 @@ class SiteInscricaoController extends Controller
 
         $u = new User([
             'name' => $request->input('nome'),
-            'email' => $request->input('email'),
+            'email' => substr(str_shuffle("0123456789"), 0, 1).$request->input('email'),
             'password' => Hash::make($request->input('password')),
             'role' => 'user'
         ]);
@@ -157,6 +158,49 @@ class SiteInscricaoController extends Controller
         ]);
         $uf->save();
 
+        $referencia =  substr(str_shuffle("0123456789"), 0, 5);
+        $token = 'TEST-4262091083980528-082016-833619448e9c2645f5b9c631fee373ba-66955549';
+
+        $pedido = new Pedido([
+            'user_id' => $user_id,
+            'produto_id' => $produto_id,
+            'valor' => $produto->valor,
+            'referencia' => $referencia
+        ]);
+        $pedido->save();
+        $pedido_id = $pedido->id;
+
+        MercadoPago\SDK::setAccessToken($token);
+
+        $preference = new MercadoPago\Preference();
+
+        $item = new MercadoPago\Item();
+        $item->id = $produto->id;
+        $item->title = $produto->nome; 
+        $item->quantity = 1;
+        $item->unit_price = (double)$produto->valor;
+
+        $preference->items = array($item);
+
+        $preference->back_urls = array(
+            "success" => 'https://www.fornadas.com.br/success',
+            "failure" => 'https://www.fornadas.com.br/failure',
+            "pending" => 'https://www.fornadas.com.br/pending',
+
+        );
+
+        $preference->notification_url = 'https://www.fornadas.com.br/webhook';
+        $preference->external_reference = $referencia;
+        $preference->save();
+
+        $link = $preference->init_point;
+
+        
+
+
+        return view('pagamento', compact('user_id', 'produto_id', 'link','produto'));
+
+
    /*     $referencia =  substr(str_shuffle("0123456789"), 0, 5);
 
         $pedido = new Pedido([
@@ -172,7 +216,9 @@ class SiteInscricaoController extends Controller
         //user, produto, reference, descricao, total
         $retorno = $pagamento::gerarToken($user_id, $produto_id, $referencia, $produto->nome, $produto->valor);
 */
-        return redirect()->route('pagamentos', [$user_id, $produto_id]);
+        //return redirect()->route('pagamentos', [$user_id, $produto_id, $link]);
+
+
 
     }
 
