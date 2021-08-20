@@ -114,7 +114,7 @@ class SiteInscricaoController extends Controller
 
         $u = new User([
             'name' => $request->input('nome'),
-            'email' => substr(str_shuffle("0123456789"), 0, 1).$request->input('email'),
+            'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'role' => 'user'
         ]);
