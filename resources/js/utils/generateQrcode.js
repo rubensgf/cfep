@@ -28,7 +28,7 @@ export default class GenerateQrcode {
                 text: `http://127.0.0.1:8000/consulta-qrcode/${idQrcode}`,
                 width: 74,
                 height: 70,
-                correctLevel : QRCode.CorrectLevel.H
+                correctLevel : QRCode.CorrectLevel.L
             })
         }
     }
