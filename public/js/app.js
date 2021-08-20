@@ -52655,17 +52655,31 @@ var PublicSearch = /*#__PURE__*/function () {
 
       var request = $.get("./".concat(term));
       request.done(function (data) {
-        _this2.setValues(data);
+        console.log('data.length', data);
 
-        _this2.boxResultSearch.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+        if (data.id || data[0]) {
+          _this2.setValues(data);
 
-        _this2.boxResultSearchFail.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+          console.log('IF');
+
+          _this2.boxResultSearch.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+
+          _this2.boxResultSearchFail.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+        } else {
+          console.log('ELSE');
+
+          _this2.loaderGift.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+
+          _this2.boxResultSearchFail.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+        }
       });
       request.fail(function () {
         _this2.boxResultSearchFail.classList.remove(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
       });
       request.always(function () {
-        _this2.loaderGift.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]);
+        _this2.loaderGift.classList.add(_constants__WEBPACK_IMPORTED_MODULE_0__["IS_HIDDEN"]); // setTimeout(() => {
+        // }, 5000);
+
       });
     }
   }, {

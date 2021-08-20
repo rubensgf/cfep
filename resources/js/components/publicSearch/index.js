@@ -64,10 +64,19 @@ export default class PublicSearch {
         const request = $.get(`./${term}`);
         
         request.done((data) => {
-            this.setValues(data);
-    
-            this.boxResultSearch.classList.remove(IS_HIDDEN);
-            this.boxResultSearchFail.classList.add(IS_HIDDEN);
+            console.log('data.length', data)
+            if (data.id || data[0]) {
+                this.setValues(data);
+                console.log('IF')
+                
+                this.boxResultSearch.classList.remove(IS_HIDDEN);
+                this.boxResultSearchFail.classList.add(IS_HIDDEN);
+            } else {
+                console.log('ELSE')
+
+                this.loaderGift.classList.add(IS_HIDDEN);
+                this.boxResultSearchFail.classList.remove(IS_HIDDEN);
+            }
         })
     
         request.fail(() => {
@@ -76,6 +85,10 @@ export default class PublicSearch {
     
         request.always(() => {
             this.loaderGift.classList.add(IS_HIDDEN);
+
+            // setTimeout(() => {
+                
+            // }, 5000);
         });
     }
     
