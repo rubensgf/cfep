@@ -36,8 +36,13 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
                 <button type="submit" class="btn btn-success"> 
+<<<<<<< HEAD
                     <a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }} " data-target="#modal-pagamento">Realizar Pagamento</a> 
                     {{--<a data-toggle="modal" id="btn-pay" href="{{ route('confirmar', [$user_id, $produto_id]) }}" data-target="#modal-pagamento">Realizar Pagamento</a>--}}
+=======
+                    {{-- <a href="{{ route('confirmar', [$user_id, $produto_id]) }}">Realizar Pagamento</a> --}}
+                    <a data-toggle="modal" id="btn-pay" href="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code={{ $referencia }}" data-target="#modal-pagamento">Realizar Pagamento</a>
+>>>>>>> 430069883a885f58c648ef5ff57f14fae8299415
                 </button>
             </form>
         </div>
