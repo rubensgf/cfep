@@ -2,12 +2,12 @@
     <nav class="c-nav navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             @guest
-                <a class="navbar-brand fs-18 font-weight-bold d-flex justify-content-center align-items-center"
+                <a class="navbar-brand fs-18 font-weight-bold d-flex justify-content-center align-items-center color-grey"
                     href="{{ url('/') }}">
                     <img src="/images/icon-logo-cfep.png" width="50" alt="Logo CFEP"><span class="ml-2"> CFEP</span>
                 </a>
             @else
-                <a class="navbar-brand fs-18 font-weight-bold d-flex justify-content-center align-items-center"
+                <a class="navbar-brand fs-18 font-weight-bold d-flex justify-content-center align-items-center color-grey"
                     href="{{ url('/home') }}">
                     <img src="/images/icon-logo-cfep.png" width="50" alt="Logo CFEP"><span class="ml-2"> CFEP</span>
                 </a>

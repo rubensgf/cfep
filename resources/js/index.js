@@ -34,14 +34,6 @@ $('#btn-pay').on('click', function(e) {
 });
 
 
-
-// new QRCode(document.querySelector('[data-qrcode]'), {
-//     text: '//www.google.com.br',
-//     width: 150,
-//     height: 150,
-    
-// })
-
 // function TestaCPF() {
 //     var strCPF = "12345678909";
 //     var Soma;

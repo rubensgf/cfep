@@ -9,23 +9,24 @@
         </div>
 
         <ul class="col-md-9 p-0">
-            <li class="mb-3"><span class="font-weight-bold">{{ $membro->nome }}</span></li>
+            <li class="mb-3"><span class="font-weight-bold fs-22">{{ $membro->nome }}</span></li>
 
-            <li>token transacao : <span>{{ env('LINK_REDIRECT')}}/{{ $pedido->token }}</span></li>
+            {{-- <li>token transacao : <span>{{ env('LINK_REDIRECT')}}/{{ $pedido->token }}</span></li> --}}
 
-            <fieldset class="p-2 mb-2">
+            <fieldset class="p-3 mb-3">
                 <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
 
                 <li>ref. pedido : <span>{{ $pedido->referencia }}</span></li>
                 <li>token transacao : <span>{{ $pedido->token }}</span></li>
 
 
-                <li>N° inscrição: <span>{{ $membro->id }}</span></li>
+                <li>N° inscrição: <span>{{ $membro->ncarteirinha }}</span></li>
                 <li>Expedido: <span>{{ $membro->expedido }}</span></li>
                 <li>Validade: <span>{{ $membro->vigencia }}</span></li>
-                <li>Auditado: <span>{{ $membro->auditado == '0' ? 'Não' : 'Sim' }}</span></li>
+                <li>Auditado: <span>{{ $membro->auditado ? 'Sim' : 'Não' }}</span></li>
+                <li>Status: <span>{{ $membro->ativo ? 'Ativo' : 'Inativo' }}</span></li>
             </fieldset>
-            <fieldset class="p-2 mb-2">
+            <fieldset class="p-3 mb-3">
                 <legend class="w-auto m-0 fs-20">Dados pessoais</legend>
 
                 <li>Nome: <span>{{ $membro->nome }}</span></li>
@@ -43,17 +44,17 @@
                 <li>E-mail: <span>{{ $membro->email }}</span></li>
                 <li>Telefone: <span>{{ $membro->telefone }} / {{ $membro->celular }}</span></li>
             </fieldset>
-            <fieldset class="p-2 mb-2">
+            {{-- <fieldset class="p-2 mb-2">
                 <legend class="w-auto m-0 fs-20">Graduação</legend>
 
                 <li>Graduação: <span>{{ $membro->graduacao }}</span></li>
                 <li>Universidade: <span>{{ $membro->universidade }}</span></li>
                 <li>Data Formação: <span>{{ $membro->dataFormacao }}</span></li>
 
-            </fieldset>
-            <fieldset class="p-2 mb-2">
+            </fieldset> --}}
+            <fieldset class="p-3 mb-3">
                 <legend class="w-auto m-0 fs-20">Documentação</legend>
-                <li><span>FICHA </span><a href="{{url('/storage/images/')}}/{{ $membro->ncarteirinha }}/{{ $arquivos->ficha}}">Baixar</a></li>
+                <li><span>Ficha </span><a href="{{url('/storage/images/')}}/{{ $membro->ncarteirinha }}/{{ $arquivos->ficha}}">Baixar</a></li>
                 <li><span>Diploma </span><a href="{{url('/storage/files/')}}/{{ $membro->ncarteirinha }}/{{ $arquivos->diploma}}">Baixar</a></li>
                 <li><span>Diploma verso </span><a href="{{url('/storage/files/')}}/{{$membro->ncarteirinha}}/{{ $arquivos->diploma_verso}}">Baixar</a></li>
                 <li><span>RG </span><a href="{{url('/storage/files/')}}/{{$membro->ncarteirinha}}/{{ $arquivos->rg}}">Baixar</a></li>

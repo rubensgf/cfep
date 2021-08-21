@@ -102,6 +102,6 @@ export default class PublicSearch {
         this.dataIdResult.innerHTML = data.ncarteirinha;
         this.dataExpedidoResult.innerHTML = data.expedido;
         this.dataValidadeResult.innerHTML = data.vigencia;
-        this.dataSituacaoResult.innerHTML = data.ativo ? 'Ativo' : 'Inativo';
+        this.dataSituacaoResult.innerHTML = data.ativo ? 'Regular' : 'Irregular';
     }
 }

@@ -15,7 +15,7 @@
     <ul class="list-unstyled components">
         @guest
             <p></p>
-            <li class="active"><a href="{{ route('inscricao') }}">Inscrever-se</a></li>
+            <li><a href="{{ route('inscricao') }}">Inscrever-se</a></li>
             <li><a href="/consulta-inscritos/">Consulta de Membro</a></li>
             <li><a href="/consulta-instituicoes/">Consulta de Parceiro</a></li>
             <li><a href="/seja-um-parceiro/">Seja um Parceiro</a></li>

@@ -33,7 +33,7 @@
                     <th>Telefone</th>
                     <th>Vigência</th>
                     <th>Auditado </th>
-                    <th>Ativo </th>    
+                    <th>Status </th>    
                     <th></th>
                 </tr>
             </thead>
@@ -47,8 +47,8 @@
                         </td>
                         <td>{{ $membro->telefone }}</td>
                         <td>{{ $membro->vigencia }}</td>
-                        <td>{{ $membro->auditado == '0' ? 'Não' : 'Sim' }}</td>
-                        <td>{{ $membro->ativo == '0' ? 'Não' : 'Sim' }}</td>
+                        <td>{{ $membro->auditado ? 'Sim' : 'Não' }}</td>
+                        <td>{{ $membro->ativo ? 'Ativo' : 'Inativo' }}</td>
                         <td><a class="btn btn-primary" href="{{ route('adm.membros.show', $membro->id) }}">Ver</a></td>
                     </tr>
                 @endforeach

@@ -52693,7 +52693,7 @@ var PublicSearch = /*#__PURE__*/function () {
       this.dataIdResult.innerHTML = data.ncarteirinha;
       this.dataExpedidoResult.innerHTML = data.expedido;
       this.dataValidadeResult.innerHTML = data.vigencia;
-      this.dataSituacaoResult.innerHTML = data.ativo ? 'Ativo' : 'Inativo';
+      this.dataSituacaoResult.innerHTML = data.ativo ? 'Regular' : 'Irregular';
     }
   }]);
 
@@ -52748,12 +52748,7 @@ $('#btn-pay').on('click', function (e) {
   e.preventDefault();
   var url = $(this).attr('href');
   $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="' + url + '"></iframe>');
-}); // new QRCode(document.querySelector('[data-qrcode]'), {
-//     text: '//www.google.com.br',
-//     width: 150,
-//     height: 150,
-// })
-// function TestaCPF() {
+}); // function TestaCPF() {
 //     var strCPF = "12345678909";
 //     var Soma;
 //     var Resto;
@@ -53079,7 +53074,9 @@ var PasswordValidate = /*#__PURE__*/function () {
       });
       $('#confirm-password').blur(function () {
         if ($('#password').val() !== $('#confirm-password').val()) {
-          $('#password-error').html("<span style='color:red'>Senhas diferentes!</span>");
+          $('#password-error').html("<span style='color:red'>✘ Senhas diferentes</span>");
+        } else {
+          $('#password-error').html('<span style="color:green">✔</span>');
         }
       });
     }

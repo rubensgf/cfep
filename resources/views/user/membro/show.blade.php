@@ -1,4 +1,4 @@
-@extends('layouts.adm')
+@extends('layouts.app')
 
 @section('content')
 
@@ -24,7 +24,11 @@
                     @endif
                 </div>
 
-                <div data-qrcode data-qrcode-perfil data-qrcode-id="{{ $i->ncarteirinha }}" class="qrcode d-flex justify-content-center"></div>
+                <div data-qrcode 
+                    data-qrcode-perfil 
+                    data-qrcode-id="{{ $i->ncarteirinha }}" 
+                    class="qrcode d-flex justify-content-center">
+                </div>
                 <p>Clique com botão direito para salvar</p>
                 
             </div>
@@ -38,7 +42,7 @@
                     <li>N° inscrição: <span>{{ $i->ncarteirinha }}</span></li>
                     <li>Expedido: <span>{{ $i->expedido }}</span></li>
                     <li>Validade: <span>{{ $i->vigencia }}</span></li>
-                    <li>Situação: <span>{{ $i->ativo }}</span></li>
+                    <li>Situação: <span>{{ $i->ativo ? 'Ativo' : 'Inativo'}}</span></li>
                 </fieldset>
 
                 <fieldset class="p-2 mb-2">
@@ -51,7 +55,7 @@
                     <li>Sexo: <span>{{ $i->sexo }}</span></li>
                     <li>RG: <span>{{ $i->rg }}</span></li>
                     <li>CPF: <span>{{ $i->cpf }}</span></li>
-                    <li>Endereço: <span>{{ $i->endereco }}</span></li>
+                    <li>Endereço: <span>{{ $i->endereco }}, {{ $i->numero }}</span></li>
                     <li>UF: <span>{{ $i->uf }}</span></li>
                     <li>E-mail: <span>{{ $i->email }}</span></li>
                     <li>Telefone: <span>{{ $i->telefone }} / {{ $i->celular }}</span></li>

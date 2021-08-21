@@ -34,4 +34,3 @@
     echo "<a href='$link'> Pagar </a>";
 
 ?>
-  ?>

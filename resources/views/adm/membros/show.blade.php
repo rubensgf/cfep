@@ -12,12 +12,13 @@
                 <form id="remove" action="{{ route('adm.membros.update', $membro->id) }}" method="post"
                     onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                    @if ($membro->ativo === '0')
-                        <input type="hidden" name="ativo" value="1">
-                        <button type="submit" class="btn btn-success"><span>Confirmar dados</span></button>
-                    @else
+                    
+                    @if ($membro->ativo)
                         <input type="hidden" name="ativo" value="0">
                         <button type="submit" class="btn btn-danger"><span>Inativar Inscrição</span></button>
+                    @else
+                        <input type="hidden" name="ativo" value="1">
+                        <button type="submit" class="btn btn-success mr-2"><span>Ativar Inscrição</span></button>
                     @endif
                 </form>
             </div>

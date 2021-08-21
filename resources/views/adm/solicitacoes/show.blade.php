@@ -15,7 +15,7 @@
                         onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                             <input type="hidden" name="status" value="confirmado">
-                            <button type="submit" class="btn btn-success"><span>conf. pagto manual</span></button>
+                            <button type="submit" class="btn btn-success mr-2"><span>conf. pagto manual</span></button>
                     </form>
                     <form id="remove" action="{{ route('adm.solicitacoes.update', $pedido_id) }}" method="post"
                         onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">

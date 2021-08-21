@@ -30,7 +30,9 @@ export default class PasswordValidate {
 
         $('#confirm-password').blur(() => {
             if ($('#password').val() !== $('#confirm-password').val()) {
-                $('#password-error').html("<span style='color:red'>Senhas diferentes!</span>");
+                $('#password-error').html("<span style='color:red'>✘ Senhas diferentes</span>");
+            } else {
+                $('#password-error').html('<span style="color:green">✔</span>');
             }
         });
     }
