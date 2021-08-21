@@ -174,8 +174,4 @@
             </form>
         </div>
     </main>
-
-@section('footer')
-    @include('partials.footer')
-@show
 @endsection

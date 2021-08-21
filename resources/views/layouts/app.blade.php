@@ -33,6 +33,9 @@
                 <div class="container mt-5">
                     @yield('content')
                 </div>
+                @section('footer')
+                    @include('partials.footer')
+                @show
             </div>
         </main>
     </div>
