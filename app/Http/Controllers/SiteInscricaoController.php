@@ -27,7 +27,8 @@ class SiteInscricaoController extends Controller
     {
         
 
-        $ncarteirinha =  date("y") . substr(str_shuffle("0123456789"), 0, 5);
+        $ncarteirinha =  date("y") . substr(str_shuffle("0123456789"), 0, 6);
+        
         $input_data = $request->all();
 
         $validator = Validator::make(
@@ -63,10 +64,11 @@ class SiteInscricaoController extends Controller
         $arq_comprovante = $request->file('arq_comprovante');
         //arq_diploma
 
+        //dd($arq_ficha, $foto);
+
         //$request->imagem->getClientSize();
 
         $name = 'arq_ficha';
-        //$request->$name->getClientSize()
         $extension = $request->$name->extension();
         $arq_ficha = "{$name}.{$extension}";
         $upload = $request->$name->storeAs('public/files/'.$ncarteirinha, $arq_ficha);
@@ -116,7 +118,8 @@ class SiteInscricaoController extends Controller
             'name' => $request->input('nome'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'role' => 'user'
+            'role' => 'user',
+
         ]);
         $u->save();
         $user_id = $u->id;
@@ -158,7 +161,7 @@ class SiteInscricaoController extends Controller
         ]);
         $uf->save();
 
-        $referencia =  substr(str_shuffle("0123456789"), 0, 5);
+        $referencia =  substr(str_shuffle("0123456789"), 0, 7);
         $token = env('MERCADOPAGO_TOKEN');
 
         $pedido = new Pedido([
@@ -183,21 +186,19 @@ class SiteInscricaoController extends Controller
         $preference->items = array($item);
 
         $preference->back_urls = array(
-            "success" => 'https://www.fornadas.com.br/success',
-            "failure" => 'https://www.fornadas.com.br/failure',
-            "pending" => 'https://www.fornadas.com.br/pending',
+            "success" => 'https://cfepmembros.com.br/success',
+            "failure" => 'https://cfepmembros.com.br/failure',
+            "pending" => 'https://cfepmembros.com.br/pending',
 
         );
 
-        $preference->notification_url = 'https://www.fornadas.com.br/webhook';
+        $preference->notification_url = 'https://cfepmembros.com.br/webhook';
         $preference->external_reference = $referencia;
         $preference->save();
 
         $link = $preference->init_point;
 
         
-
-
         return view('pagamento', compact('user_id', 'produto_id', 'link','produto'));
 
 

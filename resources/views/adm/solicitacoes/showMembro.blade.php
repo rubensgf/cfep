@@ -29,14 +29,14 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                         <input type="hidden" name="auditado" value="1">
                         <input type="hidden" name="ativo" value="1">
-                        <button type="submit" class="btn btn-success mr-2"><span>Ativar Inscrição</span></button>
+                        <button type="submit" class="btn btn-success mr-2"><span>Confirmar</span></button>
                 </form>
                 <form id="remove" action="{{ route('adm.solicitacoes.membros.update', $pedido_id) }}" method="post"
                     onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                         <input type="hidden" name="auditado" value="2">
-                        <input type="hidden" name="ativo" value="0">
-                        <button type="submit" class="btn btn-danger"><span>Recusar</span></button>
+                        <input type="hidden" name="ativo" value="2">
+                        <button type="submit" class="btn btn-danger"><span>Bloquear</span></button>
                 </form>
             @endif
         </div>

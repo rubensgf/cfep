@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <form id="formInsc" action="{{ route('seja-um-parceiro.store') }}" method="POST"
+            <form id="formInsc" action="{{ route('adm.entidade.store') }}" method="POST"
                 enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <fieldset class="p-3 mb-3">

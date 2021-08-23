@@ -28,9 +28,9 @@
                     <th>Tipo</th>
                     <th>Nome / Email</th>
                     <th>Valor</th>
-                    <th>Data</th>
+                    <th>Dt. Solicitação</th>
                     <th>Pagamento</th>
-                    <th>Situaçao</th>
+                    <th>Situação</th>
                     <th></th>
                 </tr>
             </thead>
@@ -41,7 +41,7 @@
                         <td>{{ $pedido->produto }} </td>
                         <td>{{ $pedido->nome }} <br> {{ $pedido->email }} </td>
                         <td>{{ $pedido->valor }} </td>
-                        <td>{!! date('d/M/y', strtotime($pedido->created_at)) !!}<td>
+                        <td>{!! date('d/m/yy', strtotime($pedido->created_at)) !!}</td>
                         <td>{{ $pedido->status }}</td>
                         <td>{{ $pedido->situacao }}</td>
                         <td>
@@ -57,8 +57,7 @@
                     <tr>
                         <td>{{ $e->id }}</td>
                         <td>Parcerias</td>
-                        <td>{{ $e->nome }} <br>  </td>
-                        <td></td>
+                        <td>{{ $e->nome }} </td>
                         <td></td>
                         <td></td>
                         <td></td>

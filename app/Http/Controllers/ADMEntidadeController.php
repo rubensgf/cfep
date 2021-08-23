@@ -10,7 +10,7 @@ class ADMEntidadeController extends Controller
 {
     public function index()
     {
-        $entidades = Entidade::orderBy('razao_social')->get();
+        $entidades = Entidade::whereNotNull('expedido')->orderBy('razao_social')->get();
 
         return view('adm.entidades.index', compact('entidades'));
 
@@ -41,7 +41,9 @@ class ADMEntidadeController extends Controller
             'telefone' => $request->input('telefone'),
             'celular' => $request->input('celular'),
             'sexo' => $request->input('sexo'),
-            'ativo' => '1'
+            'ativo' => '1',
+            'expedido' =>  date("Y-m-d"),
+            'vigencia' => date('Y-m-d', strtotime('+1 year'))
         ]);
         $ud->save();
 
@@ -68,6 +70,8 @@ class ADMEntidadeController extends Controller
 
         $e = Entidade::find($id);
         $e->ativo = $request->input('ativo');
+        $e->expedido =  date("Y-m-d");
+        $e->vigencia = date('Y-m-d', strtotime('+1 year'));
         $e->save();
 
         return redirect()->route('entidades')

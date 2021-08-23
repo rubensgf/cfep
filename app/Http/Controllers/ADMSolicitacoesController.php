@@ -67,9 +67,11 @@ class ADMSolicitacoesController extends Controller
 
         $membro = UserDados::findOrFail($pedido->user_id);
 
+        $user = User::select('email')->findOrFail($pedido->user_id);
+
         $arquivos = UserFiles::findOrFail($pedido->user_id);
 
-        return view('adm.solicitacoes.showMembro',compact('membro', 'pedido_id', 'arquivos', 'pedido'));
+        return view('adm.solicitacoes.showMembro',compact('membro', 'pedido_id', 'arquivos', 'pedido', 'user'));
     }
 
     public function showEntidades($id)
@@ -84,9 +86,9 @@ class ADMSolicitacoesController extends Controller
         $pedido_id = $id;
         $situacao = $request->get('situacao');
 
-        //cancelar pedido caso nao tenha sido pago
+        //cancelar pedido da 2via caso nao tenha sido pago
         if($request->get('status')){
-            
+            //arquivo a solicitacao pq nao foi paga
             $pedido = Pedido::where('id',$pedido_id)->first();
             $pedido->situacao = 'finalizado';
             $pedido->status = 'cancelado';
@@ -95,16 +97,17 @@ class ADMSolicitacoesController extends Controller
             return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
         }
-
+        //altera o status do pedido da solicitacao para (grafica ou enviado)
         $pedido = Pedido::where('id',$pedido_id)->first();
         $user_id = $pedido->user_id;
-        $pedido->situacao = $situacao;
+        $pedido->situacao = $situacao; //grafica ou enviado
         $pedido->save();
 
         return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
     }
 
+    //membros
     public function updateMembros(Request $request, $id)
     {
 
@@ -112,7 +115,7 @@ class ADMSolicitacoesController extends Controller
         $auditado = $request->get('auditado');
         $ativo = $request->get('ativo');
 
-        //pagamento manual
+        //pagamento manual, altera o status e coloca a data expedido /vigencia. Mas ainda precisa ser autitado
         if($request->get('status') === 'confirmado'){
             $pedido = Pedido::where('id',$pedido_id)->first();
             $user_id = $pedido->user_id;
@@ -124,7 +127,7 @@ class ADMSolicitacoesController extends Controller
             $userDados = UserDados::where('id',$user_id)->first();
             $userDados->expedido =  date("Y-m-d");
             $userDados->vigencia = date('Y-m-d', strtotime('+1 year'));
-            $userDados->save(); 
+            $userDados->save();
 
             return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
@@ -134,23 +137,28 @@ class ADMSolicitacoesController extends Controller
         if($request->get('status') === 'cancelado'){
             
             $pedido = Pedido::where('id',$pedido_id)->first();
+            $user_id = $pedido->user_id;
             $pedido->situacao = 'finalizado';
             $pedido->status = 'cancelado';
             $pedido->save();
+            
+            //atualiza o status do usuaio para 3 - cancelado
+            $user_dados = User::where('id', $user_id)->first();
+            $user_dados->ativo = '3';
+            $user_dados->save();
 
             return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
         }
 
-
+       //pedido foi auditado
         $pedido = Pedido::where('id',$pedido_id)->first();
         $user_id = $pedido->user_id;
         $pedido->situacao = 'finalizado';
         $pedido->save();
 
         $user_dados = UserDados::where('user_id', $user_id)->first();
-        $user_dados->auditado = $auditado;
-        $user_dados->ativo = $ativo;
+        $user_dados->auditado = $auditado; //1 - ativo, 2 - bloquear
         $user_dados->save();
 
         $user_dados = User::where('id', $user_id)->first();
@@ -164,8 +172,11 @@ class ADMSolicitacoesController extends Controller
     public function updateEntidades(Request $request, $id)
     {
 
-        Entidade::find($id)->update($request->all());
-        //$membro= Entidade::find($id);
+        $e = Entidade::find($id);
+        $e->ativo = $request->input('ativo');
+        $e->expedido =  date("Y-m-d");
+        $e->vigencia = date('Y-m-d', strtotime('+1 year'));
+        $e->save();
         
         return redirect()->route('solicitacoes')
                        ->with('success','Dados alterados com sucesso!');

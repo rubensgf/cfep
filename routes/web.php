@@ -79,11 +79,7 @@ Route::get('/pagamento/{id}/{id2}', 'SitePagamentoController@index')->name('paga
 Route::get('/pagamento/{id}/{id2}/confirmar', 'SitePagamentoController@store')->name('confirmar');
 
 //Route::post('checkout', 'PagseguroController@checkout');
-
-
-Route::get('checkout', function () {
-    return view('checkout');
-});
+Route::post('checkout', 'PagseguroController@checkout');
 
 
 Route::get('create-zip', 'ZipArchiveController@index')->name('create-zip');

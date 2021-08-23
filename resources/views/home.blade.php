@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="c-options-box__button btn" href="#">
+                    <a class="c-options-box__button btn" href="{{ route('adm.entidade.create') }}">
                         @include('icons.icon-parceiro')
                         <span>Solicitação de parceria<span>
                     </a>

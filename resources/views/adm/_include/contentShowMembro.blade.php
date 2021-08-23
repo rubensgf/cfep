@@ -24,7 +24,8 @@
                 <li>Expedido: <span>{{ $membro->expedido }}</span></li>
                 <li>Validade: <span>{{ $membro->vigencia }}</span></li>
                 <li>Auditado: <span>{{ $membro->auditado ? 'Sim' : 'Não' }}</span></li>
-                <li>Status: <span>{{ $membro->ativo ? 'Ativo' : 'Inativo' }}</span></li>
+                <li>Status: <span>@if($user->ativo === '1') <span>Ativo</span> @elseif($user->ativo === '2') <span>Bloqueado</span> @elseif($user->ativo === '3') <span>Cancelado</span> @endif</li>
+
             </fieldset>
             <fieldset class="p-3 mb-3">
                 <legend class="w-auto m-0 fs-20">Dados pessoais</legend>
@@ -41,7 +42,7 @@
                 <li>Cidade: <span>{{ $membro->cidade }}</span></li>
                 <li>UF: <span>{{ $membro->uf }}</span></li>
 
-                <li>E-mail: <span>{{ $membro->email }}</span></li>
+                <li>E-mail: <span> {{ $user->email}}</span></li>
                 <li>Telefone: <span>{{ $membro->telefone }} / {{ $membro->celular }}</span></li>
             </fieldset>
             {{-- <fieldset class="p-2 mb-2">
@@ -54,7 +55,7 @@
             </fieldset> --}}
             <fieldset class="p-3 mb-3">
                 <legend class="w-auto m-0 fs-20">Documentação</legend>
-                <li><span>Ficha </span><a href="{{url('/storage/images/')}}/{{ $membro->ncarteirinha }}/{{ $arquivos->ficha}}">Baixar</a></li>
+                <li><span>Ficha </span><a href="{{url('/storage/files/')}}/{{ $membro->ncarteirinha }}/{{ $arquivos->ficha}}">Baixar</a></li>
                 <li><span>Diploma </span><a href="{{url('/storage/files/')}}/{{ $membro->ncarteirinha }}/{{ $arquivos->diploma}}">Baixar</a></li>
                 <li><span>Diploma verso </span><a href="{{url('/storage/files/')}}/{{$membro->ncarteirinha}}/{{ $arquivos->diploma_verso}}">Baixar</a></li>
                 <li><span>RG </span><a href="{{url('/storage/files/')}}/{{$membro->ncarteirinha}}/{{ $arquivos->rg}}">Baixar</a></li>

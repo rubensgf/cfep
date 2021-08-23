@@ -19,5 +19,5 @@
     {{ $entidade->cpf }} <br>
     {{ $entidade->expedido }} <br>
     {{ $entidade->validade }} <br>
-    {{ $entidade->ativo }}
+    @if($entidade->ativo === '0') <span>Aguardando</span>@elseif($entidade->ativo === '1') <span>Ativo</span> @elseif($entidade->ativo === '2') <span>Bloqueado</span> @endif</li>
 </div>

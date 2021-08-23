@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\UserDados;
 use App\UserFiles;
 use App\Pedido;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class ADMMembroController extends Controller
@@ -41,10 +42,11 @@ class ADMMembroController extends Controller
                 ud.expedido,
                 ud.vigencia,
                 ud.auditado,
-                ud.ativo ,
+                u.ativo ,
                 u.email
          FROM users u inner join user_dados ud on(ud.user_id = u.id)
-         WHERE ud.ativo in('0','1') order by ud.ativo desc, auditado asc ");
+         WHERE u.ativo in('1','2') order by u.ativo desc, auditado asc ");
+
 
         return view('adm.membros.index', compact('membros'));
 
@@ -67,10 +69,12 @@ class ADMMembroController extends Controller
 
         $arquivos = UserFiles::findOrFail($id);
 
+        $user = User::select('email','ativo')->findOrFail($id);
+
         //pega o ultimo pedido do usuario
         $pedido = Pedido::where('user_id',$id)->where('produto_id','1')->orderBy('id', 'desc')->first();
 
-        return view('adm.membros.show',compact('membro', 'id', 'arquivos', 'pedido'));
+        return view('adm.membros.show',compact('membro', 'id', 'arquivos', 'pedido', 'user'));
     }
 
     public function edit($id)
