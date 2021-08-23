@@ -40,8 +40,8 @@
                     <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
 
                     <li>N° inscrição: <span>{{ $i->ncarteirinha }}</span></li>
-                    <li>Expedido: <span>{{ $i->expedido }}</span></li>
-                    <li>Validade: <span>{{ $i->vigencia }}</span></li>
+                    <li>Expedido: <span>{!! date('d/m/yy', strtotime($i->expedido)) !!}</span></li>
+                    <li>Validade: <span>{!! date('d/m/yy', strtotime($i->vigencia)) !!}</span></li>
                     <li>Situação: <span>{{ $i->ativo ? 'Ativo' : 'Inativo'}}</span></li>
                 </fieldset>
 

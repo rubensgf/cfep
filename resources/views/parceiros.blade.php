@@ -45,18 +45,23 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
+                            <label for="site">Site</label>
+                            <input type="text" class="form-control" id="site" name="site" size="40"
+                                maxlength="100" placeholder="digite o site da empresa">
+                        </div>
+                        <div class="form-group col-md-2">
                             <label for="cep"> CEP</label>
                             <input type="text" class="form-control" id="cep" name="cep" size="40" maxlength="12"
                                 placeholder="digite o Código Postal" data-mask="cep" required>
                             <span class="font-weight-bold" id="cep-error"></span>
                         </div>
 
-                        <div class="form-group col-md-7">
+                        <div class="form-group col-md-6">
                             <label for="endereco"> Endereço</label>
                             <input type="text" class="form-control" id="endereco" name="endereco" size="40" maxlength="100"
                                 placeholder="digite o endereço">
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-1">
                             <label for="numero"> Número</label>
                             <input type="text" class="form-control" id="numero" name="numero" size="40" maxlength="15"
                                 placeholder="digite o número">

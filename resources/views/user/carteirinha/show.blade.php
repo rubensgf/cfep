@@ -72,7 +72,7 @@
                     <div class="row info-membro">
                         <div class="col-9">
                             <label>Doador de orgãos e tecidos</label>
-                            <p>Sim</p>
+                            <p>{{ $dados->doador ? 'SIM' : 'NÃO'}}</p>
                         </div>
                         <div class="col-3">
                             <label>Via</label>

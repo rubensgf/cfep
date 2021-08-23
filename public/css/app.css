@@ -11720,7 +11720,7 @@ footer a:hover {
 .container-carteirinha {
   min-height: 500px;
   border-radius: 18px;
-  background-image: url("/images/bg-textura-pretp.jpg");
+  background-color: #ffffff;
 }
 
 @media (max-width: 768px) {
