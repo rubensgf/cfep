@@ -16,21 +16,21 @@ class CreateUserDadosTable extends Migration
         Schema::create('user_dados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->nullable();
-            $table->string('ncarteirinha');
-            $table->string('nome');
-            $table->string('nome_mae');
+            $table->string('ncarteirinha')->nullable();
+            $table->string('nome')->nullable();
+            $table->string('nome_mae')->nullable();
             $table->string('nome_pai')->nullable();
-            $table->string('sexo');
-            $table->string('data_nascimento');
-            $table->string('rg');
-            $table->string('cpf');
+            $table->string('sexo')->nullable();
+            $table->string('data_nascimento')->nullable();
+            $table->string('rg')->nullable();
+            $table->string('cpf')->nullable();
             $table->string('telefone')->nullable();
             $table->string('celular')->nullable();
-            $table->string('endereco');
-            $table->string('numero');
-            $table->string('cidade');
-            $table->string('uf');
-            $table->string('cep');
+            $table->string('endereco')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('uf')->nullable();
+            $table->string('cep')->nullable();
             $table->string('foto')->nullable();
             $table->string('graduacao')->nullable();
             $table->string('universidade')->nullable();
@@ -42,7 +42,9 @@ class CreateUserDadosTable extends Migration
             $table->date('expedido')->nullable();
             $table->date('vigencia')->nullable();
             $table->enum('auditado',['0', '1', '2'])->nullable();
-            $table->enum('ativo',['0', '1'])->default('0');
+            $table->integer('numero_vias')->nullable();
+            $table->enum('legado',['0', '1'])->default('0');
+            //$table->enum('ativo',['0', '1'])->default('0');
             $table->timestamps();
         });
     }

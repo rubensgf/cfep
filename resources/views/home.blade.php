@@ -12,7 +12,8 @@
         {{-- <hr> --}}
         
         <div class="c-options-box pb-0">
-            <ul class="c-options-box__list">
+            <ul class="c-options-box__list"> 
+                @if (Auth::user()->role == 'adm' || Auth::user()->role == 'adm_membros')
                 <li>
                     <a class="c-options-box__button btn" href="{{ route('solicitacoes') }}">
                         @include('icons.icon-user-add')
@@ -31,7 +32,8 @@
                         <span>Entidades parceiras<span>
                     </a>
                 </li>
-                <li>
+                @endif
+                <!--<li>
                     <a class="c-options-box__button btn" href="#">
                         @include('icons.icon-pay')
                         <span>Pagamentos pendentes</span>
@@ -48,7 +50,7 @@
                         @include('icons.icon-user-adm')
                         <span>Novo Administrador</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
 

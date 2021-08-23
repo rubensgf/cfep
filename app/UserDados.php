@@ -34,7 +34,8 @@ class UserDados extends Model
         'expedido',
         'vigencia',
         'auditado',
-        'ativo' //aguardando, ativo, cancelado
+        'numero_vias',
+        'legado'
 
 
     ];

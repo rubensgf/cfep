@@ -83,3 +83,4 @@ Route::post('checkout', 'PagseguroController@checkout');
 
 
 Route::get('create-zip', 'ZipArchiveController@index')->name('create-zip');
+Route::get('importacao', 'ImportacaoController@index')->name('importacao');

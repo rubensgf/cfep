@@ -97,7 +97,7 @@ class ADMSolicitacoesController extends Controller
             return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
         }
-        //altera o status do pedido da solicitacao para (grafica ou enviado)
+        //alterar o status do pedido da solicitacao para (grafica ou enviado)
         $pedido = Pedido::where('id',$pedido_id)->first();
         $user_id = $pedido->user_id;
         $pedido->situacao = $situacao; //grafica ou enviado

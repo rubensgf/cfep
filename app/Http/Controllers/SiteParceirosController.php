@@ -14,7 +14,7 @@ class SiteParceirosController extends Controller
 
     public function store(Request $request)
     {
-        dd('ásas');
+        
         $ud = new Entidade([
             'razao_social'  =>  $request->input('razao_social'),
             'nome_fantasia'  => $request->input('nome_fantasia'),
