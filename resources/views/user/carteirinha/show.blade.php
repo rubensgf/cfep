@@ -17,7 +17,7 @@
     </div>
 
     <div class="container container-carteirinha">
-        <div class="row text-center pt-5 color-white">
+        <div class="row text-center pt-5">
             <div class="col">
                 @include('icons.icon-girar')
                 Click para ver o outro lado
@@ -52,11 +52,11 @@
                     <div class="row info-membro">
                         <div class="col-9">
                             <label>Naturalidade</label>
-                            <p>São Paulo - SP</p>
+                            <p>{{ $dados->naturalidade }} - {{ $dados->naturalidade_uf }}</p>
                         </div>
                         <div class="col-3">
                             <label>Expedido</label>
-                            <p>{{ $dados->expedido }}</p>
+                            <p>{!! date('d/m/yy', strtotime($dados->expedido)) !!}</p>
                         </div>
                     </div>
                     <div class="row info-membro">
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-3">
                             <label>Validade</label>
-                            <p>{{ $dados->vigencia}}</p>
+                            <p>{!! date('d/m/yy', strtotime($dados->vigencia)) !!}</p>
                         </div>
                     </div>
                     <div class="row info-membro">
