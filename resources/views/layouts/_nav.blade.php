@@ -23,28 +23,32 @@
             <li><a href="{{ route('perfil') }}">Meu CFEP</a></li>
         @else
             <p></p>
-            @if (Auth::user()->role == 'adm' || Auth::user()->role == 'user'  )
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('solicitacoes') }}">Solicitações</a></li>
-            <li><a href="{{ route('entidades') }}">Entidades</a></li>
-            <li><a href="{{ route('membros') }}">Membros</a></li>
-            
+            @if (Auth::user()->role == 'adm' || Auth::user()->role == 'user')
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('solicitacoes') }}">Solicitações</a></li>
+                <li><a href="{{ route('entidades') }}">Entidades</a></li>
+                <li><a href="{{ route('membros') }}">Membros</a></li>
+
             @endif
             <hr>
             <li><a href="{{ route('perfil') }}">Meus dados</a></li>
             <li><a href="{{ route('carteirinha') }}">Carteirinha</a></li>
             <li><a href="{{ route('certificado') }}">Certificado</a></li>
             <li><a href="{{ route('perfil') }}">QR Code</a></li>
+
+            <hr>
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="btn-sair btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                         document.getElementById('logout-form').submit();">
+                        {{ __('SAIR') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
         @endguest
-
     </ul>
-
-    {{-- <ul class="list-unstyled CTAs">
-        <li>
-            <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-        </li>
-        <li>
-            <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-        </li>
-    </ul> --}}
 </nav>

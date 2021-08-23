@@ -124,7 +124,7 @@
         text-decoration: none;
     }
 
-    #sidebar ul li a:hover {
+    #sidebar .components li a:hover {
         color: rgb(3, 108, 166);
         background: #fff;
     }
@@ -171,16 +171,20 @@
         margin-bottom: 5px;
     }
 
-    a.download {
-        background: #fff;
-        color: #7386d5;
+    a.btn-sair {
+        background-color: rgb(3, 92, 148) !important;
+        font-weight: bold;
+        
+        &:hover {
+            background: #005386 !important;
+        }
     }
 
-    a.article,
-    a.article:hover {
-        background: rgb(3, 108, 166) !important;
-        color: #fff !important;
-    }
+    // a.article,
+    // a.article:hover {
+    //     background: rgb(0, 73, 119) !important;
+    //     color: #fff !important;
+    // }
 
     #sidebarCollapse {
         position: absolute;
@@ -206,6 +210,7 @@
         min-height: 100vh;
         transition: all 0.3s;
         position: relative;
+        padding-bottom: 130px;
     }
 
     /* ---------------------------------------------------
@@ -235,6 +240,7 @@
 
         #content {
             padding: 0px;
+            padding-bottom: 300px;
         }
 
         .navbar {

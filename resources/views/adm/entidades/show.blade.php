@@ -17,7 +17,7 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
                 <div class="pull-right">
-                    <a href="javascript:history.back()" class="btn btn-secondary mr-2">Voltar</a>
+                    <a href="javascript:history.back()" class="btn btn-outline-secondary mr-2">Voltar</a>
                 </div>
                 <form id="remove" action="{{ route('adm.entidade.update', $entidade->id) }}" method="post"
                     onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">

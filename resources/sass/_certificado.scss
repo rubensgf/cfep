@@ -12,6 +12,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: top center;
+        box-shadow: 0 0 12px 1px rgb(0 0 0 / 8%) !important;
         
         @media (max-width: 768px) {
             height: 65vh;

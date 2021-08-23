@@ -24,9 +24,14 @@ html, body {
     color: #F8FAFC;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
+body {
+    position: relative;
+    // padding-bottom: 100px;
+}
+
 fieldset {
     label {
         display: block !important;
@@ -264,6 +269,10 @@ footer {
     background-color: $white;
 }
 
+.color-white {
+    color: $white;
+}
+
 .bg-light-grey {
     background-color: #f1f1f1;
 }
@@ -272,7 +281,6 @@ footer {
     .foto-img {
         max-width: 180px !important;
         min-height: 220px !important;
-        min-width: 180px;
         background: #ececec;
     }
 
@@ -283,7 +291,6 @@ footer {
             font-weight: normal;
             font-size: 15px;
         }
-
         
     }
     li:first-child {
@@ -354,4 +361,9 @@ input[type=number] {
 
 .color-grey {
     color: #444;
+}
+
+table {
+    background-color: $white;
+    margin-bottom: 80px;
 }

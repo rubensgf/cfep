@@ -1,137 +1,143 @@
-.box-carteira {
+.container-carteirinha {
+    min-height: 500px;
     border-radius: 18px;
-    padding: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    background-image: url('/images/bg-textura-pretp.jpg');
 
-    .carteira {
-        width: 508px;
-        height: 319px;
-        max-width: 100%;
-        font-family: sans-serif;
-        border-radius: 16px;
-
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: top center;
-
-        &__frente {
-            background-image: url("/images/carteira-frente.jpg");
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
+    @media (max-width: 768px) {
+        background-image: none;
+    }
+    .box-carteira {
+        border-radius: 18px;
+        padding: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    
+        .carteira {
+            width: 508px;
+            height: 319px;
+            max-width: 100%;
+            font-family: sans-serif;
+            border-radius: 16px;
+    
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top center;
+    
+            &__frente {
+                background-image: url("/images/carteira-frente.jpg");
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+    
+                .info-membro {
+                    .foto-carteira {
+                        width: 97%;
+                        height: 150px;
+                    }
+    
+                    .col {
+                        display: flex;
+                        align-items: flex-end;
+                    }
+                }
+            }
+    
+            &__verso {
+                background-image: url("/images/carteira-verso.jpg");
+                padding-top: 110px;
+    
+                .info-membro {
+                    padding: 0 20px;
+    
+                    .col-3 {
+                        padding-left: 0;
+                    }
+                }
+            }
+    
             .info-membro {
-                .foto-carteira {
-                    width: 97%;
-                    height: 150px;
+                font-weight: bold;
+    
+                label {
+                    margin-bottom: 0;
+                    font-size: 10px;
+                    margin-bottom: 0;
                 }
-
-                .col {
-                    display: flex;
-                    align-items: flex-end;
+    
+                p {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                    line-height: 12px;
                 }
-            }
-        }
-
-        &__verso {
-            background-image: url("/images/carteira-verso.jpg");
-            padding-top: 110px;
-
-            .info-membro {
-                padding: 0 20px;
-
-                .col-3 {
-                    padding-left: 0;
-                }
-            }
-        }
-
-        .info-membro {
-            font-weight: bold;
-
-            label {
-                margin-bottom: 0;
-                font-size: 10px;
-                margin-bottom: 0;
-            }
-
-            p {
-                text-transform: uppercase;
-                font-size: 12px;
-                margin-bottom: 0;
-                line-height: 12px;
             }
         }
     }
-}
-
-/////// Flip
-
-.flip-container {
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    display: block;
-    width: 508px;
-    max-width: 100%;
-    height: 319px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-
-    .box-carteira {
-        position: relative;
-        height: 100%;
-        width: 100%;
+    /////// Flip
+    .flip-container {
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
-        -webkit-transition: all 600ms;
-        transition: all 600ms;
-        z-index: 20;
-    }
-
-    .box-carteira .carteira {
+        display: block;
+        width: 508px;
+        max-width: 100%;
+        height: 319px;
         position: absolute;
-        height: 100%;
-        width: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 18px;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+    
+        .box-carteira {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transition: all 600ms;
+            transition: all 600ms;
+            z-index: 20;
+        }
+    
+        .box-carteira .carteira {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 18px;
+        }
+    
+        .box-carteira .back {
+            -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+        }
+    
+        input {
+            display: none;
+        }
+    
+        :checked + .box-carteira {
+            transform: rotateX(180deg);
+            -webkit-transform: rotateX(180deg);
+        }
     }
-
-    .box-carteira .back {
-        -webkit-transform: rotateX(180deg);
-        transform: rotateX(180deg);
+    
+    .flip-container:hover .box-carteira {
+        -webkit-transform: rotateX(10deg);
+        transform: rotateX(10deg);
+        box-shadow: 0 10px 15px rgba(50, 50, 50, 0.2);
     }
-
-    input {
-        display: none;
-    }
-
-    :checked + .box-carteira {
-        transform: rotateX(180deg);
-        -webkit-transform: rotateX(180deg);
+    
+    .flip-container:hover :checked + .box-carteira {
+        transform: rotateX(170deg);
+        -webkit-transform: rotateX(170deg);
+        box-shadow: 0 10px 15px rgba(50, 50, 50, 0.2);
     }
 }
 
-.flip-container:hover .box-carteira {
-    -webkit-transform: rotateX(10deg);
-    transform: rotateX(10deg);
-    box-shadow: 0 10px 15px rgba(50, 50, 50, 0.2);
-}
-
-.flip-container:hover :checked + .box-carteira {
-    transform: rotateX(170deg);
-    -webkit-transform: rotateX(170deg);
-    box-shadow: 0 10px 15px rgba(50, 50, 50, 0.2);
-}
-
-////////

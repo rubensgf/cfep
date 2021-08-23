@@ -1,24 +1,33 @@
 <div class="col-md-3">
-            @if ($membro->foto)
-                <img class="foto-img img-fluid border mb-4" src="{{url('/storage/files/')}}/{{ $membro->ncarteirinha }}/{{ $membro->foto }}">
-            @else
-                <div class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
-                    <small>Sem Foto</small>
-                </div>
-            @endif
+    @if ($membro->foto)
+        <img class="foto-img img-fluid border mb-4"
+            src="{{ url('/storage/files/') }}/{{ $membro->ncarteirinha }}/{{ $membro->foto }}">
+    @else
+        <div class="foto-img img-thumbnail img-fluid border mb-4 d-flex justify-content-center align-items-center">
+            <small>Sem Foto</small>
         </div>
+    @endif
+</div>
 
-        <ul class="col-md-9 p-0">
-            <li class="mb-3"><span class="font-weight-bold fs-22">{{ $membro->nome }}</span></li>
+<ul class="col-md-9 p-0">
+    <li class="mb-3"><span class="font-weight-bold fs-22">{{ $membro->nome }}</span></li>
 
-            {{-- <li>token transacao : <span>{{ env('LINK_REDIRECT')}}/{{ $pedido->token }}</span></li> --}}
+    {{-- <li>token transacao : <span>{{ env('LINK_REDIRECT')}}/{{ $pedido->token }}</span></li> --}}
 
-            <fieldset class="p-3 mb-3">
-                <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
+    <fieldset class="p-3 mb-3">
+        <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
 
-                <li>ref. pedido : <span>{{ $pedido->referencia }}</span></li>
-                <li>token transacao : <span>{{ $pedido->token }}</span></li>
+        <li>ref. pedido : <span>{{ $pedido->referencia }}</span></li>
+        <li>token transacao : <span>{{ $pedido->token }}</span></li>
 
+        <li>N° inscrição: <span>{{ $membro->ncarteirinha }}</span></li>
+        <li>Expedido: <span>{{ $membro->expedido }}</span></li>
+        <li>Validade: <span>{{ $membro->vigencia }}</span></li>
+        <li>Auditado: <span>{{ $membro->auditado ? 'Sim' : 'Não' }}</span></li>
+        <li>Status: <span>{{ $membro->ativo ? 'Ativo' : 'Inativo' }}</span></li>
+    </fieldset>
+    <fieldset class="p-3 mb-3">
+        <legend class="w-auto m-0 fs-20">Dados pessoais</legend>
 
                 <li>N° inscrição: <span>{{ $membro->ncarteirinha }}</span></li>
                 <li>Expedido: <span>{{ $membro->expedido }}</span></li>

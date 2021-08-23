@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-2 px-3 mb-5 border-bottom">
         <h1 class="h2">Indentidade Profissional</h1>
 
         <div class="btn-group">
             <div class="pull-right">
-                <a href="javascript:history.back()" class="btn btn-secondary mr-1">Voltar</a>
+                <a href="javascript:history.back()" class="btn btn-outline-secondary mr-2">Voltar</a>
             </div>
             <form id="remove" action="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -17,8 +16,15 @@
         </div>
     </div>
 
-    <div class="container">
-        <label class="flip-container my-5">
+    <div class="container container-carteirinha">
+        <div class="row text-center pt-5 color-white">
+            <div class="col">
+                @include('icons.icon-girar')
+                Click para ver o outro lado
+            </div>
+        </div>
+
+        <label class="flip-container">
             <input id="t" type="checkbox"/>
             <div class="box-carteira my-5">
                 <div class="carteira carteira__verso back">
@@ -94,12 +100,5 @@
                 </div>
             </div>
         </label>
-        <div class="row text-center">
-            <div class="col">
-                @include('icons.icon-girar')
-                Click para ver o outro lado
-            </div>
-        </div>
     </div>
-
 @endsection
