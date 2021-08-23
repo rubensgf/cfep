@@ -94,4 +94,3 @@
         </li>
     </fieldset>
 </ul>
-</div>
