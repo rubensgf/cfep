@@ -30,6 +30,7 @@
             @elseif($user->ativo === '3') <span>Cancelado</span>
             @endif
         </li>
+        <li>Via da carteirinha: <span>2ª</span></li>
     </fieldset>
 
     <fieldset class="p-3 mb-3">
@@ -42,6 +43,7 @@
         <li>Sexo: <span>{{ $membro->sexo }}</span></li>
         <li>RG: <span>{{ $membro->rg }}</span></li>
         <li>CPF: <span>{{ $membro->cpf }}</span></li>
+        <li>Doador de órgãos e tecidos: <span>{{ $membro->doador ? 'Sim' : 'Não' }}</span></li>
         <li>CEP: <span>{{ $membro->cep }}</span></li>
         <li>Endereço: <span>{{ $membro->endereco }}, {{ $membro->numero }}</span></li>
         <li>Cidade: <span>{{ $membro->cidade }}</span></li>

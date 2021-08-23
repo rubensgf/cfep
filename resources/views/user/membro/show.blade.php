@@ -43,6 +43,7 @@
                     <li>Expedido: <span>{!! date('d/m/yy', strtotime($i->expedido)) !!}</span></li>
                     <li>Validade: <span>{!! date('d/m/yy', strtotime($i->vigencia)) !!}</span></li>
                     <li>Situação: <span>{{ $i->ativo ? 'Ativo' : 'Inativo'}}</span></li>
+                    <li>Via da carteirinha: <span>2ª</span></li>
                 </fieldset>
 
                 <fieldset class="p-3 mb-3">
@@ -55,6 +56,7 @@
                     <li>Sexo: <span>{{ $i->sexo }}</span></li>
                     <li>RG: <span>{{ $i->rg }}</span></li>
                     <li>CPF: <span>{{ $i->cpf }}</span></li>
+                    {{-- <li>Doador de órgãos e tecidos: <span>{{ $i->doador ? 'Sim' : 'Não' }}</span></li> --}}
                     <li>Endereço: <span>{{ $i->endereco }}, {{ $i->numero }}</span></li>
                     <li>Cidade: <span>{{ $i->cidade }} - {{ $i->uf }}</span></li>
                     <li>E-mail: <span>{{ $i->email }}</span></li>
