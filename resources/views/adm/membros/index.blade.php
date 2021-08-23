@@ -4,11 +4,11 @@
 
     <div class="form-row justify-content-between flex-wrap flex-md-nowrap align-items-center py-3 mb-5 border-bottom">
         <h2 class="mb-md-0">Membros</h2>
-        
+
         <div class="pull-right">
-            <a href="javascript:history.back()" class="btn btn-secondary mr-2">Voltar</a>
-            <a href="{{ route('inscricao') }}" type="button" class="btn btn-success"
-                title="Cadastrar novo membro">+ Cadastrar</a>
+            <a href="javascript:history.back()" class="btn btn-outline-secondary mr-2">Voltar</a>
+            <a href="{{ route('inscricao') }}" type="button" class="btn btn-success" title="Cadastrar novo membro">+
+                Cadastrar</a>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="table-responsive">
+    <div data-table class="table-responsive">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -33,7 +33,7 @@
                     <th>Telefone</th>
                     <th>Vigência</th>
                     <th>Auditado </th>
-                    <th>Status </th>    
+                    <th>Status </th>
                     <th></th>
                 </tr>
             </thead>
@@ -54,5 +54,13 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div data-box-result-search-fail class="is-hidden px-3">
+        <div class="row justify-content-center my-5 bg-white">
+            <div class="form-title flex-column text-center font-weight-bold mt-3">
+                <p>Nenhum resultado encontrado.</p>
+            </div>
+        </div>
     </div>
 @endsection

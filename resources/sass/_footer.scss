@@ -2,10 +2,16 @@ footer {
     background-color: white;
     padding: 20px;
 
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 8%) !important;
+
     svg {
-        width: 25px;
+        width: 22px;
         color: #777;
-        transition-duration: .5s;
+        transition-duration: 0.5s;
 
         &:hover {
             color: $blue;
@@ -18,14 +24,24 @@ footer {
         font-size: 18px;
     }
 
-    a, p {
-        color: #777;
-        transition-duration: .5s;
-        
-        &:hover {
-            text-decoration: none;
-            color: $blue;
-        }
+    li {
+        line-height: 16px;
+        transition: all .35 ease;
 
+        a:hover {
+            font-weight: bold;
+        }
+    }
+
+    a,
+    p {
+        color: #777;
+        transition-duration: 0.35s;
+        line-height: 16px;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: $blue;
     }
 }

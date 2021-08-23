@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div 
         data-download-pdf 
         data-name="{{ $dados->nome }}"
@@ -19,7 +18,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="A">
                 <div class="pull-right">
-                    <a href="javascript:history.back()" class="btn btn-secondary mr-1">Voltar</a>
+                    <a href="javascript:history.back()" class="btn btn-outline-secondary mr-1">Voltar</a>
                 </div>
                 <button type="button" class="btn btn-primary" data-certificado-pdf><span>Baixar PDF</span></button>
             </div>
@@ -46,33 +45,8 @@
                     <p>Inscrito em {{ $dados->expedido }}.</p>
                 </div>
             </div>
-
         </div>
     </div>
-
-    {{-- <div>
-    {{ $dados->foto }} <br>
-    {{ $dados->user_id }} <br>
-    {{ $dados->ncarteirinha }} <br>
-    {{ $dados->nome }} <br> {{ $dados->nome_mae }} <br>
-    {{ $dados->nome_pai }} <br>         {{ $dados->sexo}} <br>
-    {{ $dados->data_nascimento}} <br>
-    {{ $dados->rg }} <br>
-    {{ $dados->cpf}} <br>
-    {{ $dados->telefone }} <br>
-    {{ $dados->celular}} <br>
-    {{ $dados->endereco }} <br>
-    {{ $dados->numero}} <br>
-    {{ $dados->cidade }} <br>
-    {{ $dados->uf}} <br>
-    {{ $dados->cep }} <br>
-    {{ $dados->foto}} <br>
-    {{ $dados->expedido }} <br>
-    {{ $dados->vigencia}} <br>
-    {{ $dados->ativo }} <br>
-</div> --}}
-</div>
-
 @endsection
 
 

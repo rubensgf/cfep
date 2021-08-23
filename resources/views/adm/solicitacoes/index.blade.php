@@ -4,7 +4,7 @@
     <div class="form-row justify-content-between flex-wrap flex-md-nowrap align-items-center py-3 mb-5 border-bottom">
         <h2 class="mb-md-0">Solicitações - Inscritos, 2ª Via e Parceiros</h2>
         <!--<div class="pull-right">
-            <a href="javascript:history.back()" class="btn btn-secondary mr-2">Voltar</a>
+            <a href="javascript:history.back()" class="btn btn-outline-secondary mr-2">Voltar</a>
         </div>-->
     </div>
 
