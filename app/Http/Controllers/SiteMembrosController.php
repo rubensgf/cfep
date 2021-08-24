@@ -18,14 +18,15 @@ class SiteMembrosController extends Controller
       
         $membro = User::join('user_dados', 'users.id', 'user_dados.user_id')
         ->select('users.email', 'user_dados.*')
-        ->where('users.ativo', 1)
-        ->where('users.id', $id)->first();
+        ->where('users.ativo', '1')
+        ->where('user_dados.cpf', $id)
+        ->first();
         
         if(!$membro){
   
           $membro = User::join('user_dados', 'users.id', 'user_dados.user_id')
-            ->select('users.email', 'user_dados.*')
-            ->where('users.ativo', 1)
+            ->select('users.email', 'users.ativo', 'user_dados.*')
+            ->where('users.ativo', '1')
             ->where('user_dados.ncarteirinha', $id)
             ->first();
        

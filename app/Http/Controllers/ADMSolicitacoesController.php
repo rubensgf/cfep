@@ -23,9 +23,9 @@ class ADMSolicitacoesController extends Controller
                 pe.*
          FROM pedidos pe inner join users u on(pe.user_id = u.id) inner join produtos po 
          on(pe.produto_id =  po.id)
-         WHERE pe.status in('aguardando','confirmado')  and pe.situacao = 'aguardando' order by pe.id asc ");
+         WHERE pe.status in('aguardando','confirmado')  and pe.situacao in('aguardando','grafica','enviado') order by pe.id asc ");
 
-        $entidades = Entidade::where('ativo','0')->orderBy('id')->get();
+        $entidades = Entidade::where('ativo','0')->whereNull('expedido')->orderBy('id')->get();
 
         return view('adm.solicitacoes.index', compact('pedidos', 'entidades'));
 
@@ -62,14 +62,11 @@ class ADMSolicitacoesController extends Controller
     {
         
         $pedido_id = $id;
-
         $pedido = Pedido::findOrFail($id);
-
         $membro = UserDados::findOrFail($pedido->user_id);
-
         $user = User::select('email')->findOrFail($pedido->user_id);
 
-        $arquivos = UserFiles::findOrFail($pedido->user_id);
+        $arquivos = UserFiles::where('user_id', $pedido->user_id)->first();
 
         return view('adm.solicitacoes.showMembro',compact('membro', 'pedido_id', 'arquivos', 'pedido', 'user'));
     }
@@ -85,6 +82,28 @@ class ADMSolicitacoesController extends Controller
     {
         $pedido_id = $id;
         $situacao = $request->get('situacao');
+        $status =  $request->get('status');
+
+        //se for pagamento manual
+        if($status == 'confirmado'){
+
+            
+
+            $pedido = Pedido::where('id',$pedido_id)->first();
+            $user_id = $pedido->user_id;
+            $pedido->status = 'confirmado'; //pagamento
+            $pedido->save();
+
+            $numero_vias = UserDados::where('user_id',$user_id)->select('numero_vias as count','numero_vias')->first();
+            $total_vias =  $numero_vias->count + 1;
+           
+            $pedido = UserDados::where('user_id',$user_id)->first();
+            $pedido->numero_vias  = $total_vias;
+            $pedido->save();   
+
+            return redirect()->route('solicitacoes')
+                        ->with('success','Dados alterados com sucesso!');
+        }
 
         //cancelar pedido da 2via caso nao tenha sido pago
         if($request->get('status')){
@@ -97,6 +116,7 @@ class ADMSolicitacoesController extends Controller
             return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');
         }
+
         //alterar o status do pedido da solicitacao para (grafica ou enviado)
         $pedido = Pedido::where('id',$pedido_id)->first();
         $user_id = $pedido->user_id;
@@ -117,17 +137,27 @@ class ADMSolicitacoesController extends Controller
 
         //pagamento manual, altera o status e coloca a data expedido /vigencia. Mas ainda precisa ser autitado
         if($request->get('status') === 'confirmado'){
+            
+            $expedido = date("Y-m-d");
+            $vigencia = date('Y-m-d', strtotime('+1 year'));
+
+            
+
             $pedido = Pedido::where('id',$pedido_id)->first();
             $user_id = $pedido->user_id;
             $pedido->situacao = 'aguardando';
             $pedido->status = 'confirmado';
             $pedido->save();
 
+            
+
             //adcionar a data de videncia
             $userDados = UserDados::where('id',$user_id)->first();
-            $userDados->expedido =  date("Y-m-d");
-            $userDados->vigencia = date('Y-m-d', strtotime('+1 year'));
+            $userDados->expedido =  $expedido;
+            $userDados->vigencia = $vigencia;
             $userDados->save();
+
+            //dd($expedido, $vigencia);
 
             return redirect()->route('solicitacoes')
                         ->with('success','Dados alterados com sucesso!');

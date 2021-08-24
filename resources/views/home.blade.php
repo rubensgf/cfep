@@ -13,7 +13,7 @@
         
         <div class="c-options-box pb-0">
             <ul class="c-options-box__list"> 
-                @if (Auth::user()->role == 'adm' || Auth::user()->role == 'adm_membros')
+                @if (Auth::user()->role == 'adm' || Auth::user()->role == 'adm_membro')
                 <li>
                     <a class="c-options-box__button btn" href="{{ route('solicitacoes') }}">
                         @include('icons.icon-user-add')
@@ -54,7 +54,7 @@
             </ul>
         </div>
 
-        {{-- @else --}}
+        @if (Auth::user()->role == 'user' || Auth::user()->role == 'adm_membro')
         <div class="c-options-box pt-0">
             <ul class="c-options-box__list">
                 <li>
@@ -77,7 +77,7 @@
                 </li>
             </ul>
         </div>
-        {{-- @endif --}}
+        @endif
     </div>
 </div>
 

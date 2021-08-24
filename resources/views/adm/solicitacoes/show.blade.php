@@ -24,17 +24,23 @@
                             <button type="submit" class="btn btn-danger"><span>Cancelar pedido</span></button>
                     </form>
                 @else
-                    <form id="remove" action="{{ route('adm.solicitacoes.update', $membro->id) }}" method="post"
+                    <form id="remove" action="{{ route('adm.solicitacoes.update', $pedido->id) }}" method="post"
                         onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                         <input type="hidden" name="situacao" value="grafica">
                             <button type="submit" class="btn btn-warning"><span>gráfica</span></button>
                     </form>
-                    <form id="remove" action="{{ route('adm.solicitacoes.update', $membro->id) }}" method="post"
+                    <form id="remove" action="{{ route('adm.solicitacoes.update', $pedido->id) }}" method="post"
                         onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                         <input type="hidden" name="situacao" value="enviado">
-                            <button type="submit" class="btn btn-seccess"><span>enviado</span></button>
+                            <button type="submit" class="btn btn-warning"><span>enviado</span></button>
+                    </form>
+                    <form id="remove" action="{{ route('adm.solicitacoes.update', $pedido->id) }}" method="post"
+                        onsubmit="return confirmRemove('Tem certeza que deseja excluir?')">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                        <input type="hidden" name="situacao" value="finalizado">
+                            <button type="submit" class="btn btn-warning"><span>Entregue</span></button>
                     </form>
                 @endif    
             </div>
@@ -64,8 +70,8 @@
             <li>token transacao : <span>{{ $pedido->token }}</span></li>
     
             <li>N° inscrição: <span>{{ $membro->ncarteirinha }}</span></li>
-            <li>Expedido: <span>{!! date('d/m/yy', strtotime($membro->expedido)) !!}</span></li>
-            <li>Validade: <span>{!! date('d/m/yy', strtotime($membro->vigencia)) !!}</span></li>
+            <li>Expedido: <span>{!! date('d/m/Y', strtotime($membro->expedido)) !!}</span></li>
+            <li>Validade: <span>{!! date('d/m/Y', strtotime($membro->vigencia)) !!}</span></li>
             <li>Auditado: <span>{{ $membro->auditado ? 'Sim' : 'Não' }}</span></li>
             <li>Situação: <span>{{ $membro->ativo ? 'Ativo' : 'Inativo'}}</span></li>
 
@@ -88,7 +94,7 @@
             <li>RG: <span>{{ $membro->rg }}</span></li>
             <li>CPF: <span>{{ $membro->cpf }}</span></li>
             <li>Doador de órgãos e tecidos: <span>{{ $membro->doador ? 'Sim' : 'Não' }}</span></li>
-            <li>Via: <span>2ª</span></li>
+            <li>Via: <span>{{ $membro->numero_vias }}ª</span></li>
             
             <li>CEP: <span>{{ $membro->cep }}</span></li>
             <li>Endereço: <span>{{ $membro->endereco }}, {{ $membro->numero }}</span></li>

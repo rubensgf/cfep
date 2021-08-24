@@ -19,8 +19,8 @@
         {{-- <li>token transacao : <span>{{ $pedido->token }}</span></li> --}}
 
         <li>N° inscrição: <span>{{ $entidade->id }}</span></li>
-        <li>Expedido: <span>{!! date('d/m/yy', strtotime($entidade->expedido)) !!}</span></li>
-        <li>Validade: <span>{!! date('d/m/yy', strtotime($entidade->vigencia)) !!}</span></li>
+        <li>Expedido: <span>{!! date('d/m/Y', strtotime($entidade->expedido)) !!}</span></li>
+        <li>Validade: <span>{!! date('d/m/Y', strtotime($entidade->vigencia)) !!}</span></li>
         {{-- <li>Auditado: <span>{{ $entidade->auditado ? 'Sim' : 'Não' }}</span></li> --}}
         <li>Status:
             @if ($entidade->ativo === '0') <span>Aguardando</span>
