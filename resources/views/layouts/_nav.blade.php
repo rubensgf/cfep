@@ -23,18 +23,20 @@
             <li><a href="{{ route('perfil') }}">Meu CFEP</a></li>
         @else
             <p></p>
-            @if (Auth::user()->role == 'adm' || Auth::user()->role == 'user')
-                <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
+            @if (Auth::user()->role == 'adm' || Auth::user()->role == 'adm_membro')
                 <li><a href="{{ route('solicitacoes') }}">Solicitações</a></li>
                 <li><a href="{{ route('entidades') }}">Entidades</a></li>
                 <li><a href="{{ route('membros') }}">Membros</a></li>
 
             @endif
             <hr>
+            @if (Auth::user()->role == 'user' || Auth::user()->role == 'adm_membro')
             <li><a href="{{ route('perfil') }}">Meus dados</a></li>
             <li><a href="{{ route('carteirinha') }}">Carteirinha</a></li>
             <li><a href="{{ route('certificado') }}">Certificado</a></li>
             <li><a href="{{ route('perfil') }}">QR Code</a></li>
+            @endif
 
             <hr>
             <ul class="list-unstyled CTAs">

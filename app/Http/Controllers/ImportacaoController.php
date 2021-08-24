@@ -27,17 +27,19 @@ class ImportacaoController extends Controller
 
          foreach ($membros_bk as $value => $k) {
              
-            try {
-                if($k->situacao = 'Regular'){
+            
+            echo $k->situacao . '<br>';
+
+                if($k->situacao == 'Regular'){
                     $ativo = '1';
                     }
-                    if($k->situacao = 'Irregular'){
+                    if($k->situacao == 'Irregular'){
                     $ativo = '2';
                     }
-                    if($k->situacao = 'Cancelado'){
+                    if($k->situacao == 'Cancelado'){
                     $ativo = '3';
                     }
-
+                    echo $ativo . '<br>';
                     
 
                     $end = explode(", ", $k->endereco);
@@ -77,6 +79,8 @@ class ImportacaoController extends Controller
                         $u->save();
                         $user_id = $u->id;
 
+                        echo $ativo . '<br>';
+
                         $udd = new UserDados([
                             'user_id' => $user_id,
                             'ncarteirinha' => $k->id,
@@ -111,14 +115,10 @@ class ImportacaoController extends Controller
                         $udd->save();
                     }
 
-            } catch (Exception $e) {
-                report($e);
-        
-                continue;
-            }
+         
 
              
-            echo $user_id . '<br>';
+            //echo $user_id . '<br>';
             
        }
 

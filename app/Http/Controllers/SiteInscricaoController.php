@@ -145,7 +145,8 @@ class SiteInscricaoController extends Controller
             'naturalidade' => $request->input('naturalidade'),
             'naturalidade_uf' => $request->input('naturalidade_uf'),
             'doador' => $request->input('doador'),
-            'status' => '0'
+            'status' => '0',
+            'numero_vias' => '1'
         ]);
         $ud->save();
 
