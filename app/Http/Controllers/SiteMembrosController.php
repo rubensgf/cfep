@@ -34,5 +34,5 @@ class SiteMembrosController extends Controller
         
         return response()->json($membro);
     }
-
+   
 }

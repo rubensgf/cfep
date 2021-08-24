@@ -19,6 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 */
 
+Route::get('cpf/{id}', 'Api\\MembroController@indexCpf');
+Route::get('cnpj/{id}', 'Api\\MembroController@indexCnpj');
+
 Route::post('auth/login', 'Api\\AuthController@login');
 
 Route::group(['middleware' => ['apiJwt']] , function(){
