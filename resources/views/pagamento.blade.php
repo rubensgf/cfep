@@ -6,7 +6,7 @@
         <h2>Pagamento</h2>
         <div class="d-flex align-items-center justify-content-center">
             <p class="mb-0 mr-2">Pagamento de forma rápida, fácil e segura através da plataforma</p>
-            @include('icons.icon-pagseguro')
+            <span>@include('icons.icon-mercado-pago')</span>
         </div>
     </div>
 

@@ -336,20 +336,20 @@
         </fieldset>
 
         <div class="form-group">
-            <div class="form-check">
-                <input type="checkbox" id="aceite-dados" aria-label="Declaro que esses dados são verdadeiros" required>
-                <label class="mb-0 ml-1" for="aceite-dados">Declaro que todos os dados/arquivos aqui enviados, são
+            <div class="form-check d-flex d-md-block mb-3 mb-md-2 pl-0">
+                <input class="mt-1 mt-sm-0" type="checkbox" id="aceite-dados" aria-label="Declaro que esses dados são verdadeiros" required>
+                <label class="mb-0 ml-2 ml-md-0" for="aceite-dados">Declaro que todos os dados/arquivos aqui enviados, são
                     verdadeiros.</label>
             </div>
-            <div class="form-check">
-                <input type="checkbox" id="aceite-termos"
+            <div class="form-check d-flex d-md-block pl-0">
+                <input class="mt-1 mt-sm-0" type="checkbox" id="aceite-termos"
                     aria-label="Declaro que, aceito os termos de uso e Politicas de privacidade" required>
-                <label class="mb-0 ml-1" for="aceite-termos">Declaro que, aceito os <a href="http://" target="_blank"
+                <label class="mb-0 ml-2 ml-md-0" for="aceite-termos">Declaro que, aceito os <a href="http://" target="_blank"
                         rel="noopener noreferrer">Termos de uso</a> e <a href="http://" target="_blank"
                         rel="noopener noreferrer">Politicas de privacidade</a>.</label>
             </div>
 
-            <div class="form-row pl-3">
+            <div class="form-row">
                 <button type="submit" class="btn btn-primary col-md-4 my-5">Continuar</button>
             </div>
         </div>

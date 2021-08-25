@@ -34,16 +34,18 @@
             </div>
 
             <ul class="col-md-9 p-0">
-                <li class="mb-3"><span class="font-weight-bold">{{ $i->nome }}</span></li>
+                <li class="mb-3 pl-3 pt-4 pt-md-0">
+                    <span class="font-weight-bold">{{ $i->nome }}</span>
+                </li>
 
                 <fieldset class="p-3 mb-3">
                     <legend class="w-auto m-0 fs-20">Inscrição CFEP</legend>
 
                     <li>N° inscrição: <span>{{ $i->ncarteirinha }}</span></li>
-                    <li>Expedido: <span>{!! date('d/m/yy', strtotime($i->expedido)) !!}</span></li>
-                    <li>Validade: <span>{!! date('d/m/yy', strtotime($i->vigencia)) !!}</span></li>
+                    <li>Expedido: <span>{{ $i->expedido }}</span></li>
+                    <li>Validade: <span>{{ $i->vigencia }}</span></li>
                     <li>Situação: <span>{{ $i->ativo ? 'Ativo' : 'Inativo'}}</span></li>
-                    <li>Via da carteirinha: <span>2ª</span></li>
+                    {{-- <li>Via da carteirinha: <span>{{ $i->numero_vias }}ª</span></li> --}}
                 </fieldset>
 
                 <fieldset class="p-3 mb-3">

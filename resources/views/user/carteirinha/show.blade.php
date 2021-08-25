@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-3">
                             <label>Via</label>
-                            <p>2ª</p>
+                            <p>{{ $dados->numero_vias }}ª</p>
                         </div>
                     </div>
                 </div>

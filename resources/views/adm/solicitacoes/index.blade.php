@@ -41,7 +41,7 @@
                         <td>{{ $pedido->produto }} </td>
                         <td>{{ $pedido->nome }} <br> {{ $pedido->email }} </td>
                         <td>{{ $pedido->valor }} </td>
-                        <td>{!! date('d/m/yy', strtotime($pedido->created_at)) !!}</td>
+                        <td>{{ $pedido->created_at }}</td>
                         <td>{{ $pedido->status }}</td>
                         <td>{{ $pedido->situacao }}</td>
                         <td>
