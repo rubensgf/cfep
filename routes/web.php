@@ -32,7 +32,7 @@ Route::post('/inscricao', 'SiteInscricaoController@store')->name('inscricao.stor
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','user.ativo'])->group(function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
@@ -66,13 +66,16 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/usr/qrcode', 'USRQrcodeController@index')->name('qrcode');
     Route::get('/usr/2via', '2viaController@index')->name('2via');
-
-
-
   
     Route::get('/2via/{id}', 'USR2viaController@index')->name('2via');
 
     });
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/usr/aviso', 'USRAvisoController@index')->name('aviso');
+});
+
 Route::get('/pagamento/{id}/{id2}', 'SitePagamentoController@index')->name('pagamentos');
 
 Route::get('/pagamento/{id}/{id2}/confirmar', 'SitePagamentoController@store')->name('confirmar');

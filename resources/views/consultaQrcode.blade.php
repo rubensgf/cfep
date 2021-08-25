@@ -36,6 +36,8 @@
             <div data-loader-gift class="row justify-content-center my-5 is-hidden">
                 <img src="/images/gif/loader-blue.gif" width="40">
             </div>
+
+            
             @foreach ($membro as $i)
                 <div data-box-result-search class="">
                     <div class="row justify-content-center my-4">
@@ -70,7 +72,7 @@
                                 <span data-search="validade">{{ $i->vigencia}}</span>
                             </li>
                             <li>Situação:
-                                <span data-search="situacao">{{ $i->ativo ? 'Regular' : 'Irregular'}}</span>
+                                <span data-search="situacao"></span>
                             </li>
                         </ul>
                     </div>
