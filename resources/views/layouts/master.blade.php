@@ -13,16 +13,12 @@
             @section('header')
                 @include('partials.layout.header')
             @show
-
-            {{-- @include('layouts._nav') --}}
-
-
-                @yield('content')
+            @yield('content')
         </main>
     </div>
     {{-- @section('footer')
-        @include('partials.layout.footer')
-      @show --}}
+        @include('partials.footer')
+    @show --}}
 </body>
 
 </html>

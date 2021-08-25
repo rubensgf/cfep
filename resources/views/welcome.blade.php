@@ -4,7 +4,7 @@
 
 <div class="page-welcome full-height pt-5">
     <div class="container">
-        <div class="row">
+        <div class="row welcome">
             <h3 class="col-md-12">Bem vindo!</h3>
         </div>
         <hr>
@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="c-options-box__button btn" href="#">
+                    <a class="c-options-box__button btn" href="{{ route('carteirinha') }}">
                         @include('icons.address-card-regular')
                         <span>2ª via Identidade Profissional<span>
                     </a>

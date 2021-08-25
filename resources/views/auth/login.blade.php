@@ -1,31 +1,30 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
+    <div class="container pt-4">
         <div class="row justify-content-center my-4">
             <div class="col-md-8">
-                <p class="text-center fs-16">A Identidade Profissional serve não só para identifica-lo, mas também disponibilizara benefícios e vantagens em
+                <p class="text-center fs-16">A Identidade Profissional serve não só para identifica-lo, mas também
+                    disponibilizara benefícios e vantagens em
                     nossa rede de estabelecimentos conveniados.</p>
             </div>
         </div>
         <div class="row justify-content-center my-4">
             <div class="col-md-6
-                d-flex
-                justify-content-md-end
-                justify-content-center
-                align-items-md-center
-                font-weight-bold"
-            >
+                    d-flex
+                    justify-content-md-end
+                    justify-content-center
+                    align-items-md-center
+                    font-weight-bold">
                 <span class="fs-14">Ainda não tem uma conta?</span>
             </div>
             <div class="col-md-6
-                d-md-block
-                d-flex
-                justify-content-md-start
-                justify-content-center
-                mt-2
-                mt-md-0"
-            >
+                    d-md-block
+                    d-flex
+                    justify-content-md-start
+                    justify-content-center
+                    mt-2
+                    mt-md-0">
                 <a class="btn btn-outline-info" href="{{ route('inscricao') }}">Faça sua inscrição</a>
             </div>
         </div>
@@ -82,5 +81,8 @@
                 </div>
             </div>
         </div>
+        {{-- @section('footer')
+            @include('partials.footer')
+        @show --}}
     </div>
 @endsection

@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center my-4">
+    <div class="container pt-5 mt-5">
+        <div class="row justify-content-center my-4 ">
             <div class="col-md-6
                     d-flex
                     justify-content-md-end

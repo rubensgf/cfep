@@ -48,7 +48,7 @@
 
                     <div class="row consulta-perfil bg-white p-4">
                         <div class="col-md-3 d-flex justify-content-center">
-                            @if ($i->fotowww)
+                            @if ($i->foto)
                                 <img data-search="foto" class="mb-4 mb-md-0 foto-img img-fluid border" src="{{url('/storage/files/')}}/{{ $i->ncarteirinha }}/{{ $i->foto }}">
                             @else
                                 <div

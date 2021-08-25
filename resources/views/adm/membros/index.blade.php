@@ -46,7 +46,7 @@
                             {{ $membro->email }}
                         </td>
                         <td>{{ $membro->telefone }}</td>
-                        <td>{{ $membro->vigencia }}</td>
+                        <td>{!! date('d/m/Y', strtotime($membro->vigencia)) !!}</td>
                         <td>{{ $membro->auditado ? 'Sim' : 'Não' }}</td>
                         <td>{{ $membro->ativo ? 'Ativo' : 'Inativo' }}</td>
                         <td><a class="btn btn-primary" href="{{ route('adm.membros.show', $membro->id) }}">Ver</a></td>
