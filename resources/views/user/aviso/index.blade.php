@@ -28,7 +28,7 @@
         <h1>
             Atencao, a vigência da sua inscricao venceu, renove sua inscricao clicando no botao abaixo
 
-            <button>Renova inscricao</button>
+            <button><a href="{{ route('pagamento', [$membro->id,'3']) }}">Renova inscricao</a></button>
         </h1>
     @endif
 @endsection
