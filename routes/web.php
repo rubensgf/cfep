@@ -32,7 +32,7 @@ Route::post('/inscricao', 'SiteInscricaoController@store')->name('inscricao.stor
 
 Auth::routes();
 
-Route::middleware(['auth','user.ativo'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
@@ -58,16 +58,19 @@ Route::middleware(['auth','user.ativo'])->group(function () {
     Route::post('/adm/solicitacoes/membros/update/{codigo}',[ 'as' => 'adm.solicitacoes.membros.update', 'uses' => 'ADMSolicitacoesController@updateMembros']);
     Route::post('/adm/solicitacoes/entidades/update/{codigo}',[ 'as' => 'adm.solicitacoes.entidades.update', 'uses' => 'ADMSolicitacoesController@updateEntidades']);
     
+    Route::middleware(['user.ativo'])->group(function () {
 
-    Route::get('/usr/perfil', 'USRMembroController@index')->name('perfil');
-    Route::get('/usr/certificado', 'USRCertificadoController@index')->name('certificado');
-    Route::get('/usr/carteirinha', 'USRCarteirinhaController@index')->name('carteirinha');
-    Route::post('/usr/carterinha', 'USRCarterinhaController@store')->name('carterinha');
-
+        Route::get('/usr/perfil', 'USRMembroController@index')->name('perfil');
+        Route::get('/usr/certificado', 'USRCertificadoController@index')->name('certificado');
+        Route::get('/usr/carteirinha', 'USRCarteirinhaController@index')->name('carteirinha');
+        Route::post('/usr/carterinha', 'USRCarterinhaController@store')->name('carterinha');
+    });
+    
     Route::get('/usr/qrcode', 'USRQrcodeController@index')->name('qrcode');
     Route::get('/usr/2via', '2viaController@index')->name('2via');
-  
     Route::get('/2via/{id}', 'USR2viaController@index')->name('2via');
+
+    Route::get('/usr/pagamento/{id}/{id2}', 'PagamentoController@index')->name('pagamento');
 
     });
 

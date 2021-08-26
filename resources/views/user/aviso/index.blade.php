@@ -5,6 +5,10 @@
     @if($membro->ativo == '0' )
     <h1>
         Ainda nao recebemos a confirmacao do pagamento. 
+
+        
+            <button type="submit" class="btn btn-primary"><a href="{{ route('pagamento', [$membro->id,'1']) }}">pagar</a></button> 
+        
     </h1>
     
 

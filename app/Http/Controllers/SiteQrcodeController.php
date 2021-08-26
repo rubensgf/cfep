@@ -12,9 +12,11 @@ class SiteQrcodeController extends Controller
     {
 
         $membro = User::join('user_dados', 'users.id', 'user_dados.user_id')
-        ->select('users.email', 'user_dados.*')
+        ->select('users.email', 'users.ativo','user_dados.*')
+        ->where('users.ativo', '1')
         ->where('user_dados.ncarteirinha', $id)
-        ->get();
+        ->first();
+
 
         return view('consultaQrcode', compact('membro'));
     }

@@ -24,5 +24,12 @@ class ProdutoSeeder extends Seeder
             'valor' => '70.00',
             'ativo' => 1
         ]);
+
+        DB::table('produtos')->insert([
+            'nome' => 'renovacao',
+            'descricao' => 'Renovacao da inscricao',
+            'valor' => '70.00',
+            'ativo' => 1
+        ]);
     }
 }

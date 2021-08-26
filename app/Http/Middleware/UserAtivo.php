@@ -25,7 +25,7 @@ class UserAtivo
         ->where('users.id', Auth::user()->id)
         ->first();
  
-        if ( $membro->ativo != '1' ) {
+        if (  $membro->ativo != '1' ) {
             
             return redirect('/usr/aviso');
         }
