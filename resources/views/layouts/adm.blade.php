@@ -13,7 +13,20 @@
     @include('partials.head')
 </head>
 
-<body>
+<body style="overflow: hidden">
+    <div id="preloader">
+        <div class="inner">
+           <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+           {{-- <div data-loader-gift class="row justify-content-center my-5 is-hidden">
+                <img src="/images/gif/loader-blue.gif" width="40">
+            </div> --}}
+            <div class="bolas">
+                <div></div>
+                <div></div>
+                <div></div>                    
+             </div>
+        </div>
+    </div>
     <div id="app">
         <main class="wrapper-sidebar">
 

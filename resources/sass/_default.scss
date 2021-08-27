@@ -1,33 +1,104 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-html, body {
+html,
+body {
     background-color: $white;
-    color: #F8FAFC;
-    font-family: 'Nunito', sans-serif;
+    color: #f8fafc;
+    font-family: "Nunito", sans-serif;
     font-weight: 200;
     min-height: 100vh;
     margin: 0;
 }
-#app, main, .container {
+#app,
+main,
+.container {
     min-height: inherit;
 }
 body {
@@ -63,18 +134,18 @@ fieldset {
 }
 .filelabel svg,
 .filelabel .title-anexo {
-  color: grey;
-  transition: 200ms color;
+    color: grey;
+    transition: 200ms color;
 }
 .filelabel:hover {
-  border: 2px solid #1665c4;
+    border: 2px solid #1665c4;
 }
 .filelabel:hover svg,
 .filelabel:hover .title-anexo {
-  color: #1665c4;
+    color: #1665c4;
 }
-#FileInput{
-    display:none;
+#FileInput {
+    display: none;
 }
 
 .modal {
@@ -83,19 +154,19 @@ fieldset {
 }
 
 .btn-outline-info {
-    color: rgba(3,92,148,0.85) !important;
+    color: rgba(3, 92, 148, 0.85) !important;
 
     &:hover {
         color: $white !important;
-        background-color: rgba(3,92,148,0.85) !important;
+        background-color: rgba(3, 92, 148, 0.85) !important;
     }
 }
 
 .btn-primary {
-    background-color: rgba(3,92,148,0.85) !important;
+    background-color: rgba(3, 92, 148, 0.85) !important;
 
     &:hover {
-        background-color: rgba(3,92,148,0.99) !important;
+        background-color: rgba(3, 92, 148, 0.99) !important;
     }
 }
 
@@ -132,7 +203,7 @@ fieldset {
     padding: 0 25px;
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -142,7 +213,7 @@ fieldset {
 }
 
 ul {
-    margin: 0!important;
+    margin: 0 !important;
 }
 
 li {
@@ -156,7 +227,7 @@ li {
 
     a {
         color: inherit;
-        
+
         &:hover {
             text-decoration: none;
             color: inherit;
@@ -169,8 +240,8 @@ li {
 .btn-anime {
     box-sizing: border-box;
     -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background-color: transparent;
     border: 1px solid $white;
     border-radius: 2px;
@@ -181,8 +252,8 @@ li {
     display: -ms-flexbox;
     display: flex;
     -webkit-align-self: center;
-        -ms-flex-item-align: center;
-            align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
     font-weight: normal;
     line-height: 1;
     margin: 20px;
@@ -190,35 +261,35 @@ li {
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-  }
-  .btn-anime:hover, .btn:focus {
-    color: rgba(3,108,166,0.85);
+    font-family: "Montserrat", sans-serif;
+}
+.btn-anime:hover,
+.btn:focus {
+    color: rgba(3, 108, 166, 0.85);
     outline: 0;
     text-decoration: none;
     font-weight: 400;
-  }
-  
-  .anime-1 {
+}
+
+.anime-1 {
     -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-  }
-  .anime-1:hover {
-    background-color: rgba(255,255,255,0.6);
-  }
+}
+.anime-1:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
 
-  //// Form
+//// Form
 
 .main-form-inscricao {
-    background-color: #F8FAFC;
+    background-color: #f8fafc;
 }
 
 main {
-    background-color: #F8FAFC;
-
+    background-color: #f8fafc;
 }
 
-input[type=file] {
+input[type="file"] {
     background-color: $white;
 }
 
@@ -237,7 +308,6 @@ fieldset {
 footer {
     background-color: transparent;
 }
-
 
 ////////// Font
 .fs-10 {
@@ -300,7 +370,6 @@ footer {
             font-weight: normal;
             font-size: 15px;
         }
-        
     }
     li:first-child {
         span {
@@ -324,13 +393,13 @@ span[data-msg-error] {
     color: $red;
 }
 
-input[type=number]::-webkit-inner-spin-button { 
+input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-input[type=number] { 
-   -moz-appearance: textfield;
-   appearance: textfield;
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 // p{
@@ -341,27 +410,55 @@ input[type=number] {
 //     animation: color-change 1s infinite;
 // }
 
-
-
 @-webkit-keyframes color-change {
-    0%, 40% { background-color: rgb(3,108,166); }
-    60%, 100% { background-color: rgb(3,92,148); }
+    0%,
+    40% {
+        background-color: rgb(3, 108, 166);
+    }
+    60%,
+    100% {
+        background-color: rgb(3, 92, 148);
+    }
 }
 @-moz-keyframes color-change {
-    0%, 40% { background-color: rgb(3,108,166); }
-    60%, 100% { background-color: rgb(3,92,148); }
+    0%,
+    40% {
+        background-color: rgb(3, 108, 166);
+    }
+    60%,
+    100% {
+        background-color: rgb(3, 92, 148);
+    }
 }
 @-ms-keyframes color-change {
-    0%, 40% { background-color: rgb(3,108,166); }
-    60%, 100% { background-color: rgb(3,92,148); }
+    0%,
+    40% {
+        background-color: rgb(3, 108, 166);
+    }
+    60%,
+    100% {
+        background-color: rgb(3, 92, 148);
+    }
 }
 @-o-keyframes color-change {
-    0%, 40% { background-color: rgb(3,108,166); }
-    60%, 100% { background-color: rgb(3,92,148); }
+    0%,
+    40% {
+        background-color: rgb(3, 108, 166);
+    }
+    60%,
+    100% {
+        background-color: rgb(3, 92, 148);
+    }
 }
 @keyframes color-change {
-    0%, 40% { background-color: rgb(3,108,166); }
-    60%, 100% { background-color: rgb(3,92,148); }
+    0%,
+    40% {
+        background-color: rgb(3, 108, 166);
+    }
+    60%,
+    100% {
+        background-color: rgb(3, 92, 148);
+    }
 }
 
 * {
@@ -397,3 +494,62 @@ table {
 // ::placeholder { /* Most modern browsers support this now. */
 //    color:    #909;
 // }
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff; /* cor do background que vai ocupar o body */
+    z-index: 9999; /* z-index para jogar para frente e sobrepor tudo */
+}
+#preloader .inner {
+    position: absolute;
+    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bolas > div {
+    display: inline-block;
+    background-color: rgb(3, 92, 148);
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin: 2px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: animarBola;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.bolas > div:nth-child(1) {
+    animation-duration: 0.75s;
+    animation-delay: 0;
+}
+.bolas > div:nth-child(2) {
+    animation-duration: 0.75s;
+    animation-delay: 0.2s;
+}
+.bolas > div:nth-child(3) {
+    animation-duration: 0.75s;
+    animation-delay: 0.4s;
+}
+
+@keyframes animarBola {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    16% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        opacity: 0.7;
+    }
+    33% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
