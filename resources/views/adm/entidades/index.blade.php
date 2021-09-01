@@ -22,33 +22,42 @@
         </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Razão Social / Site</th>
-                    <th>CNPJ</th>
-                    <th>Nome/celular</th>
-                    <th>Ativo</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody data-filter-table>
-                @foreach ($entidades as $entidade)
+    @if ($entidades)
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
                     <tr>
-                        <td>
-                            {{ $entidade->razao_social }}<br>
-                            {{ $entidade->site }}
-                        </td>
-                        <td>{{ $entidade->cnpj }}</td>
-                        <td>{{ $entidade->nome }}<br>{{ $entidade->celular }}</td>
-                        <td>{{ $entidade->ativo == '0' ? 'Não' : 'Sim' }}</td>
-                        <td><a class="btn btn-primary" href="{{ route('adm.entidade.show', $entidade->id) }}">Ver</a>
-                        </td>
+                        <th>Razão Social / Site</th>
+                        <th>CNPJ</th>
+                        <th>Nome/celular</th>
+                        <th>Ativo</th>
+                        <th></th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody data-filter-table>
+                    @foreach ($entidades as $entidade)
+                        <tr>
+                            <td>
+                                {{ $entidade->razao_social }}<br>
+                                {{ $entidade->site }}
+                            </td>
+                            <td>{{ $entidade->cnpj }}</td>
+                            <td>{{ $entidade->nome }}<br>{{ $entidade->celular }}</td>
+                            <td>{{ $entidade->ativo == '0' ? 'Não' : 'Sim' }}</td>
+                            <td><a class="btn btn-primary" href="{{ route('adm.entidade.show', $entidade->id) }}">Ver</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @else
+        <hr>
+        <div class="row justify-content-center my-5 bg-white">
+            <div class="col text-center font-weight-bold mt-3">
+                <p>Nenhuma entidade encontrada</p>
+            </div>
+        </div>
+    @endif
 
 @endsection

@@ -5,8 +5,9 @@
  */
 
 require('./bootstrap');
-// require('./components/publicSearch');
-// require('./utils/filterTable')
+// require('./components/lgpdCookie/index')
+// require('dotenv/config');
+
 require('.');
 
 window.Vue = require('vue');

@@ -110,6 +110,7 @@
                     <label>CPF</label>
                     <input type="text" class="form-control" id="cpf" name="cpf" size="40" maxlength="20"
                         placeholder="Digite o número do CPF" data-mask="cpf" required>
+                    <span class="font-weight-bold" id="doc-status"></span>
                 </div>
                 <div class="form-group col-md-3">
                     <label>Telefone</label>
@@ -350,7 +351,7 @@
             </div>
 
             <div class="form-row">
-                <button type="submit" class="btn btn-primary col-md-4 my-5">Continuar</button>
+                <button type="submit" id="submit" class="btn btn-primary col-md-4 my-5">Continuar</button>
             </div>
         </div>
     </form>

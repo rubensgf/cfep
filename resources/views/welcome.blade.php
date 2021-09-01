@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="c-options-box__button btn" href="./inscricao/">
+                    <a class="c-options-box__button btn" href="{{ route('inscricao') }}">
                         @include('icons.address-card-regular')
                         <span>Inscrever-se no CFEP</span>
                     </a>

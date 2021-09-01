@@ -24,43 +24,45 @@
         </div>
     </div>
 
-    <div data-table class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Nº </th>
-                    <th>Nome / Email</th>
-                    <th>Telefone</th>
-                    <th>Vigência</th>
-                    <th>Auditado </th>
-                    <th>Status </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody data-filter-table>
-                @foreach ($membros as $membro)
+    @if ($membros)
+        <div data-table class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
                     <tr>
-                        <td>{{ $membro->ncarteirinha }}</td>
-                        <td>
-                            {{ $membro->nome }}<br>
-                            {{ $membro->email }}
-                        </td>
-                        <td>{{ $membro->telefone }}</td>
-                        <td>{!! date('d/m/Y', strtotime($membro->vigencia)) !!}</td>
-                        <td>{{ $membro->auditado ? 'Sim' : 'Não' }}</td>
-                        <td>{{ $membro->ativo ? 'Ativo' : 'Inativo' }}</td>
-                        <td><a class="btn btn-primary" href="{{ route('adm.membros.show', $membro->id) }}">Ver</a></td>
+                        <th>Nº </th>
+                        <th>Nome / Email</th>
+                        <th>Telefone</th>
+                        <th>Vigência</th>
+                        <th>Auditado </th>
+                        <th>Status </th>
+                        <th></th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-
-    <div data-box-result-search-fail class="is-hidden px-3">
+                </thead>
+                <tbody data-filter-table>
+                    @foreach ($membros as $membro)
+                        <tr>
+                            <td>{{ $membro->ncarteirinha }}</td>
+                            <td>
+                                {{ $membro->nome }}<br>
+                                {{ $membro->email }}
+                            </td>
+                            <td>{{ $membro->telefone }}</td>
+                            <td>{!! date('d/m/Y', strtotime($membro->vigencia)) !!}</td>
+                            <td>{{ $membro->auditado ? 'Sim' : 'Não' }}</td>
+                            <td>{{ $membro->ativo ? 'Ativo' : 'Inativo' }}</td>
+                            <td><a class="btn btn-primary" href="{{ route('adm.membros.show', $membro->id) }}">Ver</a></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @else
+        <hr>
         <div class="row justify-content-center my-5 bg-white">
-            <div class="form-title flex-column text-center font-weight-bold mt-3">
-                <p>Nenhum resultado encontrado.</p>
+            <div class="col text-center font-weight-bold mt-3">
+                <p>Nenhum membro encontrado</p>
             </div>
         </div>
-    </div>
+    @endif
+
 @endsection

@@ -37,9 +37,10 @@
                                 maxlength="100" placeholder="Informe o Nome Fantasia da empresa" required>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="cnpj"> CNPJ</label>
+                            <label for="cnpj">CNPJ</label>
                             <input type="text" class="form-control" id="cnpj" name="cnpj" size="40" maxlength="20"
                                 placeholder="Digite o número do CNPJ sem pontos e traços" data-mask="cnpj" required>
+                            <span class="font-weight-bold" id="doc-status"></span>
                         </div>
                     </div>
 
@@ -139,7 +140,7 @@
 
                         <div class="form-group col-md-3">
                             <label for="cpf">CPF</label>
-                            <input type="text" class="form-control" id="rg" name="cpf" size="40" maxlength="20"
+                            <input type="text" class="form-control" id="cpf" name="cpf" size="40" maxlength="20"
                                 placeholder="Digite o número do CPF" data-mask="cpf" required>
                         </div>
                     </div>

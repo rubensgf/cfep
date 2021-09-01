@@ -4,8 +4,9 @@ import PublicSearch from './components/publicSearch/index';
 import FilterTable from './utils/filterTable';
 import Mask from './utils/mask';
 import CepValidate from './utils/cepValidate';
-import Password from './utils/passwordValidate';
 import GenerateQrcode from './utils/generateQrcode';
+import FieldsValidation from './components/fieldsValidation/index';
+
 
 $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
@@ -19,12 +20,11 @@ export const filterTable = new FilterTable('[data-filter-table]');
 
 export const mask = new Mask('input[data-mask]');
 
-export const password = new Password('#password');
-
 export const cepValidate = new CepValidate('#cep');
 
 export const generateQrcode = new GenerateQrcode('[data-qrcode]');
 
+export const fieldsValidation = new FieldsValidation('#cpf', '#cnpj', '#password');
 
 
 $('#btn-pay').on('click', function(e) {
@@ -33,6 +33,13 @@ $('#btn-pay').on('click', function(e) {
     $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="'+url+'"></iframe>');
 });
 
+$(document).ready(function() {
+    setTimeout(() => {
+        $('#preloader .inner').fadeOut();
+        $('#preloader').delay(350).fadeOut('slow'); 
+        $('body').delay(350).css({'overflow': 'visible'});
+    }, 8000);
+});
 
 $(window).on('load', function () {
     $('#preloader .inner').fadeOut();
