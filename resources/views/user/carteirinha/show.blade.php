@@ -24,9 +24,9 @@
             </div>
         </div>
 
-        <label class="flip-container">
+        <label class="flip-container mb-0">
             <input id="t" type="checkbox"/>
-            <div class="box-carteira my-5">
+            <div class="box-carteira my-0 my-md-5">
                 <div class="carteira carteira__verso back">
                     <div class="row info-membro">
                         <div class="col-9">

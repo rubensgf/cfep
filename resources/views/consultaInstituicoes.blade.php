@@ -3,7 +3,7 @@
 @section('content')
 
     <main class="main">
-        <div class="container py-5">
+        <div class="container mb-5 mt-3 mt-md-5">
             <div class="row justify-content-center">
                 <div class="form-title flex-column mb-5 text-center font-weight-bold">
                     <h2>Consulta de Instituições Credenciadas</h2>

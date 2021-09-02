@@ -11849,6 +11849,7 @@ footer a:hover {
 
 @media (max-width: 768px) {
   .container-carteirinha {
+    min-height: 600px;
     background-image: none;
   }
 }
@@ -11953,6 +11954,16 @@ footer a:hover {
   z-index: 20;
 }
 
+@media (max-width: 768px) {
+  .container-carteirinha .flip-container .box-carteira div[data-qrcode-carteirinha] {
+    opacity: 1;
+    position: relative;
+    bottom: -6px;
+    transition: all 0.1s;
+    transition-delay: 0.18s;
+  }
+}
+
 .container-carteirinha .flip-container .box-carteira .carteira {
   position: absolute;
   height: 100%;
@@ -11973,6 +11984,14 @@ footer a:hover {
 .container-carteirinha .flip-container :checked + .box-carteira {
   transform: rotateX(180deg);
   -webkit-transform: rotateX(180deg);
+}
+
+@media (max-width: 768px) {
+  .container-carteirinha .flip-container :checked + .box-carteira div[data-qrcode-carteirinha] {
+    opacity: 0;
+    transition: all 0.01s;
+    transition-delay: 0.18s;
+  }
 }
 
 .container-carteirinha .flip-container:hover .box-carteira {

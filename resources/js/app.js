@@ -7,6 +7,7 @@
 require('./bootstrap');
 // require('./components/lgpdCookie/index')
 // require('dotenv/config');
+// require('./components/whiteScreenCanvas')
 
 require('.');
 

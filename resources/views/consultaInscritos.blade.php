@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container py-5">
+    <div class="container pb-5 pt-3 pt-md-5">
         <div class="row justify-content-center">
             <div class="form-title flex-column mb-5 text-center font-weight-bold">
                 <h2>Consulta de Inscritos</h2>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row px-3 justify-content-center form-title flex-column my-5 text-center font-weight-bold">
+    <div class="row px-3 justify-content-center form-title flex-column mb-5 mt-3 mt-md-5 text-center font-weight-bold">
         <h2>Pagamento</h2>
         <div class="d-flex align-items-center justify-content-center">
             <p class="mb-0 mr-2">Pagamento de forma rápida, fácil e segura através da plataforma</p>

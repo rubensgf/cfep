@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row justify-content-center">
-        <div class="form-title flex-column my-5 text-center font-weight-bold">
+        <div class="form-title flex-column my-3 my-md-5 text-center font-weight-bold">
             <h2>Formulário de inscrição</h2>
             <p class="d-flex align-items-center justify-content-center">
                 <span class="mr-1 pb-1">
@@ -134,10 +134,12 @@
                     </select>
                 </div>
 
-                <div class="form-group col-md-4">
+                {{-- <div class="form-group col-md-4">
                     <label>Assinatura</label>
                     <input type="text" class="form-control" id="assinatura" name="assinatura" size="40" maxlength="100">
-                </div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-assinatura">Click para assinar</button>
+                    @include('partials.modals.modal-assinatura')
+                </div> --}}
             </div>
 
             <fieldset class="p-2 border">

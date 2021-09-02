@@ -5,7 +5,7 @@
     <main id="main" class="main-form-parceiro">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="form-title flex-column my-5 text-center font-weight-bold">
+                <div class="form-title flex-column my-3 my-md-5 text-center font-weight-bold">
                     <h2>Seja um parceiro do CFEP</h2>
                     <p class="d-flex align-items-center justify-content-center">
                         <span class="mr-1 pb-1">@include('icons.icon-warning-circle')</span>

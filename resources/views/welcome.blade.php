@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="page-welcome full-height pt-5">
+<div class="page-welcome full-height pt-3 pt-md-5">
     <div class="container">
         <div class="row welcome">
             <h3 class="col-md-12">Bem vindo!</h3>

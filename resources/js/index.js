@@ -27,24 +27,24 @@ export const generateQrcode = new GenerateQrcode('[data-qrcode]');
 export const fieldsValidation = new FieldsValidation('#cpf', '#cnpj', '#password');
 
 
-$('#btn-pay').on('click', function(e) {
+$('#btn-pay').on('click', function (e) {
     e.preventDefault();
     var url = $(this).attr('href');
-    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="'+url+'"></iframe>');
+    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="' + url + '"></iframe>');
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     setTimeout(() => {
         $('#preloader .inner').fadeOut();
-        $('#preloader').delay(350).fadeOut('slow'); 
-        $('body').delay(350).css({'overflow': 'visible'});
+        $('#preloader').delay(350).fadeOut('slow');
+        $('body').delay(350).css({ 'overflow': 'visible' });
     }, 8000);
 });
 
 $(window).on('load', function () {
     $('#preloader .inner').fadeOut();
-    $('#preloader').delay(350).fadeOut('slow'); 
-    $('body').delay(350).css({'overflow': 'visible'});
+    $('#preloader').delay(350).fadeOut('slow');
+    $('body').delay(350).css({ 'overflow': 'visible' });
 })
 
 

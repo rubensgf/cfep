@@ -52315,6 +52315,7 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('./components/lgpdCookie/index')
 // require('dotenv/config');
+// require('./components/whiteScreenCanvas')
 
 
 __webpack_require__(/*! . */ "./resources/js/index.js");

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="page-welcome full-height pt-5">
+<div class="page-welcome full-height pb-5 pt-3 pt-md-5">
     <div class="container">
         <div class="row welcome">
             @if (Auth::user()->role == 'adm' || Auth::user()->role == 'adm_membro')
@@ -12,7 +12,7 @@
         </div>
         <hr>
         
-        <div class="c-options-box pb-0">
+        <div class="c-options-box pb-0 pt-3 pt-md-5">
             <ul class="c-options-box__list"> 
                 @if (Auth::user()->role == 'adm' || Auth::user()->role == 'adm_membro')
                     <li>
